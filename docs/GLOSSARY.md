@@ -1,4 +1,4 @@
-# CHATTA Glossary
+# Bumba Voice Glossary
 
 ```
  ██████╗██╗  ██╗ █████╗ ████████╗████████╗ █████╗
@@ -12,7 +12,7 @@ Natural Voice Conversations for AI Assistants
 Part of BUMBA - Building Unified Multi-agent Business Applications
 ```
 
-This glossary defines key terms and concepts used throughout the CHATTA project. It serves as a reference for both human developers and AI assistants to ensure consistent terminology.
+This glossary defines key terms and concepts used throughout the Bumba Voice project. It serves as a reference for both human developers and AI assistants to ensure consistent terminology.
 
 ## Why This Glossary Exists
 

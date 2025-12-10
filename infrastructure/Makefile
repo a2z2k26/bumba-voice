@@ -1,10 +1,10 @@
-# CHATTA MCP Makefile
+# BUMBA MCP Makefile
 
 .PHONY: help build-package build-dev test test-package publish-test publish release install dev-install clean build-voice-mode publish-voice-mode sync-tomls claude cursor docs docs-serve docs-build docs-check docs-deploy setup wizard
 
 # Default target
 help:
-	@echo "CHATTA MCP Build Targets:"
+	@echo "BUMBA MCP Build Targets:"
 	@echo ""
 	@echo "Setup & Installation:"
 	@echo "  setup         - Run interactive setup wizard (for new users)"
@@ -42,13 +42,13 @@ help:
 
 # Install package
 install:
-	@echo "Installing CHATTA..."
+	@echo "Installing BUMBA..."
 	uv pip install -e .
 	@echo "Installation complete!"
 
 # Install package with development dependencies
 dev-install:
-	@echo "Installing CHATTA with development dependencies..."
+	@echo "Installing BUMBA with development dependencies..."
 	uv pip install -e ".[dev,test]"
 	@echo "Development installation complete!"
 
@@ -92,8 +92,8 @@ test-package: build-package
 	cd /tmp && \
 	python -m venv test-env && \
 	. test-env/bin/activate && \
-	pip install $(CURDIR)/dist/chatta-*.whl && \
-	chatta --help && \
+	pip install $(CURDIR)/dist/bumba-*.whl && \
+	bumba --help && \
 	deactivate && \
 	rm -rf test-env
 	@echo "Package test successful!"
@@ -286,7 +286,7 @@ docs-deploy:
 
 # Interactive setup wizard for new users
 setup:
-	@echo "Starting CHATTA Interactive Setup Wizard..."
+	@echo "Starting BUMBA Interactive Setup Wizard..."
 	@echo ""
 	@python setup_wizard.py
 

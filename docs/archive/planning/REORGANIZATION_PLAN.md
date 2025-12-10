@@ -1,4 +1,4 @@
-# CHATTA Project Reorganization Plan
+# Bumba Voice Project Reorganization Plan
 
 ## Current Issues
 - Test files mixed with source code at root level
@@ -10,7 +10,7 @@
 ## New Directory Structure
 
 ```
-CHATTA/
+Bumba Voice/
 ├── src/                      # Source code
 │   └── voice_mode/          # Core voice mode package (unchanged)
 ├── tests/                   # All test files

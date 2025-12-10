@@ -14,9 +14,9 @@ def test_vad_simulation():
     
     env = os.environ.copy()
     env.update({
-        "CHATTA_VAD_DEBUG": "true",
-        "CHATTA_AUDIO_FEEDBACK": "true",
-        "CHATTA_SAVE_ALL": "false"
+        "BUMBA_VAD_DEBUG": "true",
+        "BUMBA_AUDIO_FEEDBACK": "true",
+        "BUMBA_SAVE_ALL": "false"
     })
     
     cmd = [

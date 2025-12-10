@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CHATTA Voice System - Comprehensive Audit Suite
+BUMBA Voice System - Comprehensive Audit Suite
 Tests all 48 sprint deliverables and validates system completeness
 """
 
@@ -18,11 +18,11 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 # Configure environment
 os.environ.setdefault("PREFER_LOCAL", "true")
-os.environ.setdefault("CHATTA_AUDIO_FEEDBACK", "true")
-os.environ.setdefault("CHATTA_DISABLE_SILENCE_DETECTION", "false")
+os.environ.setdefault("BUMBA_AUDIO_FEEDBACK", "true")
+os.environ.setdefault("BUMBA_DISABLE_SILENCE_DETECTION", "false")
 
-class CHATTASystemAuditor:
-    """Comprehensive system auditor for CHATTA voice system."""
+class BUMBASystemAuditor:
+    """Comprehensive system auditor for BUMBA voice system."""
     
     def __init__(self):
         self.results = {
@@ -48,7 +48,7 @@ class CHATTASystemAuditor:
                 else:
                     self.converse = converse_tool
             
-            print("✅ CHATTA system initialized for audit")
+            print("✅ BUMBA system initialized for audit")
             return True
         except Exception as e:
             print(f"❌ Failed to initialize: {e}")
@@ -215,7 +215,7 @@ class CHATTASystemAuditor:
         try:
             # Test audio feedback
             print("\n► Testing Audio Feedback...")
-            if os.environ.get("CHATTA_AUDIO_FEEDBACK") == "true":
+            if os.environ.get("BUMBA_AUDIO_FEEDBACK") == "true":
                 results["audio_feedback"] = True
                 print("  ✅ Audio Feedback: ENABLED")
             
@@ -470,7 +470,7 @@ class CHATTASystemAuditor:
     async def run_comprehensive_audit(self):
         """Execute the complete system audit."""
         print("\n" + "="*70)
-        print("🔍 CHATTA VOICE SYSTEM - COMPREHENSIVE AUDIT")
+        print("🔍 BUMBA VOICE SYSTEM - COMPREHENSIVE AUDIT")
         print("="*70)
         print(f"Timestamp: {self.results['timestamp']}")
         print(f"Version: {self.results['version']}")
@@ -594,7 +594,7 @@ class CHATTASystemAuditor:
         print("="*70)
         
         print(f"""
-The CHATTA Voice System audit shows:
+The BUMBA Voice System audit shows:
 
 ✅ STRENGTHS:
   • Core voice pipeline is fully operational
@@ -625,12 +625,12 @@ The CHATTA Voice System audit shows:
 
 async def main():
     """Run the comprehensive system audit."""
-    auditor = CHATTASystemAuditor()
+    auditor = BUMBASystemAuditor()
     await auditor.run_comprehensive_audit()
 
 
 if __name__ == "__main__":
-    print("🚀 Starting CHATTA System Comprehensive Audit...")
+    print("🚀 Starting BUMBA System Comprehensive Audit...")
     print("This will test all 48 sprint deliverables")
     print("-" * 70)
     asyncio.run(main())

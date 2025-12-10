@@ -437,6 +437,120 @@ wheels = [
 ]
 
 [[package]]
+name = "bumba"
+source = { editable = "." }
+dependencies = [
+    { name = "audioop-lts", marker = "python_full_version >= '3.13'" },
+    { name = "click" },
+    { name = "fastmcp" },
+    { name = "httpx" },
+    { name = "livekit" },
+    { name = "livekit-agents" },
+    { name = "livekit-plugins-openai" },
+    { name = "livekit-plugins-silero" },
+    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
+    { name = "numpy", version = "2.3.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
+    { name = "openai" },
+    { name = "psutil" },
+    { name = "pydub" },
+    { name = "pynput" },
+    { name = "scipy" },
+    { name = "setuptools" },
+    { name = "simpleaudio" },
+    { name = "sounddevice" },
+    { name = "uv" },
+    { name = "webrtcvad" },
+]
+
+[package.optional-dependencies]
+coreml = [
+    { name = "ane-transformers" },
+    { name = "coremltools" },
+    { name = "torch" },
+    { name = "transformers" },
+]
+dev = [
+    { name = "build" },
+    { name = "pytest" },
+    { name = "pytest-asyncio" },
+    { name = "pytest-cov" },
+    { name = "pytest-mock" },
+    { name = "twine" },
+]
+docs = [
+    { name = "mkdocs" },
+    { name = "mkdocs-gen-files" },
+    { name = "mkdocs-git-revision-date-localized-plugin" },
+    { name = "mkdocs-material", extra = ["imaging"] },
+    { name = "mkdocs-minify-plugin" },
+    { name = "pymdown-extensions" },
+]
+notebooks = [
+    { name = "gradio" },
+    { name = "jupyter" },
+    { name = "notebook" },
+    { name = "pandas" },
+]
+scripts = [
+    { name = "flask" },
+]
+test = [
+    { name = "pytest" },
+    { name = "pytest-asyncio" },
+    { name = "pytest-cov" },
+    { name = "pytest-mock" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "ane-transformers", marker = "extra == 'coreml'" },
+    { name = "audioop-lts", marker = "python_full_version >= '3.13'" },
+    { name = "build", marker = "extra == 'dev'", specifier = ">=1.0.0" },
+    { name = "click", specifier = ">=8.0.0" },
+    { name = "coremltools", marker = "extra == 'coreml'", specifier = ">=7.0" },
+    { name = "fastmcp", specifier = ">=2.0.0" },
+    { name = "flask", marker = "extra == 'scripts'", specifier = ">=3.0.0" },
+    { name = "gradio", marker = "extra == 'notebooks'", specifier = ">=4.0.0" },
+    { name = "httpx" },
+    { name = "jupyter", marker = "extra == 'notebooks'", specifier = ">=1.0.0" },
+    { name = "livekit", specifier = ">=0.13.1" },
+    { name = "livekit-agents", specifier = ">=0.10.2" },
+    { name = "livekit-plugins-openai", specifier = ">=0.10.1" },
+    { name = "livekit-plugins-silero", specifier = ">=0.6.5" },
+    { name = "mkdocs", marker = "extra == 'docs'", specifier = ">=1.5.0" },
+    { name = "mkdocs-gen-files", marker = "extra == 'docs'", specifier = ">=0.5.0" },
+    { name = "mkdocs-git-revision-date-localized-plugin", marker = "extra == 'docs'", specifier = ">=1.2.0" },
+    { name = "mkdocs-material", extras = ["imaging"], marker = "extra == 'docs'", specifier = ">=9.0.0" },
+    { name = "mkdocs-minify-plugin", marker = "extra == 'docs'", specifier = ">=0.7.0" },
+    { name = "notebook", marker = "extra == 'notebooks'", specifier = ">=7.0.0" },
+    { name = "numpy" },
+    { name = "openai", specifier = ">=1.0.0" },
+    { name = "pandas", marker = "extra == 'notebooks'", specifier = ">=2.0.0" },
+    { name = "psutil", specifier = ">=5.9.0" },
+    { name = "pydub" },
+    { name = "pymdown-extensions", marker = "extra == 'docs'", specifier = ">=10.0" },
+    { name = "pynput", specifier = ">=1.7.6" },
+    { name = "pytest", marker = "extra == 'dev'", specifier = ">=7.0.0" },
+    { name = "pytest", marker = "extra == 'test'", specifier = ">=7.0.0" },
+    { name = "pytest-asyncio", marker = "extra == 'dev'", specifier = ">=0.21.0" },
+    { name = "pytest-asyncio", marker = "extra == 'test'", specifier = ">=0.21.0" },
+    { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=4.0.0" },
+    { name = "pytest-cov", marker = "extra == 'test'", specifier = ">=4.0.0" },
+    { name = "pytest-mock", marker = "extra == 'dev'", specifier = ">=3.10.0" },
+    { name = "pytest-mock", marker = "extra == 'test'", specifier = ">=3.10.0" },
+    { name = "scipy" },
+    { name = "setuptools" },
+    { name = "simpleaudio" },
+    { name = "sounddevice" },
+    { name = "torch", marker = "extra == 'coreml'", specifier = ">=2.0.0" },
+    { name = "transformers", marker = "extra == 'coreml'" },
+    { name = "twine", marker = "extra == 'dev'", specifier = ">=4.0.0" },
+    { name = "uv", specifier = ">=0.4.0" },
+    { name = "webrtcvad", specifier = ">=2.0.10" },
+]
+provides-extras = ["coreml", "dev", "docs", "notebooks", "scripts", "test"]
+
+[[package]]
 name = "cairocffi"
 version = "1.7.1"
 source = { registry = "https://pypi.org/simple" }
@@ -604,120 +718,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/e9/b0/0200da600134e001d91851ddc797809e2fe0ea72de90e09bec5a2fbdaccb/charset_normalizer-3.4.2-cp313-cp313-win_amd64.whl", hash = "sha256:aa6af9e7d59f9c12b33ae4e9450619cf2488e2bbe9b44030905877f0b2324980", size = 105641 },
     { url = "https://files.pythonhosted.org/packages/20/94/c5790835a017658cbfabd07f3bfb549140c3ac458cfc196323996b10095a/charset_normalizer-3.4.2-py3-none-any.whl", hash = "sha256:7f56930ab0abd1c45cd15be65cc741c28b1c9a34876ce8c17a2fa107810c0af0", size = 52626 },
 ]
-
-[[package]]
-name = "chatta"
-source = { editable = "." }
-dependencies = [
-    { name = "audioop-lts", marker = "python_full_version >= '3.13'" },
-    { name = "click" },
-    { name = "fastmcp" },
-    { name = "httpx" },
-    { name = "livekit" },
-    { name = "livekit-agents" },
-    { name = "livekit-plugins-openai" },
-    { name = "livekit-plugins-silero" },
-    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
-    { name = "numpy", version = "2.3.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
-    { name = "openai" },
-    { name = "psutil" },
-    { name = "pydub" },
-    { name = "pynput" },
-    { name = "scipy" },
-    { name = "setuptools" },
-    { name = "simpleaudio" },
-    { name = "sounddevice" },
-    { name = "uv" },
-    { name = "webrtcvad" },
-]
-
-[package.optional-dependencies]
-coreml = [
-    { name = "ane-transformers" },
-    { name = "coremltools" },
-    { name = "torch" },
-    { name = "transformers" },
-]
-dev = [
-    { name = "build" },
-    { name = "pytest" },
-    { name = "pytest-asyncio" },
-    { name = "pytest-cov" },
-    { name = "pytest-mock" },
-    { name = "twine" },
-]
-docs = [
-    { name = "mkdocs" },
-    { name = "mkdocs-gen-files" },
-    { name = "mkdocs-git-revision-date-localized-plugin" },
-    { name = "mkdocs-material", extra = ["imaging"] },
-    { name = "mkdocs-minify-plugin" },
-    { name = "pymdown-extensions" },
-]
-notebooks = [
-    { name = "gradio" },
-    { name = "jupyter" },
-    { name = "notebook" },
-    { name = "pandas" },
-]
-scripts = [
-    { name = "flask" },
-]
-test = [
-    { name = "pytest" },
-    { name = "pytest-asyncio" },
-    { name = "pytest-cov" },
-    { name = "pytest-mock" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "ane-transformers", marker = "extra == 'coreml'" },
-    { name = "audioop-lts", marker = "python_full_version >= '3.13'" },
-    { name = "build", marker = "extra == 'dev'", specifier = ">=1.0.0" },
-    { name = "click", specifier = ">=8.0.0" },
-    { name = "coremltools", marker = "extra == 'coreml'", specifier = ">=7.0" },
-    { name = "fastmcp", specifier = ">=2.0.0" },
-    { name = "flask", marker = "extra == 'scripts'", specifier = ">=3.0.0" },
-    { name = "gradio", marker = "extra == 'notebooks'", specifier = ">=4.0.0" },
-    { name = "httpx" },
-    { name = "jupyter", marker = "extra == 'notebooks'", specifier = ">=1.0.0" },
-    { name = "livekit", specifier = ">=0.13.1" },
-    { name = "livekit-agents", specifier = ">=0.10.2" },
-    { name = "livekit-plugins-openai", specifier = ">=0.10.1" },
-    { name = "livekit-plugins-silero", specifier = ">=0.6.5" },
-    { name = "mkdocs", marker = "extra == 'docs'", specifier = ">=1.5.0" },
-    { name = "mkdocs-gen-files", marker = "extra == 'docs'", specifier = ">=0.5.0" },
-    { name = "mkdocs-git-revision-date-localized-plugin", marker = "extra == 'docs'", specifier = ">=1.2.0" },
-    { name = "mkdocs-material", extras = ["imaging"], marker = "extra == 'docs'", specifier = ">=9.0.0" },
-    { name = "mkdocs-minify-plugin", marker = "extra == 'docs'", specifier = ">=0.7.0" },
-    { name = "notebook", marker = "extra == 'notebooks'", specifier = ">=7.0.0" },
-    { name = "numpy" },
-    { name = "openai", specifier = ">=1.0.0" },
-    { name = "pandas", marker = "extra == 'notebooks'", specifier = ">=2.0.0" },
-    { name = "psutil", specifier = ">=5.9.0" },
-    { name = "pydub" },
-    { name = "pymdown-extensions", marker = "extra == 'docs'", specifier = ">=10.0" },
-    { name = "pynput", specifier = ">=1.7.6" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=7.0.0" },
-    { name = "pytest", marker = "extra == 'test'", specifier = ">=7.0.0" },
-    { name = "pytest-asyncio", marker = "extra == 'dev'", specifier = ">=0.21.0" },
-    { name = "pytest-asyncio", marker = "extra == 'test'", specifier = ">=0.21.0" },
-    { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=4.0.0" },
-    { name = "pytest-cov", marker = "extra == 'test'", specifier = ">=4.0.0" },
-    { name = "pytest-mock", marker = "extra == 'dev'", specifier = ">=3.10.0" },
-    { name = "pytest-mock", marker = "extra == 'test'", specifier = ">=3.10.0" },
-    { name = "scipy" },
-    { name = "setuptools" },
-    { name = "simpleaudio" },
-    { name = "sounddevice" },
-    { name = "torch", marker = "extra == 'coreml'", specifier = ">=2.0.0" },
-    { name = "transformers", marker = "extra == 'coreml'" },
-    { name = "twine", marker = "extra == 'dev'", specifier = ">=4.0.0" },
-    { name = "uv", specifier = ">=0.4.0" },
-    { name = "webrtcvad", specifier = ">=2.0.10" },
-]
-provides-extras = ["coreml", "dev", "docs", "notebooks", "scripts", "test"]
 
 [[package]]
 name = "click"

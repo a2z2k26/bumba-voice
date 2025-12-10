@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Test CHATTA MCP Integration
-Verifies the CHATTA MCP server is configured correctly
+Test BUMBA MCP Integration
+Verifies the BUMBA MCP server is configured correctly
 """
 import json
 import os
@@ -9,9 +9,9 @@ import subprocess
 import asyncio
 
 async def test_mcp_server():
-    """Test CHATTA MCP server responds correctly"""
+    """Test BUMBA MCP server responds correctly"""
     print("=" * 60)
-    print("🔧 Testing CHATTA MCP Server")
+    print("🔧 Testing BUMBA MCP Server")
     print("=" * 60)
     
     # Test server initialization
@@ -33,7 +33,7 @@ async def test_mcp_server():
     }
     
     try:
-        # Start the CHATTA server
+        # Start the BUMBA server
         process = subprocess.Popen(
             ["uv", "run", "python", "-m", "voice_mode.server"],
             cwd=os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -88,11 +88,11 @@ async def test_mcp_server():
         return False
     
     print("\n" + "=" * 60)
-    print("✅ CHATTA MCP server is configured correctly!")
+    print("✅ BUMBA MCP server is configured correctly!")
     print("=" * 60)
     print("\n💡 Next steps:")
     print("1. Restart Claude Desktop/Code to load the new MCP server")
-    print("2. Look for 'CHATTA' in the MCP tools list")
+    print("2. Look for 'BUMBA' in the MCP tools list")
     print("3. Use voice conversation tools like:")
     print("   - converse: Main voice conversation tool")
     print("   - install_whisper: Install Whisper STT service")

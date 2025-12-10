@@ -356,28 +356,28 @@ class PlatformOptimizer:
         # Apply audio optimizations
         audio_config = self.optimize_audio_pipeline()
         os.environ.update({
-            f"CHATTA_AUDIO_{k.upper()}": str(v)
+            f"BUMBA_AUDIO_{k.upper()}": str(v)
             for k, v in audio_config.items()
         })
         
         # Apply display optimizations
         display_config = self.optimize_display_output()
         os.environ.update({
-            f"CHATTA_DISPLAY_{k.upper()}": str(v)
+            f"BUMBA_DISPLAY_{k.upper()}": str(v)
             for k, v in display_config.items()
         })
         
         # Apply network optimizations
         network_config = self.optimize_network_settings()
         os.environ.update({
-            f"CHATTA_NETWORK_{k.upper()}": str(v)
+            f"BUMBA_NETWORK_{k.upper()}": str(v)
             for k, v in network_config.items()
         })
         
         # Apply resource optimizations
         resource_config = self.optimize_resource_usage()
         os.environ.update({
-            f"CHATTA_RESOURCE_{k.upper()}": str(v)
+            f"BUMBA_RESOURCE_{k.upper()}": str(v)
             for k, v in resource_config.items()
         })
         
@@ -471,13 +471,13 @@ class AdaptiveOptimizer:
         
         # Reduce quality if CPU is high
         if metrics.get("cpu_percent", 0) > 80:
-            os.environ["CHATTA_AUDIO_SAMPLE_RATE"] = "16000"
-            os.environ["CHATTA_AUDIO_CHANNELS"] = "1"
+            os.environ["BUMBA_AUDIO_SAMPLE_RATE"] = "16000"
+            os.environ["BUMBA_AUDIO_CHANNELS"] = "1"
             logger.info("Reduced audio quality for CPU")
         
         # Reduce cache if memory is high
         if metrics.get("memory_mb", 0) > 500:
-            os.environ["CHATTA_RESOURCE_CACHE_SIZE"] = "50MB"
+            os.environ["BUMBA_RESOURCE_CACHE_SIZE"] = "50MB"
             logger.info("Reduced cache size for memory")
 
 

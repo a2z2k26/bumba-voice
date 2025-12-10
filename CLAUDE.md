@@ -1,10 +1,10 @@
 # CLAUDE.md
 
-Instructions for Claude Code when working with the CHATTA codebase.
+Instructions for Claude Code when working with the Bumba Voice codebase.
 
 ## Project Overview
 
-**CHATTA** is a Python MCP server providing voice conversation capabilities for AI assistants. It features Push-to-Talk (PTT) keyboard control, optimized latency (60% faster than traditional voice), and support for both cloud and local voice services.
+**Bumba Voice** is a Python MCP server providing voice conversation capabilities for AI assistants. It features Push-to-Talk (PTT) keyboard control, optimized latency (60% faster than traditional voice), and support for both cloud and local voice services.
 
 **Key Innovation:** PTT system with 3 modes (Hold/Toggle/Hybrid) + latency optimizations achieving sub-2-second response times.
 
@@ -49,8 +49,8 @@ make clean                # Clean build artifacts
 - Voice-first selection algorithm
 
 **5. Configuration** (`src/voice_mode/config.py`)
-- Environment-based with `voicemode.env` support
-- PTT settings: `CHATTA_PTT_ENABLED`, `CHATTA_PTT_MODE`, `CHATTA_PTT_KEY_COMBO`
+- Environment-based with `bumba.env` support
+- PTT settings: `BUMBA_PTT_ENABLED`, `BUMBA_PTT_MODE`, `BUMBA_PTT_KEY_COMBO`
 - Voice preferences from `.voices.txt` files
 
 ### PTT State Machine
@@ -74,7 +74,7 @@ Special states:
 ### Latency Achievements
 
 - **Traditional**: 3.5s average (sequential record → STT → LLM → TTS → play)
-- **CHATTA**: 1.4s average (60% faster via parallel processing, VAD, pooling)
+- **Bumba Voice**: 1.4s average (60% faster via parallel processing, VAD, pooling)
 
 ## Development Notes
 
@@ -95,9 +95,9 @@ For lengthy responses (>500 chars, code blocks, 3+ paragraphs):
 
 Prevents awkward silences, maintains conversation flow. See [docs/ptt/HYBRID_VOICE_TEXT_PATTERN.md](docs/ptt/HYBRID_VOICE_TEXT_PATTERN.md).
 
-### Voice Identity: "Chatta"
+### Voice Identity: "Bumba"
 
-When using `mcp__chatta__converse`: respond naturally to "Chatta" as conversational name. Context-specific (voice only). Don't introduce unprompted or use in text/code/tools. Casual acknowledgment, no emphasis.
+When using `mcp__bumba__converse`: respond naturally to "Bumba" as conversational name. Context-specific (voice only). Don't introduce unprompted or use in text/code/tools. Casual acknowledgment, no emphasis.
 
 **Note:** Identity instruction embedded in `src/voice_mode/prompts/converse.py`, loads automatically.
 
@@ -114,7 +114,7 @@ See [docs/voice/CONVERSATIONAL_IDENTITY.md](docs/voice/CONVERSATIONAL_IDENTITY.m
 
 ### Configuration
 - **Build**: `pyproject.toml` (root), `Makefile` (root)
-- **Environment**: `voicemode.env` (project root, gitignored if tracked)
+- **Environment**: `bumba.env` (project root, gitignored if tracked)
 - **Voice Prefs**: `.voices.txt` (project or home directory)
 - **MCP Settings**: `~/.claude/mcp_settings.json` or `.claude/mcp_settings.json`
 
@@ -143,10 +143,10 @@ See [docs/voice/CONVERSATIONAL_IDENTITY.md](docs/voice/CONVERSATIONAL_IDENTITY.m
 3. Add to provider registry in `src/voice_mode/providers.py`
 
 ### Debugging Voice Issues
-- Check: `voicemode.env` for PTT config
+- Check: `bumba.env` for PTT config
 - Run: `python -m voice_mode.tools.devices` for audio devices
 - Use: MCP tool `voice_status` for service health
-- Enable: Event logging with `VOICEMODE_EVENT_LOG_ENABLED=true`
+- Enable: Event logging with `BUMBA_EVENT_LOG_ENABLED=true`
 
 ## Testing
 

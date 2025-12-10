@@ -1,7 +1,7 @@
 """
 PTT Transport Adapter
 
-Bridges the PTT system with CHATTA's existing voice transport layer.
+Bridges the PTT system with Bumba Voice's existing voice transport layer.
 Provides a drop-in replacement for record_audio_with_silence_detection()
 that adds keyboard-controlled recording while maintaining interface compatibility.
 """
@@ -146,20 +146,30 @@ class PTTRecordingSession:
         return self.completed.wait(timeout=timeout)
 
 
-def _run_event_loop_in_thread(controller: PTTController, stop_event: threading.Event) -> None:
+def _run_event_loop_in_thread(controller: PTTController, stop_event: threading.Event, ready_event: threading.Event = None) -> None:
     """
     Run the controller's async event processing loop in a background thread.
 
     Args:
         controller: PTT controller instance
         stop_event: Event to signal when to stop processing
+        ready_event: Event to signal when the loop is ready to process events
     """
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
 
+    async def _process_with_ready_signal():
+        """Wrapper that signals ready after first event loop iteration."""
+        # Signal that the event loop is ready after first await
+        if ready_event:
+            await asyncio.sleep(0)  # Yield to ensure loop is running
+            ready_event.set()
+            logger.debug("Event loop signaled ready")
+        # Now run the actual event processing
+        await controller.process_events()
+
     try:
-        # Run process_events until stop_event is set
-        loop.run_until_complete(controller.process_events())
+        loop.run_until_complete(_process_with_ready_signal())
     except Exception as e:
         logger.error(f"Event loop error: {e}")
     finally:
@@ -253,14 +263,23 @@ def record_with_ptt(
         if not controller.enable():
             raise RuntimeError("Failed to enable PTT controller")
 
+        # Create ready event to synchronize event loop startup
+        event_loop_ready = threading.Event()
+
         # Start event processing loop in background thread
         event_thread = threading.Thread(
             target=_run_event_loop_in_thread,
-            args=(controller, controller._stop_event),
+            args=(controller, controller._stop_event, event_loop_ready),
             daemon=True
         )
         event_thread.start()
-        logger.debug("PTT event processing thread started")
+
+        # Wait for event loop to be ready before proceeding
+        if not event_loop_ready.wait(timeout=5.0):
+            logger.error("Event loop failed to start within 5 seconds")
+            raise RuntimeError("PTT event loop startup timeout")
+
+        logger.debug("PTT event processing thread started and ready")
 
         logger.info("PTT controller enabled - waiting for key press...")
         ptt_logger.log_event("waiting_for_key_press", {
@@ -277,10 +296,12 @@ def record_with_ptt(
                 cancel_key=config.PTT_CANCEL_KEY
             )
 
-        # Play audio feedback that PTT is ready
-        if config.PTT_AUDIO_FEEDBACK:
-            audio = get_audio_feedback()
-            audio.play_waiting()
+        # NOTE: Removed automatic "waiting" tone here.
+        # Audio feedback should only be triggered by keyboard events:
+        # - Start tone plays when key is pressed (on_recording_start)
+        # - Stop tone plays when key is released (on_recording_stop)
+        # - Cancel tone plays when escape is pressed (on_recording_cancel)
+        # The "waiting" tone was confusing as it played immediately after greeting.
 
         # Wait for recording to complete
         # (start_time will be set by on_recording_start callback)

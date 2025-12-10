@@ -14,7 +14,7 @@
 
 ## Background
 
-During Sprint 4.1 (Transport Analysis), we evaluated how PTT should integrate with CHATTA's two transport modes:
+During Sprint 4.1 (Transport Analysis), we evaluated how PTT should integrate with Bumba Voice's two transport modes:
 1. **Local Transport** - Direct microphone access via sounddevice
 2. **LiveKit Transport** - Room-based real-time communication
 

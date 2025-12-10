@@ -1,4 +1,4 @@
-# Chatta: Building a Production-Ready Voice Mode for Claude Code
+# Bumba Voice: Building a Production-Ready Voice Mode for Claude Code
 
 **A Technical Case Study on Keyboard-Controlled Voice Interaction**
 
@@ -6,7 +6,7 @@
 
 ## Executive Summary
 
-Chatta is a comprehensive voice interaction system for AI coding assistants, featuring push-to-talk (PTT) keyboard controls, multi-provider TTS/STT support, and intelligent transport selection. Built over 8 weeks through 5 development phases, Chatta demonstrates how keyboard-driven voice control can enhance the developer experience in voice-enabled coding environments.
+Bumba Voice is a comprehensive voice interaction system for AI coding assistants, featuring push-to-talk (PTT) keyboard controls, multi-provider TTS/STT support, and intelligent transport selection. Built over 8 weeks through 5 development phases, Bumba Voice demonstrates how keyboard-driven voice control can enhance the developer experience in voice-enabled coding environments.
 
 ### Key Achievements
 
@@ -47,7 +47,7 @@ Chatta is a comprehensive voice interaction system for AI coding assistants, fea
 
 Voice interaction in coding environments has historically been challenging. While speech-to-text technology enables developers to dictate code and commands, the lack of precise control over when recording starts and stops creates friction. Developers need the ability to think, pause, and control the conversation cadence—capabilities that automatic voice activity detection (VAD) alone cannot provide.
 
-Chatta was born from this need: to create a keyboard-controlled voice interaction system that gives developers full control over conversation timing while maintaining the natural flow of voice communication.
+Bumba Voice was born from this need: to create a keyboard-controlled voice interaction system that gives developers full control over conversation timing while maintaining the natural flow of voice communication.
 
 ### Vision
 
@@ -329,7 +329,7 @@ User experience improvements added in Phase 5:
 
 ### Phase 4: Transport Integration (Week 4)
 
-**Goal:** Integrate PTT with CHATTA's voice transport layer without breaking changes.
+**Goal:** Integrate PTT with Bumba Voice's voice transport layer without breaking changes.
 
 **Sprint Breakdown:**
 
@@ -731,9 +731,9 @@ Apply hybrid pattern when response contains:
 
 ```python
 # BAD: Voice follow-up that repeats text content
-print("Config requires CHATTA_PTT_ENABLED=true")
+print("Config requires BUMBA_PTT_ENABLED=true")
 converse(
-    "So you need to set CHATTA_PTT_ENABLED to true.",
+    "So you need to set BUMBA_PTT_ENABLED to true.",
     wait_for_response=True
 )
 # Redundant! Text already said this.
@@ -881,9 +881,9 @@ stats = ptt_statistics.get_session_stats()
 
 **Setup Wizard:**
 ```bash
-$ chatta-setup
+$ bumba-setup
 
-Chatta PTT Setup Wizard
+Bumba Voice PTT Setup Wizard
 =======================
 
 Step 1: Keyboard Permissions
@@ -911,7 +911,7 @@ Step 3: Key Combination
    Change combo? [y/N]: n
 
 Setup Complete! ✓
-Run: chatta-ptt-test to verify
+Run: bumba-ptt-test to verify
 ```
 
 **Impact:**
@@ -1096,7 +1096,7 @@ Grand Total:             ~39,870 lines
 
 **Lesson:** Feature flags (`PTT_ENABLED`) allow new features to be deployed but disabled, enabling production testing without risk.
 
-**Application:** Chatta shipped to production with PTT code present but disabled, then gradually enabled for testing users.
+**Application:** Bumba Voice shipped to production with PTT code present but disabled, then gradually enabled for testing users.
 
 **Takeaway:** "Ship dark, enable light."
 
@@ -1330,7 +1330,7 @@ Enable multiple users to share PTT control in rooms:
 
 ## Conclusion
 
-Chatta demonstrates that keyboard-controlled voice interaction can significantly enhance the developer experience in AI coding assistants. Through careful phased development, strict backward compatibility, and comprehensive UX polish, the project delivered a production-ready system with zero breaking changes and 100% test pass rate.
+Bumba Voice demonstrates that keyboard-controlled voice interaction can significantly enhance the developer experience in AI coding assistants. Through careful phased development, strict backward compatibility, and comprehensive UX polish, the project delivered a production-ready system with zero breaking changes and 100% test pass rate.
 
 ### Key Achievements
 
@@ -1351,7 +1351,7 @@ Chatta demonstrates that keyboard-controlled voice interaction can significantly
 
 ### Reusability
 
-The techniques and patterns developed in Chatta are applicable to:
+The techniques and patterns developed in Bumba Voice are applicable to:
 
 - Voice-controlled development tools
 - Accessibility applications requiring precise input control
@@ -1361,22 +1361,22 @@ The techniques and patterns developed in Chatta are applicable to:
 
 ### Open Source
 
-Chatta is open source and available for integration:
+Bumba Voice is open source and available for integration:
 
 ```bash
 # Install voice mode
-pip install chatta-voice-mode
+pip install bumba-voice-mode
 
 # Enable PTT
-export CHATTA_PTT_ENABLED=true
-export CHATTA_PTT_KEY_COMBO="down+right"
+export BUMBA_PTT_ENABLED=true
+export BUMBA_PTT_KEY_COMBO="down+right"
 
 # Start using
 python -m voice_mode.server
 ```
 
-**Repository:** github.com/yourusername/chatta
-**Documentation:** docs.chatta.ai
+**Repository:** github.com/yourusername/bumba
+**Documentation:** docs.bumba.ai
 **License:** MIT
 
 ---
@@ -1388,4 +1388,4 @@ python -m voice_mode.server
 
 ---
 
-*This case study documents the development of Chatta, a keyboard-controlled voice interaction system for Claude Code. The project demonstrates production-ready software engineering practices including phased development, comprehensive testing, zero breaking changes, and user experience polish.*
+*This case study documents the development of Bumba Voice, a keyboard-controlled voice interaction system for Claude Code. The project demonstrates production-ready software engineering practices including phased development, comprehensive testing, zero breaking changes, and user experience polish.*

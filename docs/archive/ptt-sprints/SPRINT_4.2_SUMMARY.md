@@ -8,7 +8,7 @@
 
 ## Objectives
 
-Create the transport adapter that bridges the PTT system with CHATTA's existing voice transport layer, providing a drop-in replacement for `record_audio_with_silence_detection()` while maintaining full interface compatibility.
+Create the transport adapter that bridges the PTT system with Bumba Voice's existing voice transport layer, providing a drop-in replacement for `record_audio_with_silence_detection()` while maintaining full interface compatibility.
 
 ---
 

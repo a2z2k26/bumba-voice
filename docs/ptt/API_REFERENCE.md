@@ -1,6 +1,6 @@
 # PTT API Reference
 
-Complete API documentation for the CHATTA Push-to-Talk module.
+Complete API documentation for the Bumba Voice Push-to-Talk module.
 
 ## Table of Contents
 
@@ -878,19 +878,19 @@ if not check_keyboard_permissions():
 
 ```bash
 # Mode
-CHATTA_PTT_MODE="hold"  # "hold" | "toggle" | "hybrid"
+BUMBA_PTT_MODE="hold"  # "hold" | "toggle" | "hybrid"
 
 # Keys
-CHATTA_PTT_KEY_COMBO="option_r"  # Right Option Key (default)
-CHATTA_PTT_CANCEL_KEY="escape"
+BUMBA_PTT_KEY_COMBO="option_r"  # Right Option Key (default)
+BUMBA_PTT_CANCEL_KEY="escape"
 
 # Timing
-CHATTA_PTT_TIMEOUT=120.0          # Max duration (seconds)
-CHATTA_PTT_MIN_DURATION=0.5       # Min duration (seconds)
+BUMBA_PTT_TIMEOUT=120.0          # Max duration (seconds)
+BUMBA_PTT_MIN_DURATION=0.5       # Min duration (seconds)
 
 # Audio Feedback
-CHATTA_PTT_AUDIO_FEEDBACK=true
-CHATTA_PTT_VISUAL_FEEDBACK=true
+BUMBA_PTT_AUDIO_FEEDBACK=true
+BUMBA_PTT_VISUAL_FEEDBACK=true
 ```
 
 ### Programmatic Configuration

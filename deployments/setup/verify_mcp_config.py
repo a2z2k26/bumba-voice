@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Verify CHATTA MCP Configuration
+Verify BUMBA MCP Configuration
 Quick check that everything is set up correctly
 """
 import json
@@ -31,7 +31,7 @@ def check_docker_services():
     return all_running
 
 def check_mcp_config():
-    """Check if CHATTA is in MCP config"""
+    """Check if BUMBA is in MCP config"""
     config_path = os.path.expanduser("~/Library/Application Support/Claude/claude_desktop_config.json")
     
     print("\n📋 Checking MCP configuration:")
@@ -43,14 +43,14 @@ def check_mcp_config():
     with open(config_path, 'r') as f:
         config = json.load(f)
     
-    if "chatta" in config.get("mcpServers", {}):
-        chatta_config = config["mcpServers"]["chatta"]
-        print("   ✅ CHATTA is configured in MCP")
-        print(f"      Command: {chatta_config.get('command')}")
-        print(f"      Working dir: {chatta_config.get('cwd', 'not set')}")
+    if "bumba" in config.get("mcpServers", {}):
+        bumba_config = config["mcpServers"]["bumba"]
+        print("   ✅ BUMBA is configured in MCP")
+        print(f"      Command: {bumba_config.get('command')}")
+        print(f"      Working dir: {bumba_config.get('cwd', 'not set')}")
         
         # Check environment variables
-        env = chatta_config.get('env', {})
+        env = bumba_config.get('env', {})
         if env.get('STT_BASE_URL') and env.get('TTS_BASE_URL'):
             print("      ✅ Docker service URLs configured")
         else:
@@ -58,16 +58,16 @@ def check_mcp_config():
         
         return True
     else:
-        print("   ❌ CHATTA not found in MCP config")
+        print("   ❌ BUMBA not found in MCP config")
         return False
 
-def check_chatta_installation():
-    """Check if CHATTA is properly installed"""
-    print("\n🔧 Checking CHATTA installation:")
+def check_bumba_installation():
+    """Check if BUMBA is properly installed"""
+    print("\n🔧 Checking BUMBA installation:")
     
     try:
         import voice_mode
-        print(f"   ✅ CHATTA (voice_mode) is installed")
+        print(f"   ✅ BUMBA (voice_mode) is installed")
         
         # Check for key modules
         from voice_mode.tools import converse
@@ -76,26 +76,26 @@ def check_chatta_installation():
         
         return True
     except ImportError as e:
-        print(f"   ❌ CHATTA not properly installed: {e}")
+        print(f"   ❌ BUMBA not properly installed: {e}")
         return False
 
 def main():
     print("=" * 60)
-    print("🎙️  CHATTA MCP Integration Verification")
+    print("🎙️  BUMBA MCP Integration Verification")
     print("=" * 60)
     
     # Run checks
     docker_ok = check_docker_services()
     mcp_ok = check_mcp_config()
-    chatta_ok = check_chatta_installation()
+    bumba_ok = check_bumba_installation()
     
     print("\n" + "=" * 60)
     
-    if docker_ok and mcp_ok and chatta_ok:
+    if docker_ok and mcp_ok and bumba_ok:
         print("✅ Everything is configured correctly!")
         print("\n💡 Next steps:")
         print("1. Restart Claude Desktop or Claude Code")
-        print("2. Look for 'chatta' in the MCP servers list")
+        print("2. Look for 'bumba' in the MCP servers list")
         print("3. Try voice commands like:")
         print("   - 'Use the converse tool to say hello'")
         print("   - 'Start a voice conversation'")
@@ -108,10 +108,10 @@ def main():
             print("   docker-compose up -d")
         
         if not mcp_ok:
-            print("\n📋 CHATTA needs to be added to MCP config")
+            print("\n📋 BUMBA needs to be added to MCP config")
         
-        if not chatta_ok:
-            print("\n🔧 Install CHATTA:")
+        if not bumba_ok:
+            print("\n🔧 Install BUMBA:")
             print("   cd .")
             print("   pip install -e .")
     

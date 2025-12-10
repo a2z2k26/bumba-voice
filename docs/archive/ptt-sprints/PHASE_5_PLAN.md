@@ -377,25 +377,25 @@ PTTStatistics.get_summary()
 
 ```bash
 # Visual Feedback
-export CHATTA_PTT_VISUAL_FEEDBACK=true           # Enable terminal indicators
-export CHATTA_PTT_VISUAL_STYLE=compact           # compact, detailed, minimal
-export CHATTA_PTT_SHOW_KEY_HINTS=true            # Show key combination hints
-export CHATTA_PTT_SHOW_DURATION=true             # Show live duration counter
+export BUMBA_PTT_VISUAL_FEEDBACK=true           # Enable terminal indicators
+export BUMBA_PTT_VISUAL_STYLE=compact           # compact, detailed, minimal
+export BUMBA_PTT_SHOW_KEY_HINTS=true            # Show key combination hints
+export BUMBA_PTT_SHOW_DURATION=true             # Show live duration counter
 
 # Audio Feedback
-export CHATTA_PTT_AUDIO_FEEDBACK=true            # Enable PTT audio cues
-export CHATTA_PTT_FEEDBACK_VOLUME=0.7            # Volume (0.0-1.0)
-export CHATTA_PTT_CUSTOM_SOUNDS_DIR=/path/       # Custom sound files
+export BUMBA_PTT_AUDIO_FEEDBACK=true            # Enable PTT audio cues
+export BUMBA_PTT_FEEDBACK_VOLUME=0.7            # Volume (0.0-1.0)
+export BUMBA_PTT_CUSTOM_SOUNDS_DIR=/path/       # Custom sound files
 
 # Statistics
-export CHATTA_PTT_STATISTICS=true                # Track PTT statistics
-export CHATTA_PTT_STATS_AUTO_EXPORT=false        # Auto-export on disable
-export CHATTA_PTT_STATS_EXPORT_PATH=/path/       # Export directory
+export BUMBA_PTT_STATISTICS=true                # Track PTT statistics
+export BUMBA_PTT_STATS_AUTO_EXPORT=false        # Auto-export on disable
+export BUMBA_PTT_STATS_EXPORT_PATH=/path/       # Export directory
 
 # Setup & Validation
-export CHATTA_PTT_VALIDATE_CONFIG=true           # Validate on startup
-export CHATTA_PTT_INTERACTIVE_SETUP=false        # Interactive first-time setup
-export CHATTA_PTT_SHOW_STARTUP_HELP=true         # Show help on first enable
+export BUMBA_PTT_VALIDATE_CONFIG=true           # Validate on startup
+export BUMBA_PTT_INTERACTIVE_SETUP=false        # Interactive first-time setup
+export BUMBA_PTT_SHOW_STARTUP_HELP=true         # Show help on first enable
 ```
 
 ---

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Integration of performance profiling with CHATTA voice mode components."""
+"""Integration of performance profiling with Bumba Voice mode components."""
 
 import asyncio
 import functools

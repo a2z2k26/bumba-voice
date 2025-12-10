@@ -1,12 +1,12 @@
 # Branding Directory 🎨
 
-This directory contains CHATTA's branding assets as part of the BUMBA Platform.
+This directory contains BUMBA's branding assets as part of the BUMBA Platform.
 
 ## Files
 
 - **branding.py** - Core branding module
   - BUMBA Platform color gradients
-  - CHATTA ASCII logo with gradient support
+  - BUMBA ASCII logo with gradient support
   - Emoji set for consistent UI elements
   - Terminal color utilities
 
@@ -35,7 +35,7 @@ Limited brand emojis:
 ```python
 from branding.branding import display_logo, Colors
 
-# Display CHATTA logo with gradient
+# Display BUMBA logo with gradient
 display_logo()
 
 # Use brand colors

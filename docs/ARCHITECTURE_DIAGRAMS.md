@@ -1,6 +1,6 @@
-# Chatta Architecture Diagrams
+# Bumba Voice Architecture Diagrams
 
-**Comprehensive ASCII diagrams illustrating the Chatta voice mode system**
+**Comprehensive ASCII diagrams illustrating the Bumba Voice mode system**
 
 ---
 
@@ -23,7 +23,7 @@
 
 ```
 ┌───────────────────────────────────────────────────────────────────────┐
-│                          CHATTA VOICE MODE                             │
+│                          Bumba Voice VOICE MODE                             │
 │                     Model Context Protocol (MCP)                       │
 └───────────────────────────────┬───────────────────────────────────────┘
                                 │
@@ -1512,7 +1512,7 @@ Adaptive Behavior:
 ## Phase Evolution Timeline
 
 ```
-                    CHATTA DEVELOPMENT TIMELINE
+                    Bumba Voice DEVELOPMENT TIMELINE
                      (5 Phases over 8 Weeks)
 
 Week 1-3: Phases 1-3 (Core PTT Implementation)
@@ -2011,9 +2011,9 @@ Circular Dependencies: 0 (clean architecture)
 
 **Document Version:** 1.0
 **Last Updated:** 2025-11-12
-**Project:** Chatta Voice Mode
+**Project:** Bumba Voice Mode
 **Status:** Complete
 
 ---
 
-*These diagrams illustrate the comprehensive architecture of the Chatta voice mode system, showing the relationships between components, data flow patterns, and the evolution of the system through its five development phases.*
+*These diagrams illustrate the comprehensive architecture of the Bumba voice mode system, showing the relationships between components, data flow patterns, and the evolution of the system through its five development phases.*

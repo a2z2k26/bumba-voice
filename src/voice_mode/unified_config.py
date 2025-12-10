@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Unified Configuration System for CHATTA Voice Mode.
+"""Unified Configuration System for Bumba Voice Mode.
 
 Provides hierarchical configuration management with:
 - Multiple configuration sources (env, files, defaults)
@@ -147,7 +147,7 @@ class ConfigLoader:
         
         return parser(path)
     
-    def load_env(self, prefix: str = "CHATTA_") -> Dict[str, Any]:
+    def load_env(self, prefix: str = "BUMBA_") -> Dict[str, Any]:
         """Load configuration from environment variables."""
         config = {}
         for key, value in os.environ.items():
@@ -373,7 +373,7 @@ class ConfigWatcher:
 class UnifiedConfig:
     """Unified configuration manager."""
     
-    def __init__(self, app_name: str = "chatta", version: str = "1.0.0"):
+    def __init__(self, app_name: str = "bumba", version: str = "1.0.0"):
         self.app_name = app_name
         self.version = version
         self.loader = ConfigLoader()
@@ -450,7 +450,7 @@ class UnifiedConfig:
             
             logger.info(f"Loaded config from: {path}")
     
-    def load_environment(self, prefix: str = "CHATTA_"):
+    def load_environment(self, prefix: str = "BUMBA_"):
         """Load configuration from environment variables."""
         config = self.loader.load_env(prefix)
         with self._lock:
@@ -589,7 +589,7 @@ class UnifiedConfig:
 
 
 # Convenience functions
-def create_unified_config(app_name: str = "chatta") -> UnifiedConfig:
+def create_unified_config(app_name: str = "bumba") -> UnifiedConfig:
     """Create and initialize unified configuration."""
     config = UnifiedConfig(app_name)
     

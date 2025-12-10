@@ -1,9 +1,9 @@
-# CHATTA Deployment Readiness Checklist 🏁
+# BUMBA Deployment Readiness Checklist 🏁
 
 ## System Status: READY FOR DEPLOYMENT ✅
 
 ### 🟢 Core Components
-- [x] **CHATTA Package**: v3.34.3 installed and functional
+- [x] **BUMBA Package**: v3.34.3 installed and functional
 - [x] **Branding**: BUMBA Platform branding applied throughout
 - [x] **Documentation**: README concise and functional
 - [x] **Setup Wizard**: Enhanced with intelligent detection
@@ -31,8 +31,8 @@ docker-compose up -d  # Starts Whisper, Kokoro, LiveKit
 
 Or individually:
 ```bash
-chatta install whisper  # Local STT
-chatta install kokoro   # Local TTS
+bumba install whisper  # Local STT
+bumba install kokoro   # Local TTS
 ```
 
 #### 3. MCP Configuration
@@ -40,8 +40,8 @@ Auto-configured by setup wizard, or manually:
 ```json
 {
   "mcpServers": {
-    "chatta": {
-      "command": "chatta",
+    "bumba": {
+      "command": "bumba",
       "args": ["mcp"]
     }
   }
@@ -49,7 +49,7 @@ Auto-configured by setup wizard, or manually:
 ```
 
 ### 🟢 What Works Out-of-Box
-- ✅ CHATTA installation via pip
+- ✅ BUMBA installation via pip
 - ✅ Setup wizard with detection
 - ✅ Express mode for power users
 - ✅ Service management commands
@@ -58,16 +58,16 @@ Auto-configured by setup wizard, or manually:
 - ✅ Audio format support
 
 ### 🟠 First-Time User Flow
-1. **Install CHATTA**
+1. **Install BUMBA**
    ```bash
-   pip install chatta
+   pip install bumba
    ```
 
 2. **Run Setup Wizard**
    ```bash
-   chatta setup  # Interactive
+   bumba setup  # Interactive
    # OR
-   chatta setup --express  # Quick setup
+   bumba setup --express  # Quick setup
    ```
 
 3. **Configure Services** (as needed)
@@ -77,7 +77,7 @@ Auto-configured by setup wizard, or manually:
 
 4. **Start Using**
    ```bash
-   chatta converse  # Voice conversation
+   bumba converse  # Voice conversation
    claude  # With Claude Code integration
    ```
 

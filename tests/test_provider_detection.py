@@ -33,7 +33,7 @@ class TestProviderDetection:
         
         # Read the source file to check for the bug
         from pathlib import Path
-        converse_file = Path(__file__).parent.parent / "voice_mode" / "tools" / "converse.py"
+        converse_file = Path(__file__).parent.parent / "src" / "voice_mode" / "tools" / "converse.py"
         
         with open(converse_file, 'r') as f:
             content = f.read()

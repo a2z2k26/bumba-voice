@@ -33,7 +33,7 @@ def test_help():
     """Test help flag."""
     print_test("Help Flag (--help)")
     code, stdout, stderr = run_wizard_command(['--help'])
-    if code == 0 and 'CHATTA Intelligent Setup Wizard' in stdout:
+    if code == 0 and 'BUMBA Intelligent Setup Wizard' in stdout:
         print(f"{GREEN}✓ Help displayed correctly{END}")
         # Show available options
         for line in stdout.split('\n'):
@@ -48,7 +48,7 @@ def test_version():
     """Test version flag."""
     print_test("Version Flag (--version)")
     code, stdout, stderr = run_wizard_command(['--version'])
-    if 'CHATTA Setup Wizard v' in stdout:
+    if 'BUMBA Setup Wizard v' in stdout:
         print(f"{GREEN}✓ Version displayed: {stdout.strip()}{END}")
         return True
     else:
@@ -63,8 +63,8 @@ def test_check_only():
         print(f"{GREEN}✓ Detection completed{END}")
         
         # Parse detection results
-        if 'CHATTA' in stdout and 'installed' in stdout:
-            print(f"  • CHATTA detected")
+        if 'BUMBA' in stdout and 'installed' in stdout:
+            print(f"  • BUMBA detected")
         if 'Docker' in stdout and 'running' in stdout:
             print(f"  • Docker detected")
         if 'Whisper' in stdout and 'running' in stdout:
@@ -88,8 +88,8 @@ def test_skip_wizard():
     code, stdout, stderr = run_wizard_command(['--skip-wizard'])
     if code == 0 and 'Bypassing wizard' in stdout:
         print(f"{GREEN}✓ Wizard bypassed successfully{END}")
-        if 'CHATTA installed/upgraded' in stdout:
-            print(f"  • CHATTA installation attempted")
+        if 'BUMBA installed/upgraded' in stdout:
+            print(f"  • BUMBA installation attempted")
         return True
     else:
         print(f"{RED}✗ Skip wizard failed{END}")
@@ -126,7 +126,7 @@ def test_skip_detection():
 def main():
     """Run all bypass tests."""
     print(f"{BOLD}{'='*60}{END}")
-    print(f"{BOLD}CHATTA Enhanced Setup Wizard Bypass Tests{END}")
+    print(f"{BOLD}BUMBA Enhanced Setup Wizard Bypass Tests{END}")
     print(f"{BOLD}{'='*60}{END}")
     
     tests = [

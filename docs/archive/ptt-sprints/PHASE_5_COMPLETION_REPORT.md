@@ -239,16 +239,16 @@ The phase focused on making PTT more user-friendly, maintainable, and performant
 
 ### Visual Feedback
 ```bash
-CHATTA_PTT_VISUAL_FEEDBACK=true      # Enable visual feedback
-CHATTA_PTT_VISUAL_STYLE=compact      # Display style
-CHATTA_PTT_SHOW_DURATION=true        # Show live duration
+BUMBA_PTT_VISUAL_FEEDBACK=true      # Enable visual feedback
+BUMBA_PTT_VISUAL_STYLE=compact      # Display style
+BUMBA_PTT_SHOW_DURATION=true        # Show live duration
 ```
 
 ### Statistics
 ```bash
-CHATTA_PTT_STATISTICS=true           # Enable statistics
-CHATTA_PTT_STATS_AUTO_EXPORT=false   # Auto-export on disable
-CHATTA_PTT_STATS_EXPORT_PATH=""      # Export directory
+BUMBA_PTT_STATISTICS=true           # Enable statistics
+BUMBA_PTT_STATS_AUTO_EXPORT=false   # Auto-export on disable
+BUMBA_PTT_STATS_EXPORT_PATH=""      # Export directory
 ```
 
 ---
@@ -419,17 +419,17 @@ All enhancements are:
 
 **Minimal Configuration:**
 ```bash
-export CHATTA_PTT_VISUAL_FEEDBACK=false
-export CHATTA_PTT_AUDIO_FEEDBACK=false
-export CHATTA_PTT_STATISTICS=false
+export BUMBA_PTT_VISUAL_FEEDBACK=false
+export BUMBA_PTT_AUDIO_FEEDBACK=false
+export BUMBA_PTT_STATISTICS=false
 # Returns to Phase 4 behavior
 ```
 
 **High Performance Configuration:**
 ```bash
-export CHATTA_PTT_VISUAL_STYLE=minimal
-export CHATTA_PTT_AUDIO_FEEDBACK=false
-export CHATTA_PTT_SHOW_DURATION=false
+export BUMBA_PTT_VISUAL_STYLE=minimal
+export BUMBA_PTT_AUDIO_FEEDBACK=false
+export BUMBA_PTT_SHOW_DURATION=false
 # Lowest overhead
 ```
 

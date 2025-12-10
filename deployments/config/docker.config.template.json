@@ -3,10 +3,10 @@
   "docker": {
     "base_path": "./docker",
     "compose_file": "docker-compose.yml",
-    "network_name": "chatta-network",
+    "network_name": "bumba-network",
     "services": {
       "whisper": {
-        "container_name": "chatta-whisper",
+        "container_name": "bumba-whisper",
         "build_context": "./docker/whisper",
         "dockerfile": "Dockerfile",
         "port": "8880:8880",
@@ -17,7 +17,7 @@
         }
       },
       "kokoro": {
-        "container_name": "chatta-kokoro",
+        "container_name": "bumba-kokoro",
         "build_context": "./docker/kokoro",
         "dockerfile": "Dockerfile",
         "port": "7888:7888",
@@ -28,7 +28,7 @@
         }
       },
       "livekit": {
-        "container_name": "chatta-livekit",
+        "container_name": "bumba-livekit",
         "image": "livekit/livekit-server:latest",
         "ports": {
           "api": "7880:7880",

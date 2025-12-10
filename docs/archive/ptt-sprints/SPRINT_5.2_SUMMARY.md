@@ -247,8 +247,8 @@ Total cache: 5 tones × ~15 KB = ~75 KB
 
 **Existing Variables (Already in config.py):**
 ```bash
-export CHATTA_PTT_AUDIO_FEEDBACK=true    # Enable/disable
-export CHATTA_PTT_FEEDBACK_VOLUME=0.7    # Volume 0.0-1.0
+export BUMBA_PTT_AUDIO_FEEDBACK=true    # Enable/disable
+export BUMBA_PTT_FEEDBACK_VOLUME=0.7    # Volume 0.0-1.0
 ```
 
 **No New Configuration Needed** - Uses existing PTT audio feedback settings.

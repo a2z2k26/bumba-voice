@@ -1,5 +1,5 @@
 """
-Voice Commands System for CHATTA 1.0
+Voice Commands System for Bumba Voice 1.0
 
 This module provides comprehensive voice command recognition and execution,
 enabling natural language control of the voice interaction system.

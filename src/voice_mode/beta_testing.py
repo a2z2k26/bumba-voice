@@ -490,7 +490,7 @@ class UserAcceptanceTester:
     
     def __init__(self):
         self.sessions: Dict[str, TestSession] = {}
-        self.test_suite = TestSuite("CHATTA UAT", "1.0.0")
+        self.test_suite = TestSuite("Bumba Voice UAT", "1.0.0")
         self.feedback_collector = FeedbackCollector()
         self._create_default_tests()
     
@@ -796,7 +796,7 @@ class BetaDeployment:
 class BetaTestingManager:
     """Main manager for beta testing operations."""
     
-    def __init__(self, project_name: str = "CHATTA", version: str = "1.0.0-beta"):
+    def __init__(self, project_name: str = "Bumba Voice", version: str = "1.0.0-beta"):
         self.project_name = project_name
         self.version = version
         self.uat_tester = UserAcceptanceTester()

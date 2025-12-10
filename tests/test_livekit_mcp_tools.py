@@ -150,10 +150,10 @@ class TestLiveKitCLIIntegration:
     
     def test_livekit_cli_group_exists(self):
         """Test LiveKit CLI group is properly registered"""
-        from voice_mode.cli import voice_mode_main_cli
+        from voice_mode.cli import bumba_main
         
         # Get all command groups
-        commands = voice_mode_main_cli.commands
+        commands = bumba_main.commands
         
         # Check LiveKit group exists
         assert 'livekit' in commands
@@ -174,9 +174,9 @@ class TestLiveKitCLIIntegration:
     
     def test_livekit_frontend_subgroup_exists(self):
         """Test LiveKit frontend subgroup is properly registered"""
-        from voice_mode.cli import voice_mode_main_cli
+        from voice_mode.cli import bumba_main
         
-        livekit_group = voice_mode_main_cli.commands['livekit']
+        livekit_group = bumba_main.commands['livekit']
         frontend_group = livekit_group.commands['frontend']
         
         assert frontend_group.name == 'frontend'

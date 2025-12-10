@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Performance monitoring for CHATTA system."""
+"""Performance monitoring for BUMBA system."""
 
 import time
 import psutil

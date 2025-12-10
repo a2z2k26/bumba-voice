@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Direct Voice Test with Docker Services
-Tests TTS and STT using CHATTA's core functions
+Tests TTS and STT using BUMBA's core functions
 """
 import os
 import asyncio
@@ -17,7 +17,7 @@ os.environ["OPENAI_API_KEY"] = "dummy-key-for-local"
 
 async def main():
     print("="*60)
-    print("🎙️  CHATTA Core Voice Functions Test")
+    print("🎙️  BUMBA Core Voice Functions Test")
     print("="*60)
     
     try:
@@ -30,7 +30,7 @@ async def main():
         
         # Step 1: Test TTS with Kokoro
         print("📍 Step 1: Testing Kokoro TTS...")
-        greeting = "Hello! This is CHATTA using Docker services. The voice pipeline is operational!"
+        greeting = "Hello! This is BUMBA using Docker services. The voice pipeline is operational!"
         
         success = await text_to_speech(
             greeting,
@@ -101,7 +101,7 @@ async def main():
                 base_url="http://localhost:7888/v1"
             )
             
-            print(f"🤖 CHATTA: {response}")
+            print(f"🤖 BUMBA: {response}")
         else:
             print("❌ STT failed or no speech detected")
         
@@ -121,5 +121,5 @@ async def main():
         traceback.print_exc()
 
 if __name__ == "__main__":
-    print("Testing CHATTA voice pipeline with Docker services...\n")
+    print("Testing BUMBA voice pipeline with Docker services...\n")
     asyncio.run(main())

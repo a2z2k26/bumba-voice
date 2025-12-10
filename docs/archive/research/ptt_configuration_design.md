@@ -8,45 +8,45 @@ Sprint: 1.6
 
 ```bash
 # Core PTT Settings
-CHATTA_PTT_ENABLED=false                    # Enable PTT globally
-CHATTA_PTT_KEY_COMBO="down+right"          # Default key combination
-CHATTA_PTT_MODE="hold"                     # hold | toggle | hybrid
-CHATTA_PTT_TIMEOUT=120.0                   # Max recording duration (seconds)
+BUMBA_PTT_ENABLED=false                    # Enable PTT globally
+BUMBA_PTT_KEY_COMBO="down+right"          # Default key combination
+BUMBA_PTT_MODE="hold"                     # hold | toggle | hybrid
+BUMBA_PTT_TIMEOUT=120.0                   # Max recording duration (seconds)
 
 # Behavior Settings
-CHATTA_PTT_AUTO_ENABLE=false               # Auto-enable for local transport
-CHATTA_PTT_REQUIRE_BOTH_KEYS=true          # Require all keys pressed together
-CHATTA_PTT_RELEASE_DELAY=0.1               # Delay before stopping (debounce)
-CHATTA_PTT_MIN_DURATION=0.5                # Minimum recording duration
+BUMBA_PTT_AUTO_ENABLE=false               # Auto-enable for local transport
+BUMBA_PTT_REQUIRE_BOTH_KEYS=true          # Require all keys pressed together
+BUMBA_PTT_RELEASE_DELAY=0.1               # Delay before stopping (debounce)
+BUMBA_PTT_MIN_DURATION=0.5                # Minimum recording duration
 
 # Audio Feedback
-CHATTA_PTT_AUDIO_FEEDBACK=true             # Play PTT-specific sounds
-CHATTA_PTT_FEEDBACK_VOLUME=0.7             # Volume for PTT sounds (0.0-1.0)
-CHATTA_PTT_VISUAL_FEEDBACK=true            # Show visual indicators
-CHATTA_PTT_HAPTIC_FEEDBACK=false           # Future: Haptic feedback
+BUMBA_PTT_AUDIO_FEEDBACK=true             # Play PTT-specific sounds
+BUMBA_PTT_FEEDBACK_VOLUME=0.7             # Volume for PTT sounds (0.0-1.0)
+BUMBA_PTT_VISUAL_FEEDBACK=true            # Show visual indicators
+BUMBA_PTT_HAPTIC_FEEDBACK=false           # Future: Haptic feedback
 
 # Advanced Settings
-CHATTA_PTT_CANCEL_KEY="escape"             # Key to cancel recording
-CHATTA_PTT_BUFFER_PRE_RECORDING=false      # Buffer audio before key press
-CHATTA_PTT_BUFFER_DURATION=0.5             # Pre-recording buffer duration
-CHATTA_PTT_KEY_REPEAT_IGNORE=true          # Ignore key repeat events
+BUMBA_PTT_CANCEL_KEY="escape"             # Key to cancel recording
+BUMBA_PTT_BUFFER_PRE_RECORDING=false      # Buffer audio before key press
+BUMBA_PTT_BUFFER_DURATION=0.5             # Pre-recording buffer duration
+BUMBA_PTT_KEY_REPEAT_IGNORE=true          # Ignore key repeat events
 
 # Platform-Specific
-CHATTA_PTT_MACOS_ACCESSIBILITY_CHECK=true  # Check permissions on macOS
-CHATTA_PTT_WINDOWS_HOOK_TYPE="low_level"   # low_level | high_level
-CHATTA_PTT_LINUX_INPUT_METHOD="x11"        # x11 | wayland | auto
+BUMBA_PTT_MACOS_ACCESSIBILITY_CHECK=true  # Check permissions on macOS
+BUMBA_PTT_WINDOWS_HOOK_TYPE="low_level"   # low_level | high_level
+BUMBA_PTT_LINUX_INPUT_METHOD="x11"        # x11 | wayland | auto
 
 # Debug & Development
-CHATTA_PTT_DEBUG=false                     # Enable debug logging
-CHATTA_PTT_LOG_KEYS=false                  # Log key events (debug only)
-CHATTA_PTT_SIMULATE=false                  # Simulate PTT without keyboard
+BUMBA_PTT_DEBUG=false                     # Enable debug logging
+BUMBA_PTT_LOG_KEYS=false                  # Log key events (debug only)
+BUMBA_PTT_SIMULATE=false                  # Simulate PTT without keyboard
 ```
 
 ### Configuration File Format
 
-#### ~/.chatta/ptt.yaml
+#### ~/.bumba/ptt.yaml
 ```yaml
-# CHATTA Push-to-Talk Configuration
+# Bumba Voice Push-to-Talk Configuration
 version: "1.0"
 
 # Core settings
@@ -124,7 +124,7 @@ preferences:
 
 ### JSON Alternative
 
-#### ~/.chatta/ptt.json
+#### ~/.bumba/ptt.json
 ```json
 {
   "version": "1.0",
@@ -161,11 +161,11 @@ class PTTConfigManager:
             self.load_env_variables,          # Environment variables
 
             # User configuration
-            self.load_project_config,         # ./.chatta/ptt.yaml
-            self.load_user_config,           # ~/.chatta/ptt.yaml
+            self.load_project_config,         # ./.bumba/ptt.yaml
+            self.load_user_config,           # ~/.bumba/ptt.yaml
 
             # System defaults (lowest priority)
-            self.load_system_config,         # /etc/chatta/ptt.yaml
+            self.load_system_config,         # /etc/bumba/ptt.yaml
             self.load_defaults               # Hardcoded defaults
         ]
 
@@ -181,10 +181,10 @@ class PTTConfigManager:
 ### Priority Order (Highest to Lowest)
 1. **Runtime Override** - Set programmatically
 2. **CLI Arguments** - `--ptt-keys "ctrl+space"`
-3. **Environment Variables** - `CHATTA_PTT_KEY_COMBO`
-4. **Project Config** - `./.chatta/ptt.yaml`
-5. **User Config** - `~/.chatta/ptt.yaml`
-6. **System Config** - `/etc/chatta/ptt.yaml`
+3. **Environment Variables** - `BUMBA_PTT_KEY_COMBO`
+4. **Project Config** - `./.bumba/ptt.yaml`
+5. **User Config** - `~/.bumba/ptt.yaml`
+6. **System Config** - `/etc/bumba/ptt.yaml`
 7. **Defaults** - Hardcoded in source
 
 ## Default Values
@@ -373,7 +373,7 @@ def apply_preset(preset_name: str):
 
     # Update environment variables
     for key, value in preset.items():
-        env_key = f"CHATTA_PTT_{key.upper()}"
+        env_key = f"BUMBA_PTT_{key.upper()}"
         os.environ[env_key] = str(value)
 
     print(f"✅ Applied preset: {preset_name}")
@@ -421,7 +421,7 @@ class PTTConfig:
             return json.dumps(config, indent=2)
         elif format == "env":
             return "\n".join([
-                f"CHATTA_PTT_{k.upper()}={v}"
+                f"BUMBA_PTT_{k.upper()}={v}"
                 for k, v in config.items()
             ])
 ```

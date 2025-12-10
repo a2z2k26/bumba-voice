@@ -19,21 +19,21 @@ This document provides comprehensive manual testing procedures for the PTT featu
 - ✅ macOS 10.14+ / Linux / Windows 10+
 - ✅ Physical keyboard
 - ✅ Working microphone (built-in or external)
-- ✅ CHATTA installed and configured
+- ✅ Bumba Voice installed and configured
 - ✅ Python 3.10+
 
 ### Configuration
 
 **Enable PTT:**
 ```bash
-# In ~/.chatta/chatta.env or environment
-export CHATTA_PTT_ENABLED=true
-export CHATTA_PTT_MODE=hold  # or toggle, or hybrid
-export CHATTA_PTT_KEY_COMBO=down+right  # or your preference
-export CHATTA_PTT_CANCEL_KEY=esc
-export CHATTA_PTT_TIMEOUT=120.0
-export CHATTA_PTT_MIN_DURATION=0.5
-export CHATTA_SILENCE_THRESHOLD_MS=1500
+# In ~/.bumba/bumba.env or environment
+export BUMBA_PTT_ENABLED=true
+export BUMBA_PTT_MODE=hold  # or toggle, or hybrid
+export BUMBA_PTT_KEY_COMBO=down+right  # or your preference
+export BUMBA_PTT_CANCEL_KEY=esc
+export BUMBA_PTT_TIMEOUT=120.0
+export BUMBA_PTT_MIN_DURATION=0.5
+export BUMBA_SILENCE_THRESHOLD_MS=1500
 ```
 
 **Verify Installation:**
@@ -69,12 +69,12 @@ python3 -c "from voice_mode.ptt import check_keyboard_permissions; print(check_k
 
 **Setup:**
 ```bash
-export CHATTA_PTT_MODE=hold
-export CHATTA_PTT_KEY_COMBO=down+right
+export BUMBA_PTT_MODE=hold
+export BUMBA_PTT_KEY_COMBO=down+right
 ```
 
 **Procedure:**
-1. Start CHATTA CLI: `python -m voice_mode.server`
+1. Start Bumba Voice CLI: `python -m voice_mode.server`
 2. Use the converse tool with `wait_for_response=True`
 3. When you see "listening" message:
    - Press and hold DOWN + RIGHT arrow keys
@@ -102,8 +102,8 @@ export CHATTA_PTT_KEY_COMBO=down+right
 
 **Setup:**
 ```bash
-export CHATTA_PTT_MODE=hold
-export CHATTA_PTT_MIN_DURATION=2.0  # 2 seconds minimum
+export BUMBA_PTT_MODE=hold
+export BUMBA_PTT_MIN_DURATION=2.0  # 2 seconds minimum
 ```
 
 **Procedure:**
@@ -128,8 +128,8 @@ export CHATTA_PTT_MIN_DURATION=2.0  # 2 seconds minimum
 
 **Setup:**
 ```bash
-export CHATTA_PTT_MODE=toggle
-export CHATTA_PTT_KEY_COMBO=down+right
+export BUMBA_PTT_MODE=toggle
+export BUMBA_PTT_KEY_COMBO=down+right
 ```
 
 **Procedure:**
@@ -159,8 +159,8 @@ export CHATTA_PTT_KEY_COMBO=down+right
 
 **Setup:**
 ```bash
-export CHATTA_PTT_MODE=hybrid
-export CHATTA_SILENCE_THRESHOLD_MS=1500  # 1.5 seconds of silence
+export BUMBA_PTT_MODE=hybrid
+export BUMBA_SILENCE_THRESHOLD_MS=1500  # 1.5 seconds of silence
 ```
 
 **Procedure:**
@@ -189,8 +189,8 @@ export CHATTA_SILENCE_THRESHOLD_MS=1500  # 1.5 seconds of silence
 
 **Setup:**
 ```bash
-export CHATTA_PTT_MODE=hold
-export CHATTA_PTT_CANCEL_KEY=esc
+export BUMBA_PTT_MODE=hold
+export BUMBA_PTT_CANCEL_KEY=esc
 ```
 
 **Procedure:**
@@ -217,8 +217,8 @@ export CHATTA_PTT_CANCEL_KEY=esc
 
 **Setup:**
 ```bash
-export CHATTA_PTT_MODE=hold
-export CHATTA_PTT_TIMEOUT=10.0  # 10 second timeout
+export BUMBA_PTT_MODE=hold
+export BUMBA_PTT_TIMEOUT=10.0  # 10 second timeout
 ```
 
 **Procedure:**
@@ -312,19 +312,19 @@ export CHATTA_PTT_TIMEOUT=10.0  # 10 second timeout
 **Test Cases:**
 ```bash
 # Test 1: Simple combo
-export CHATTA_PTT_KEY_COMBO=space
+export BUMBA_PTT_KEY_COMBO=space
 # Press SPACE to record
 
 # Test 2: Two-key combo
-export CHATTA_PTT_KEY_COMBO=down+right
+export BUMBA_PTT_KEY_COMBO=down+right
 # Press DOWN + RIGHT simultaneously
 
 # Test 3: Modifier key
-export CHATTA_PTT_KEY_COMBO=ctrl+space
+export BUMBA_PTT_KEY_COMBO=ctrl+space
 # Press CTRL + SPACE
 
 # Test 4: Function key
-export CHATTA_PTT_KEY_COMBO=f13
+export BUMBA_PTT_KEY_COMBO=f13
 # Press F13
 ```
 
@@ -417,7 +417,7 @@ export CHATTA_PTT_KEY_COMBO=f13
 
 **Setup:**
 ```bash
-export CHATTA_AUDIO_FEEDBACK=true
+export BUMBA_AUDIO_FEEDBACK=true
 ```
 
 **Procedure:**
@@ -442,7 +442,7 @@ export CHATTA_AUDIO_FEEDBACK=true
 
 **Setup:**
 ```bash
-export CHATTA_PTT_ENABLED=false
+export BUMBA_PTT_ENABLED=false
 ```
 
 **Procedure:**
@@ -530,7 +530,7 @@ uv run pytest tests/ -v --tb=short
 
 ### Pre-Test Setup
 
-- [ ] CHATTA installed (`pip install -e .`)
+- [ ] Bumba Voice installed (`pip install -e .`)
 - [ ] Dependencies installed (`uv sync`)
 - [ ] PTT enabled in config
 - [ ] Keyboard permissions granted (macOS)

@@ -135,7 +135,7 @@ def test_service_health():
 
 def main():
     print("=" * 50)
-    print("CHATTA Docker Services Test Suite")
+    print("BUMBA Docker Services Test Suite")
     print("=" * 50)
     
     results = []

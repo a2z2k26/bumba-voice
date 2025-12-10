@@ -1,4 +1,4 @@
-# CHATTA Enhancement Sprint Log
+# Bumba Voice Enhancement Sprint Log
 
 ## Sprint 1: Project Setup & Codebase Analysis
 **Started:** 2025-09-11
@@ -275,7 +275,7 @@ Sprint 3 will map the audio feedback implementation to understand how to add chi
 
 #### Configuration:
 - **Global Flag**: `AUDIO_FEEDBACK_ENABLED` (config.py:194)
-- **Environment Variable**: `CHATTA_AUDIO_FEEDBACK`
+- **Environment Variable**: `Bumba Voice_AUDIO_FEEDBACK`
 - **Override Parameter**: `audio_feedback` in converse function
 
 ### Implementation Specification:
@@ -292,7 +292,7 @@ The system already has:
 #### Current Status:
 - Audio feedback is **FULLY FUNCTIONAL**
 - Default: **ENABLED** (`AUDIO_FEEDBACK_ENABLED = true`)
-- Can be disabled via `CHATTA_AUDIO_FEEDBACK=false`
+- Can be disabled via `Bumba Voice_AUDIO_FEEDBACK=false`
 
 ### Testing Notes:
 - Direct Python execution: Audio plays correctly
@@ -401,7 +401,7 @@ Sprint 5 will test the VAD functionality and compare with Claude Desktop's behav
 ### Key Discoveries:
 
 #### Hybrid Architecture Design:
-The CHATTA framework uses a **unified codebase** that intelligently detects execution context:
+The Bumba Voice framework uses a **unified codebase** that intelligently detects execution context:
 - **Context Detection**: `is_mcp_mode = not sys.stdin.isatty() or not sys.stdout.isatty()`
 - **Claude Desktop**: Direct Python execution with full audio context
 - **Claude Code**: MCP server via stdio transport (subprocess)
@@ -1003,9 +1003,9 @@ class TranscriptDisplay:
 2. **config.py**:
    ```python
    # Display configuration
-   TRANSCRIPT_DISPLAY = os.getenv("CHATTA_TRANSCRIPT_DISPLAY", "inline")
-   TRANSCRIPT_MAX_ENTRIES = int(os.getenv("CHATTA_TRANSCRIPT_MAX_ENTRIES", "10"))
-   TRANSCRIPT_UPDATE_RATE = float(os.getenv("CHATTA_TRANSCRIPT_UPDATE_RATE", "0.25"))
+   TRANSCRIPT_DISPLAY = os.getenv("Bumba Voice_TRANSCRIPT_DISPLAY", "inline")
+   TRANSCRIPT_MAX_ENTRIES = int(os.getenv("Bumba Voice_TRANSCRIPT_MAX_ENTRIES", "10"))
+   TRANSCRIPT_UPDATE_RATE = float(os.getenv("Bumba Voice_TRANSCRIPT_UPDATE_RATE", "0.25"))
    ```
 
 3. **cli.py**:
@@ -1383,10 +1383,10 @@ Sprint 10 will implement Advanced VAD Configuration to achieve silence detection
 ### Configuration Applied:
 ```json
 {
-  "CHATTA_VAD_AGGRESSIVENESS": "1",
-  "CHATTA_SILENCE_THRESHOLD_MS": "1200",
-  "CHATTA_MIN_RECORDING_DURATION": "0.3",
-  "CHATTA_INITIAL_SILENCE_GRACE_PERIOD": "2.0"
+  "Bumba Voice_VAD_AGGRESSIVENESS": "1",
+  "Bumba Voice_SILENCE_THRESHOLD_MS": "1200",
+  "Bumba Voice_MIN_RECORDING_DURATION": "0.3",
+  "Bumba Voice_INITIAL_SILENCE_GRACE_PERIOD": "2.0"
 }
 ```
 
@@ -1464,11 +1464,11 @@ Phase 2: Core Improvements (Sprints 9-16) - Implementation of analyzed features
 ### Configuration Added
 ```bash
 # New environment variables
-CHATTA_TTS_EARLY_START=true
-CHATTA_TTS_EARLY_START_PERCENTAGE=0.35
-CHATTA_TTS_MIN_BUFFER_MS=500
-CHATTA_TTS_ADAPTIVE_RATE=true
-CHATTA_TTS_DYNAMIC_CHUNKS=true
+Bumba Voice_TTS_EARLY_START=true
+Bumba Voice_TTS_EARLY_START_PERCENTAGE=0.35
+Bumba Voice_TTS_MIN_BUFFER_MS=500
+Bumba Voice_TTS_ADAPTIVE_RATE=true
+Bumba Voice_TTS_DYNAMIC_CHUNKS=true
 ```
 
 ### Expected Improvements

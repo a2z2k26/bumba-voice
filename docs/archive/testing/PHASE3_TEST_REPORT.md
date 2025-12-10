@@ -475,7 +475,7 @@ return {
 
 ### For Next Phase (Phase 4)
 
-1. **Integration with CHATTA voice transport** - All components ready
+1. **Integration with Bumba Voice voice transport** - All components ready
 2. **Cross-platform testing** - Test on Windows/Linux
 3. **Real hardware testing** - Test with actual keyboard/audio
 4. **Performance profiling** - Optimize if needed
@@ -499,7 +499,7 @@ return {
 
 **Next Steps:**
 - Proceed to Phase 4: Transport Integration (6 sprints)
-- Begin integration with existing CHATTA voice mode
+- Begin integration with existing Bumba Voice voice mode
 - Test with real audio devices
 
 ---

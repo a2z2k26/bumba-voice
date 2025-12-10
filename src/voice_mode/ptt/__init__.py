@@ -1,5 +1,5 @@
 """
-Push-to-Talk (PTT) module for CHATTA voice mode.
+Push-to-Talk (PTT) module for Bumba Voice mode.
 
 This module provides keyboard-controlled voice recording functionality,
 allowing users to control when audio recording starts and stops via

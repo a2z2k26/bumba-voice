@@ -1,16 +1,16 @@
-# CHATTA - Project Implementation Plan
+# Bumba Voice - Project Implementation Plan
 
 ## Project Overview
 
-**Project:** CHATTA (VoiceMode → CHATTA Rebrand & Local Adaptation)  
+**Project:** Bumba Voice (VoiceMode → Bumba Voice Rebrand & Local Adaptation)  
 **Duration:** 2-3 weeks  
 **Effort:** ~40-60 hours total  
 **Team Size:** 1-2 developers  
 
 ## Executive Summary
 
-This project plan outlines the adaptation of VoiceMode to CHATTA, focusing on:
-1. Rebranding VoiceMode to CHATTA
+This project plan outlines the adaptation of VoiceMode to Bumba Voice, focusing on:
+1. Rebranding VoiceMode to Bumba Voice
 2. Configuring for 100% local operation (Whisper + Kokoro)
 3. Maintaining OpenAI API compatibility
 4. Creating comprehensive documentation
@@ -24,7 +24,7 @@ This project plan outlines the adaptation of VoiceMode to CHATTA, focusing on:
 - [ ] Fork VoiceMode repository from https://github.com/mbailey/voicemode
 - [ ] Clone to local development environment
 - [ ] Analyze codebase structure and dependencies
-- [ ] Create CHATTA GitHub repository
+- [ ] Create Bumba Voice GitHub repository
 - [ ] Set up development branch strategy
 
 #### Deliverables:
@@ -58,7 +58,7 @@ This project plan outlines the adaptation of VoiceMode to CHATTA, focusing on:
 **Time:** 4-6 hours
 
 #### Code Changes:
-- [ ] Global find/replace: voicemode → chatta
+- [ ] Global find/replace: voicemode → bumba
 - [ ] Update package.json/pyproject.toml metadata
 - [ ] Rename configuration files
 - [ ] Update CLI commands
@@ -112,7 +112,7 @@ This project plan outlines the adaptation of VoiceMode to CHATTA, focusing on:
 **Time:** 4 hours
 
 #### Docker Setup:
-- [ ] Create Dockerfile for CHATTA
+- [ ] Create Dockerfile for Bumba Voice
 - [ ] Create docker-compose.yml with all services
 - [ ] Build and test containers
 - [ ] Push to Docker Hub

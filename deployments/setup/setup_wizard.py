@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CHATTA Interactive Setup Wizard
+BUMBA Interactive Setup Wizard
 ================================
 A friendly, step-by-step installation guide for new users.
 """
@@ -44,10 +44,10 @@ def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def print_header():
-    """Print the CHATTA wizard header with BUMBA gradient."""
+    """Print the BUMBA wizard header with BUMBA gradient."""
     clear_screen()
 
-    # CHATTA logo lines
+    # BUMBA logo lines
     logo_lines = [
         " ██████╗██╗  ██╗ █████╗ ████████╗████████╗ █████╗ ",
         "██╔════╝██║  ██║██╔══██╗╚══██╔══╝╚══██╔══╝██╔══██╗",
@@ -191,7 +191,7 @@ def get_system_info() -> Dict[str, str]:
     return info
 
 class SetupWizard:
-    """Interactive setup wizard for CHATTA."""
+    """Interactive setup wizard for BUMBA."""
     
     def __init__(self):
         self.system_info = get_system_info()
@@ -214,7 +214,7 @@ class SetupWizard:
     def run(self):
         """Run the setup wizard."""
         print_header()
-        print(f"Welcome! I'll help you set up CHATTA for natural voice conversations.\n")
+        print(f"Welcome! I'll help you set up BUMBA for natural voice conversations.\n")
         print(f"This wizard will guide you through {self.total_steps} simple steps.")
         print(f"Estimated time: 5-10 minutes\n")
         
@@ -235,8 +235,8 @@ class SetupWizard:
             # Step 4: Configure API Keys
             self.configure_api_keys()
             
-            # Step 5: Install CHATTA
-            self.install_chatta()
+            # Step 5: Install BUMBA
+            self.install_bumba()
             
             # Step 6: Install Services
             if self.config['install_local_services']:
@@ -257,7 +257,7 @@ class SetupWizard:
         except Exception as e:
             print_error(f"\nSetup failed: {e}")
             print("\nPlease check the error above and try again.")
-            print("For help, visit: https://github.com/your-repo/chatta/issues")
+            print("For help, visit: https://github.com/your-repo/bumba/issues")
     
     def check_system(self):
         """Step 1: Check system compatibility."""
@@ -307,7 +307,7 @@ class SetupWizard:
         """Step 2: Choose installation mode."""
         print_step(2, self.total_steps, "Choose Installation Mode")
         
-        print("How would you like to set up CHATTA?\n")
+        print("How would you like to set up BUMBA?\n")
         
         modes = [
             "🚀 Automatic (Recommended) - I'll handle everything for you",
@@ -408,7 +408,7 @@ class SetupWizard:
         """Step 4: Configure API keys."""
         print_step(4, self.total_steps, "Configure Voice Services")
         
-        print("CHATTA can use either:\n")
+        print("BUMBA can use either:\n")
         print("  1. OpenAI API (cloud-based, requires API key)")
         print("  2. Local services (free, runs on your computer)")
         print("  3. Both (recommended - local with cloud fallback)\n")
@@ -438,39 +438,39 @@ class SetupWizard:
             self.config['install_local_services'] = True
             print_info("Local services will be installed")
     
-    def install_chatta(self):
-        """Step 5: Install CHATTA."""
-        print_step(5, self.total_steps, "Installing CHATTA")
+    def install_bumba(self):
+        """Step 5: Install BUMBA."""
+        print_step(5, self.total_steps, "Installing BUMBA")
         
         if self.config['install_mode'] == 'manual':
-            print("Run these commands to install CHATTA:\n")
+            print("Run these commands to install BUMBA:\n")
             print(f"{Colors.CYAN}# Install with pip{Colors.END}")
-            print("pip install chatta\n")
+            print("pip install bumba\n")
             print(f"{Colors.CYAN}# Or install from source{Colors.END}")
-            print("git clone https://github.com/your-repo/chatta")
-            print("cd chatta")
+            print("git clone https://github.com/your-repo/bumba")
+            print("cd bumba")
             print("pip install -e .\n")
             input(f"\n{Colors.BOLD}Press Enter when done...{Colors.END}")
         else:
-            print("Installing CHATTA package...\n")
+            print("Installing BUMBA package...\n")
             
-            # Check if we're in the CHATTA directory
+            # Check if we're in the BUMBA directory
             if os.path.exists('pyproject.toml'):
                 # Install from source
-                show_progress("Installing CHATTA from source", 
+                show_progress("Installing BUMBA from source", 
                             run_command, ['pip', 'install', '-e', '.'])
             else:
                 # Install from PyPI
-                show_progress("Installing CHATTA from PyPI", 
-                            run_command, ['pip', 'install', 'chatta'])
+                show_progress("Installing BUMBA from PyPI", 
+                            run_command, ['pip', 'install', 'bumba'])
             
             # Verify installation
             result = run_command(['python', '-c', 'import voice_mode; print("OK")'])
             if result.returncode == 0:
-                print_success("CHATTA installed successfully!")
+                print_success("BUMBA installed successfully!")
             else:
-                print_error("CHATTA installation failed")
-                print("Try manual installation: pip install chatta")
+                print_error("BUMBA installation failed")
+                print("Try manual installation: pip install bumba")
     
     def install_services(self):
         """Step 6: Install local voice services."""
@@ -582,7 +582,7 @@ class SetupWizard:
             print(f"{Colors.CYAN}~/.config/claude/mcp.json:{Colors.END}")
             print(json.dumps({
                 "mcpServers": {
-                    "chatta": {
+                    "bumba": {
                         "type": "stdio",
                         "command": "python",
                         "args": ["-m", "voice_mode.server"],
@@ -611,8 +611,8 @@ class SetupWizard:
                 mcp_config_path.parent.mkdir(parents=True, exist_ok=True)
                 config = {"mcpServers": {}}
             
-            # Add CHATTA config
-            config["mcpServers"]["chatta"] = {
+            # Add BUMBA config
+            config["mcpServers"]["bumba"] = {
                 "type": "stdio",
                 "command": "python",
                 "args": ["-m", "voice_mode.server"],
@@ -623,7 +623,7 @@ class SetupWizard:
             }
             
             if self.config['openai_key']:
-                config["mcpServers"]["chatta"]["env"]["OPENAI_API_KEY"] = self.config['openai_key']
+                config["mcpServers"]["bumba"]["env"]["OPENAI_API_KEY"] = self.config['openai_key']
             
             # Save config
             with open(mcp_config_path, 'w') as f:
@@ -664,7 +664,7 @@ class SetupWizard:
             print_success("Created .env file")
         
         # Test the installation
-        print("\nTesting CHATTA installation...\n")
+        print("\nTesting BUMBA installation...\n")
         
         test_results = []
         
@@ -726,7 +726,7 @@ class SetupWizard:
         print(f"{Colors.GREEN}{Colors.BOLD}")
         print("╔════════════════════════════════════════════════════════════════╗")
         print("║                                                                ║")
-        print("║            🎉 CHATTA SETUP COMPLETE! 🎉                       ║")
+        print("║            🎉 BUMBA SETUP COMPLETE! 🎉                       ║")
         print("║                                                                ║")
         print("╚════════════════════════════════════════════════════════════════╝")
         print(f"{Colors.END}\n")
@@ -758,7 +758,7 @@ class SetupWizard:
         print(f"  {Colors.CYAN}docker-compose down{Colors.END}     # Stop services")
         
         print(f"\n{Colors.BOLD}📖 Documentation:{Colors.END}")
-        print("  https://github.com/your-repo/chatta")
+        print("  https://github.com/your-repo/bumba")
         
         print(f"\n{Colors.GREEN}Happy voice chatting! 🎙️{Colors.END}\n")
 

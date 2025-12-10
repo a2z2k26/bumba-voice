@@ -100,7 +100,7 @@ def test_playback_ui():
     test_dir = create_test_environment()
     
     # Set environment variable
-    os.environ["VOICEMODE_BASE_DIR"] = str(test_dir)
+    os.environ["BUMBA_BASE_DIR"] = str(test_dir)
     
     try:
         # Import after setting env var

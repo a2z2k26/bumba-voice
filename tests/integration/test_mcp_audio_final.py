@@ -49,8 +49,8 @@ def test_mcp_audio():
             text=True,
             env={
                 **subprocess.os.environ,
-                "CHATTA_AUDIO_FEEDBACK": "true",
-                "VOICEMODE_AUDIO_FEEDBACK": "true"
+                "BUMBA_AUDIO_FEEDBACK": "true",
+                "BUMBA_AUDIO_FEEDBACK": "true"
             }
         )
         

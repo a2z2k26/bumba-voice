@@ -110,7 +110,7 @@ class TestPTTConfiguration:
         assert config.get("mode") == "hold"
 
     def test_env_override(self):
-        os.environ["CHATTA_PTT_KEY_COMBO"] = "ctrl+alt"
+        os.environ["BUMBA_PTT_KEY_COMBO"] = "ctrl+alt"
         config = PTTConfig()
         assert config.get("key_combo") == "ctrl+alt"
 

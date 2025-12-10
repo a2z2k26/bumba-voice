@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-This document analyzes CHATTA's existing voice transport layer to identify integration points for the Push-to-Talk (PTT) feature. The analysis reveals a clean architecture with two distinct transport modes (local microphone and LiveKit rooms) that can be enhanced with PTT keyboard control.
+This document analyzes Bumba Voice's existing voice transport layer to identify integration points for the Push-to-Talk (PTT) feature. The analysis reveals a clean architecture with two distinct transport modes (local microphone and LiveKit rooms) that can be enhanced with PTT keyboard control.
 
 **Key Finding:** PTT integration requires replacing a single recording call (`record_audio_with_silence_detection()`) with PTT-aware recording while maintaining the existing interface contract.
 
@@ -18,7 +18,7 @@ This document analyzes CHATTA's existing voice transport layer to identify integ
 
 ### 1. Transport Modes
 
-CHATTA supports three transport modes via the `converse()` tool:
+Bumba Voice supports three transport modes via the `converse()` tool:
 
 **Mode: "auto" (default)**
 - Checks LiveKit availability first

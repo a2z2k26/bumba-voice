@@ -35,7 +35,7 @@ async def verify_post_cleanup():
         "uv.lock",
         "Makefile",
         ".voices.txt",
-        "chatta_mcp_server.sh"
+        "bumba_mcp_server.sh"
     ]
     missing = []
     for file in critical_files:
@@ -156,7 +156,7 @@ async def verify_post_cleanup():
     return pass_rate == 100
 
 if __name__ == "__main__":
-    print("Verifying CHATTA system after cleanup...")
+    print("Verifying BUMBA system after cleanup...")
     print("This ensures removals were safe and system is production-ready.\n")
     
     success = asyncio.run(verify_post_cleanup())

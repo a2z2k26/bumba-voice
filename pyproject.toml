@@ -3,16 +3,16 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "chatta"
+name = "bumba"
 dynamic = ["version"]
 description = "Push-to-Talk voice control for Claude Code with 60% faster response times - keyboard-driven natural conversations through MCP"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [
-    {name = "CHATTA Team"},
+    {name = "Bumba Team"},
 ]
-keywords = ["mcp", "voice", "chatta", "speech", "tts", "stt", "ai", "llm", "conversation"]
+keywords = ["mcp", "voice", "bumba", "speech", "tts", "stt", "ai", "llm", "conversation"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -90,12 +90,12 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/a2z2k25/CHATTA-Voice"
-Repository = "https://github.com/a2z2k25/CHATTA-Voice"
-Issues = "https://github.com/a2z2k25/CHATTA-Voice/issues"
+Homepage = "https://github.com/a2z2k25/Bumba-Voice"
+Repository = "https://github.com/a2z2k25/Bumba-Voice"
+Issues = "https://github.com/a2z2k25/Bumba-Voice/issues"
 
 [project.scripts]
-chatta = "voice_mode.cli:chatta_main"
+bumba = "voice_mode.cli:bumba_main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/voice_mode"]

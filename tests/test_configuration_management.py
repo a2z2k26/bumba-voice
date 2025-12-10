@@ -17,12 +17,12 @@ class TestConfigurationManagement:
         
         # Should return a formatted string with config keys
         assert isinstance(result, str)
-        assert "VOICEMODE_" in result
+        assert "BUMBA_" in result
         
         # Should include common config keys
-        assert "VOICEMODE_BASE_DIR" in result
-        assert "VOICEMODE_DEBUG" in result
-        assert "VOICEMODE_" in result
+        assert "BUMBA_BASE_DIR" in result
+        assert "BUMBA_DEBUG" in result
+        assert "BUMBA_" in result
         
         # Should include descriptions
         assert "provider" in result.lower() or "TTS" in result
@@ -109,11 +109,11 @@ class TestConfigurationManagement:
         assert len(lines) > 10  # Should have many config keys
         
         # Should have consistent formatting
-        config_lines = [l for l in lines if 'VOICEMODE_' in l]
+        config_lines = [l for l in lines if 'BUMBA_' in l]
         assert len(config_lines) > 0
         
         # Each config line should have key and description
         for line in config_lines[:5]:  # Check first few
-            if 'VOICEMODE_' in line and ':' in line:
-                # Should have format like "VOICEMODE_KEY: description"
+            if 'BUMBA_' in line and ':' in line:
+                # Should have format like "BUMBA_KEY: description"
                 assert line.count(':') >= 1

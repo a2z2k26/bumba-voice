@@ -10,7 +10,7 @@ import pytest
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 # Ensure ALWAYS_TRY_LOCAL is enabled for the test
-os.environ['VOICEMODE_ALWAYS_TRY_LOCAL'] = 'true'
+os.environ['BUMBA_ALWAYS_TRY_LOCAL'] = 'true'
 
 from voice_mode.provider_discovery import ProviderRegistry, is_local_provider, detect_provider_type
 

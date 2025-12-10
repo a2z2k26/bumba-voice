@@ -1,4 +1,4 @@
-# LiveKit configuration for CHATTA
+# LiveKit configuration for BUMBA
 # Copy this file to livekit.yaml and replace placeholders with your actual values
 
 port: 7880

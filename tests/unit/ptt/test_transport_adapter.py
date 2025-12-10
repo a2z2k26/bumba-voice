@@ -1,7 +1,7 @@
 """
 Unit tests for PTT transport adapter.
 
-Tests the bridge between PTT system and CHATTA's transport layer,
+Tests the bridge between PTT system and BUMBA's transport layer,
 ensuring interface compatibility and correct behavior across all PTT modes.
 """
 

@@ -14,17 +14,17 @@ Before ANY cleanup operations, create a complete backup:
 
 ```bash
 # 1. Create backup directory with timestamp
-BACKUP_DIR="$HOME/chatta-backup-$(date +%Y%m%d-%H%M%S)"
+BACKUP_DIR="$HOME/bumba-backup-$(date +%Y%m%d-%H%M%S)"
 mkdir -p "$BACKUP_DIR"
 
 # 2. Copy entire codebase
-cp -r /Users/az/Claude/CHATTA "$BACKUP_DIR/"
+cp -r /Users/az/Claude/Bumba-Voice "$BACKUP_DIR/"
 
 # 3. Verify backup
-ls -la "$BACKUP_DIR/CHATTA"
+ls -la "$BACKUP_DIR/Bumba Voice"
 
 # 4. Create git commit of current state
-cd /Users/az/Claude/CHATTA
+cd /Users/az/Claude/Bumba-Voice
 git add -A
 git commit -m "Pre-cleanup snapshot - $(date +%Y-%m-%d)"
 
@@ -187,7 +187,7 @@ make build-package
 
 ```
 docs/reports/48_SPRINT_ACHIEVEMENTS.md
-docs/reports/CHATTA_FINAL_AUDIT_REPORT.md
+docs/reports/BUMBA_VOICE_FINAL_AUDIT_REPORT.md
 docs/reports/FINAL_ACHIEVEMENT_REPORT.md
 docs/reports/OPTIMIZATION_FIXES.md
 ```
@@ -448,15 +448,15 @@ echo ""
 
 # MANDATORY STEP 1: Backup
 echo "📦 STEP 1: Creating backup..."
-BACKUP_DIR="$HOME/chatta-backup-$(date +%Y%m%d-%H%M%S)"
+BACKUP_DIR="$HOME/bumba-backup-$(date +%Y%m%d-%H%M%S)"
 mkdir -p "$BACKUP_DIR"
-cp -r /Users/az/Claude/CHATTA "$BACKUP_DIR/"
+cp -r /Users/az/Claude/Bumba-Voice "$BACKUP_DIR/"
 echo "✅ Backup created at: $BACKUP_DIR"
 
 # MANDATORY STEP 2: Git snapshot
 echo ""
 echo "🔖 STEP 2: Creating git snapshot..."
-cd /Users/az/Claude/CHATTA
+cd /Users/az/Claude/Bumba-Voice
 git add -A
 git commit -m "Pre-cleanup snapshot - $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
 git tag "pre-cleanup-$(date +%Y%m%d)" || echo "Tag already exists"
@@ -592,7 +592,7 @@ echo "  git revert HEAD                      # Undo cleanup completely"
 
 ```bash
 # Reset to pre-cleanup state
-cd /Users/az/Claude/CHATTA
+cd /Users/az/Claude/Bumba-Voice
 git reset --hard pre-cleanup-$(date +%Y%m%d)
 
 # Verify rollback
@@ -613,10 +613,10 @@ git revert HEAD
 
 ```bash
 # Find backup
-ls -la ~/chatta-backup-*
+ls -la ~/bumba-backup-*
 
 # Restore specific files
-cp ~/chatta-backup-YYYYMMDD-HHMMSS/CHATTA/docs/ptt/SPRINT_*.md docs/ptt/
+cp ~/bumba-backup-YYYYMMDD-HHMMSS/Bumba Voice/docs/ptt/SPRINT_*.md docs/ptt/
 ```
 
 ---

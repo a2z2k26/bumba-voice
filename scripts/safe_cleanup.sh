@@ -1,8 +1,8 @@
 #!/bin/bash
-# SAFE cleanup script for CHATTA productization
+# SAFE cleanup script for BUMBA productization
 # Verified to not affect system operability
 
-echo "🧹 Starting SAFE cleanup for CHATTA production..."
+echo "🧹 Starting SAFE cleanup for BUMBA production..."
 echo "This script only removes files verified to be safe."
 echo ""
 
@@ -119,7 +119,7 @@ echo "   Total items removed: $removed_count"
 echo ""
 echo "⚠️  FILES KEPT (verified as needed):"
 echo "   • .voices.txt (used for voice preferences)"
-echo "   • chatta_mcp_server.sh (used in integration tests)"
+echo "   • bumba_mcp_server.sh (used in integration tests)"
 echo "   • .venv/ (kept for development, remove for distribution)"
 echo ""
 echo "📊 Space saved: ~50-150MB (excluding .venv)"

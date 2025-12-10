@@ -1,6 +1,6 @@
 # Config Directory ⚙️
 
-This directory contains configuration files and examples for CHATTA.
+This directory contains configuration files and examples for BUMBA.
 
 ## Files
 
@@ -24,11 +24,11 @@ cp config/voices.example.txt config/.voices.txt
 ```json
 {
   "mcpServers": {
-    "chatta": {
-      "command": "chatta",
+    "bumba": {
+      "command": "bumba",
       "args": ["mcp"],
       "env": {
-        "CHATTA_MODE": "local"
+        "BUMBA_MODE": "local"
       }
     }
   }

@@ -147,7 +147,7 @@ class RollbackManager:
 1. **Immediate Disable** (< 1 minute)
    ```python
    # In config.py - emergency kill switch
-   CHATTA_PTT_ENABLED = False  # Disables all PTT functionality
+   BUMBA_PTT_ENABLED = False  # Disables all PTT functionality
    ```
 
 2. **Hot Patch** (< 5 minutes)

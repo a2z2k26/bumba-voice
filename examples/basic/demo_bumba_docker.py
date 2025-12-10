@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-CHATTA + Docker Services Demo
-Demonstrates the full CHATTA voice conversation system using Docker STT/TTS services
+BUMBA + Docker Services Demo
+Demonstrates the full BUMBA voice conversation system using Docker STT/TTS services
 """
 import os
 import asyncio
@@ -16,16 +16,16 @@ os.environ["OPENAI_API_KEY"] = "dummy-key-for-local"  # Not needed for local ser
 async def main():
     """Main demo function"""
     print("="*60)
-    print("🎙️  CHATTA + Docker Services Voice Demo")
+    print("🎙️  BUMBA + Docker Services Voice Demo")
     print("="*60)
     
-    # Import CHATTA components
+    # Import BUMBA components
     try:
         from voice_mode.tools.converse import converse
         from voice_mode.providers import provider_registry
         from voice_mode.config import SAMPLE_RATE, CHANNELS
         
-        print("\n✅ CHATTA voice system loaded successfully")
+        print("\n✅ BUMBA voice system loaded successfully")
         
         # Force discovery of our Docker endpoints
         print("\n🔍 Discovering Docker voice services...")
@@ -50,7 +50,7 @@ async def main():
         print("   Speaking through Kokoro TTS...")
         
         result = await converse(
-            message="Hello! I'm CHATTA, running with local Docker services. I'm using Kokoro for text-to-speech and Whisper for speech-to-text. Please say something after the tone, and I'll transcribe it for you!",
+            message="Hello! I'm BUMBA, running with local Docker services. I'm using Kokoro for text-to-speech and Whisper for speech-to-text. Please say something after the tone, and I'll transcribe it for you!",
             voice="af_alloy",  # Kokoro voice
             wait_for_response=True,  # Wait for user response
             transport="microphone",  # Use local microphone
@@ -105,7 +105,7 @@ async def main():
             
     except ImportError as e:
         print(f"\n❌ Import Error: {e}")
-        print("\n💡 Make sure CHATTA is installed:")
+        print("\n💡 Make sure BUMBA is installed:")
         print("   pip install -e .")
     except Exception as e:
         print(f"\n❌ Error: {e}")
@@ -113,12 +113,12 @@ async def main():
         traceback.print_exc()
 
 if __name__ == "__main__":
-    print("🎤 CHATTA Docker Integration Demo")
+    print("🎤 BUMBA Docker Integration Demo")
     print("-" * 40)
     print("\nPrerequisites:")
     print("✓ Docker services running (docker-compose up)")
     print("✓ Microphone access enabled")
-    print("✓ CHATTA installed (pip install -e .)")
+    print("✓ BUMBA installed (pip install -e .)")
     print("\nStarting demo...\n")
     
     asyncio.run(main())

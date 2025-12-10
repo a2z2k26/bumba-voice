@@ -278,7 +278,7 @@ class SessionManager:
             auto_save: Enable auto-save feature
         """
         self.sessions: Dict[str, SessionState] = {}
-        self.storage_dir = storage_dir or Path.home() / '.chatta' / 'sessions'
+        self.storage_dir = storage_dir or Path.home() / '.bumba' / 'sessions'
         self.storage_dir.mkdir(parents=True, exist_ok=True)
         self.lock = threading.Lock()
         self.auto_save = auto_save

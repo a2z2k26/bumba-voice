@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CHATTA Docker Services Integration Test
+BUMBA Docker Services Integration Test
 Tests all voice services: Whisper STT, Kokoro TTS, and LiveKit
 """
 import requests
@@ -31,7 +31,7 @@ def test_whisper_stt():
         return False
     
     # Create test audio
-    test_text = "Hello CHATTA, testing speech to text service"
+    test_text = "Hello BUMBA, testing speech to text service"
     test_audio = "test_stt.wav"
     
     try:
@@ -87,7 +87,7 @@ def test_kokoro_tts():
         response = requests.post(
             "http://localhost:7888/v1/audio/speech",
             json={
-                "input": "Hello CHATTA, voice services are operational",
+                "input": "Hello BUMBA, voice services are operational",
                 "voice": "af_alloy",
                 "model": "tts-1"
             },
@@ -153,7 +153,7 @@ def test_end_to_end():
     try:
         # 1. Generate test audio with TTS
         print("1. Generating test audio with Kokoro TTS...")
-        test_phrase = "CHATTA voice services integration test successful"
+        test_phrase = "BUMBA voice services integration test successful"
         
         tts_response = requests.post(
             "http://localhost:7888/v1/audio/speech",
@@ -223,7 +223,7 @@ def test_end_to_end():
 def main():
     """Run all tests"""
     print("="*60)
-    print("CHATTA Voice Services Integration Test Suite")
+    print("BUMBA Voice Services Integration Test Suite")
     print("="*60)
     print(f"Starting tests at {time.strftime('%Y-%m-%d %H:%M:%S')}")
     
@@ -254,7 +254,7 @@ def main():
     
     print("\n" + "="*60)
     if all_passed:
-        print("🎉 All tests passed! CHATTA voice services are operational!")
+        print("🎉 All tests passed! BUMBA voice services are operational!")
     else:
         failed = [name for name, passed in results if not passed]
         print(f"⚠️  Some tests failed: {', '.join(failed)}")

@@ -1,10 +1,11 @@
-version: '3.8'
+name: bumba
+
 services:
   whisper:
     build:
-      context: ./docker/whisper
+      context: ./whisper
       dockerfile: Dockerfile.simple
-    container_name: chatta-whisper
+    container_name: bumba-whisper
     ports:
     - 8880:8880
     volumes:
@@ -14,12 +15,12 @@ services:
     - WHISPER_THREADS=4
     restart: unless-stopped
     networks:
-    - chatta-network
+    - bumba-network
   kokoro:
     build:
-      context: ./docker/kokoro
+      context: ./kokoro
       dockerfile: Dockerfile
-    container_name: chatta-kokoro
+    container_name: bumba-kokoro
     ports:
     - 7888:7888
     volumes:
@@ -29,24 +30,24 @@ services:
     - KOKORO_VOICE=af
     restart: unless-stopped
     networks:
-    - chatta-network
+    - bumba-network
   livekit:
     image: livekit/livekit-server:latest
-    container_name: chatta-livekit
+    container_name: bumba-livekit
     ports:
     - 7880:7880
     - 7881:7881
     - 50000-50100:50000-50100/udp
     volumes:
-    - ./docker/livekit/livekit.yaml:/etc/livekit.yaml
+    - ./livekit/livekit.yaml:/etc/livekit.yaml
     restart: unless-stopped
     networks:
-    - chatta-network
+    - bumba-network
     command: --config /etc/livekit.yaml
 networks:
-  chatta-network:
+  bumba-network:
     driver: bridge
-    name: chatta-network
+    name: bumba-network
 volumes:
   whisper-models: {}
   kokoro-models: {}

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Production monitoring and deployment system for CHATTA voice mode.
+"""Production monitoring and deployment system for Bumba Voice mode.
 
 Sprint 48: Production Release & Monitoring
 This module provides comprehensive production monitoring, health checks,
-deployment automation, and operational insights for the CHATTA system.
+deployment automation, and operational insights for the Bumba Voice system.
 """
 
 import asyncio
@@ -647,7 +647,7 @@ class SystemProfiler:
 class ProductionMonitor:
     """Main production monitoring system."""
     
-    def __init__(self, project_name: str = "CHATTA", version: str = "1.0.0"):
+    def __init__(self, project_name: str = "Bumba Voice", version: str = "1.0.0"):
         """Initialize production monitor."""
         self.project_name = project_name
         self.version = version
@@ -948,7 +948,7 @@ class ProductionMonitor:
 
 if __name__ == "__main__":
     # Example usage
-    monitor = ProductionMonitor("CHATTA", "1.0.0")
+    monitor = ProductionMonitor("Bumba Voice", "1.0.0")
     
     # Start monitoring in background
     async def main():

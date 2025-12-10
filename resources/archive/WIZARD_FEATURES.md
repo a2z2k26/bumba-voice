@@ -5,7 +5,7 @@
 The enhanced setup wizard now includes intelligent detection that automatically discovers:
 
 ### System Components
-- **CHATTA Installation**: Detects version and installation status
+- **BUMBA Installation**: Detects version and installation status
 - **Dependencies**: git, curl, ffmpeg, node, npm, uv, pip, docker-compose
 - **Docker**: Installation status and daemon availability
 - **Services**: Whisper (8880), Kokoro (7888), LiveKit (7880)
@@ -30,7 +30,7 @@ The enhanced setup wizard now includes intelligent detection that automatically 
 
 2. **`--skip-wizard`**: Complete bypass for automated installations
    - Bypasses the entire wizard
-   - Only ensures CHATTA is installed/upgraded
+   - Only ensures BUMBA is installed/upgraded
    - Ideal for CI/CD pipelines
 
 3. **`--check-only` / `-c`**: Detection without installation
@@ -65,11 +65,11 @@ python setup_wizard_enhanced.py --express
 
 ### Automated Installation
 ```bash
-# CI/CD pipeline - just ensure CHATTA is installed
+# CI/CD pipeline - just ensure BUMBA is installed
 python setup_wizard_enhanced.py --skip-wizard
 
 # One-liner for scripts
-curl -fsSL https://chatta.ai/install | bash
+curl -fsSL https://bumba.ai/install | bash
 ```
 
 ### New User - Full Experience

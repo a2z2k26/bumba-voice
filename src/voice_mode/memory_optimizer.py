@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Memory optimization framework for CHATTA voice mode."""
+"""Memory optimization framework for Bumba Voice mode."""
 
 import gc
 import weakref

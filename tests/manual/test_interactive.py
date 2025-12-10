@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Test CHATTA interactive conversation
+Test BUMBA interactive conversation
 """
 import subprocess
 import time
 
 print("="*60)
-print("🎙️  Testing CHATTA Interactive Conversation")
+print("🎙️  Testing BUMBA Interactive Conversation")
 print("="*60)
 print("\nThis will:")
 print("1. Say a greeting through Kokoro TTS")
@@ -15,10 +15,10 @@ print("3. Transcribe what you said with Whisper STT")
 print("\nStarting in 3 seconds...")
 time.sleep(3)
 
-# Run chatta converse in interactive mode
+# Run bumba converse in interactive mode
 cmd = [
-    "chatta", "converse",
-    "-m", "Hello! I'm CHATTA running with Docker services. Please say something after the beep!",
+    "bumba", "converse",
+    "-m", "Hello! I'm BUMBA running with Docker services. Please say something after the beep!",
     "--wait",  # Wait for user response
     "-d", "5"  # Listen for 5 seconds
 ]
@@ -39,6 +39,6 @@ else:
     print(result.stderr)
 
 print("\n💡 You can also run directly in terminal:")
-print("   chatta converse")
-print("   chatta converse --continuous  # For ongoing conversation")
-print("   chatta converse --help        # For all options")
+print("   bumba converse")
+print("   bumba converse --continuous  # For ongoing conversation")
+print("   bumba converse --help        # For all options")

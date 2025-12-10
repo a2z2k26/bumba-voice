@@ -298,7 +298,7 @@ async def test_beta_testing_manager():
     with tempfile.TemporaryDirectory() as tmpdir:
         os.chdir(tmpdir)
         
-        manager = BetaTestingManager("CHATTA", "1.0.0-beta")
+        manager = BetaTestingManager("BUMBA", "1.0.0-beta")
         
         print(f"  Manager initialized: {manager.project_name}")
         print(f"  Version: {manager.version}")
@@ -392,7 +392,7 @@ async def test_end_to_end_beta_flow():
         os.chdir(tmpdir)
         
         # Initialize manager
-        manager = BetaTestingManager("CHATTA", "1.0.0-beta")
+        manager = BetaTestingManager("BUMBA", "1.0.0-beta")
         
         # Launch beta
         launch = manager.launch_beta_program(

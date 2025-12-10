@@ -163,7 +163,7 @@ async def startup_initialization():
     await provider_registry.initialize()
 
     # Pre-warm provider connections (Optimization #3: Connection Warmup)
-    warmup_enabled = os.getenv("CHATTA_WARMUP_PROVIDERS", "true").lower() in ("true", "1", "yes")
+    warmup_enabled = os.getenv("BUMBA_WARMUP_PROVIDERS", "true").lower() in ("true", "1", "yes")
 
     if warmup_enabled:
         logger.info("Pre-warming provider connections...")
@@ -1503,7 +1503,7 @@ async def converse(
 ) -> str:
     """Have a voice conversation - speak a message and optionally listen for response.
 
-    🗣️ CONVERSATIONAL IDENTITY: Respond naturally to "Chatta" (context-specific voice name).
+    🗣️ CONVERSATIONAL IDENTITY: Respond naturally to "Bumba" (context-specific voice name).
     Don't introduce unprompted. See CLAUDE.md for guidelines.
 
     🌍 LANGUAGE SUPPORT - ALWAYS SELECT APPROPRIATE VOICE FOR NON-ENGLISH TEXT:

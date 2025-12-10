@@ -1,4 +1,4 @@
-# CHATTA Voice System - Core Improvement Sprint Plan
+# Bumba Voice Voice System - Core Improvement Sprint Plan
 ## Path to 100% Operability & A+ Grade
 
 **Objective:** Achieve 100% system operability by fixing issues and optimizing existing features  

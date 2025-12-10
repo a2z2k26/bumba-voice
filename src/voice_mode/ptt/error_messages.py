@@ -98,7 +98,7 @@ class PTTError(Exception):
 
     def _get_doc_url(self) -> Optional[str]:
         """Get documentation URL for error code."""
-        base_url = "https://github.com/yourusername/chatta/blob/main/docs/ptt"
+        base_url = "https://github.com/yourusername/bumba-voice/blob/main/docs/ptt"
 
         doc_map = {
             PTTErrorCode.KEYBOARD_INIT_FAILED: f"{base_url}/troubleshooting.md#keyboard-initialization",
@@ -203,7 +203,7 @@ class PTTErrorMessages:
         return PTTError(
             code=PTTErrorCode.INVALID_MODE,
             message=f"Invalid PTT mode: '{mode}'",
-            suggestion="Valid modes are: 'hold', 'toggle', or 'hybrid'. Set CHATTA_PTT_MODE environment variable.",
+            suggestion="Valid modes are: 'hold', 'toggle', or 'hybrid'. Set BUMBA_PTT_MODE environment variable.",
             context={'invalid_mode': mode, 'valid_modes': ['hold', 'toggle', 'hybrid']}
         )
 
@@ -219,7 +219,7 @@ class PTTErrorMessages:
             "  - down+right (arrow keys)\n"
             "  - ctrl+space (modifier + key)\n"
             "  - f12 (single key)\n"
-            "Set CHATTA_PTT_KEY_COMBO environment variable."
+            "Set BUMBA_PTT_KEY_COMBO environment variable."
         )
 
         return PTTError(
@@ -252,8 +252,8 @@ class PTTErrorMessages:
             code=PTTErrorCode.TIMEOUT_EXCEEDED,
             message=f"Recording exceeded timeout of {timeout} seconds",
             suggestion=(
-                f"To allow longer recordings, increase CHATTA_PTT_TIMEOUT:\n"
-                f"  export CHATTA_PTT_TIMEOUT=300  # 5 minutes"
+                f"To allow longer recordings, increase BUMBA_PTT_TIMEOUT:\n"
+                f"  export BUMBA_PTT_TIMEOUT=300  # 5 minutes"
             ),
             context={'timeout': timeout}
         )

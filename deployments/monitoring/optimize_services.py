@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Service optimization improvements for CHATTA."""
+"""Service optimization improvements for BUMBA."""
 
 import os
 import sys
@@ -42,11 +42,11 @@ def optimize_config():
     
     # Update environment variables for optimal performance
     env_updates = [
-        "export CHATTA_CONNECTION_POOL_SIZE=10",
-        "export CHATTA_REQUEST_TIMEOUT=5",
-        "export CHATTA_CACHE_ENABLED=true",
-        "export CHATTA_PARALLEL_REQUESTS=true",
-        "export CHATTA_HEALTH_CHECK_INTERVAL=30"
+        "export BUMBA_CONNECTION_POOL_SIZE=10",
+        "export BUMBA_REQUEST_TIMEOUT=5",
+        "export BUMBA_CACHE_ENABLED=true",
+        "export BUMBA_PARALLEL_REQUESTS=true",
+        "export BUMBA_HEALTH_CHECK_INTERVAL=30"
     ]
     
     env_file = ".env.optimized"

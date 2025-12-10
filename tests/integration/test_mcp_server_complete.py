@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Complete test of CHATTA MCP server functionality"""
+"""Complete test of BUMBA MCP server functionality"""
 import json
 import subprocess
 import sys
@@ -10,7 +10,7 @@ async def test_mcp_server():
     
     # Start the server using the shell script
     process = subprocess.Popen(
-        [os.path.dirname(os.path.abspath(__file__)) + "/chatta_mcp_server.sh"],
+        [os.path.dirname(os.path.abspath(__file__)) + "/bumba_mcp_server.sh"],
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
@@ -33,7 +33,7 @@ async def test_mcp_server():
             return None
     
     try:
-        print("Testing CHATTA MCP Server")
+        print("Testing BUMBA MCP Server")
         print("=" * 60)
         
         # 1. Initialize with Claude's protocol version
@@ -116,7 +116,7 @@ async def test_mcp_server():
 
 if __name__ == "__main__":
     print("=" * 60)
-    print("🔧 Complete CHATTA MCP Server Test")
+    print("🔧 Complete BUMBA MCP Server Test")
     print("=" * 60)
     
     success = asyncio.run(test_mcp_server())
@@ -126,7 +126,7 @@ if __name__ == "__main__":
         print("\nNext steps:")
         print("1. Open a NEW chat in Claude Desktop")
         print("2. Type: 'Can you list your available MCP tools?'")
-        print("3. Look for 'chatta' tools in the response")
+        print("3. Look for 'bumba' tools in the response")
         print("4. Try: 'Use the converse tool to say hello'")
     else:
         print("\n❌ MCP server has issues that need fixing")

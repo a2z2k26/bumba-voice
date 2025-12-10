@@ -125,7 +125,7 @@ def test_environment_application():
     
     # Clear existing env vars
     for key in list(os.environ.keys()):
-        if key.startswith("CHATTA_"):
+        if key.startswith("BUMBA_"):
             del os.environ[key]
     
     # Apply optimizations
@@ -133,11 +133,11 @@ def test_environment_application():
     optimizer.apply_optimizations()
     
     # Check environment variables
-    env_vars = {k: v for k, v in os.environ.items() if k.startswith("CHATTA_")}
+    env_vars = {k: v for k, v in os.environ.items() if k.startswith("BUMBA_")}
     
     print(f"Applied {len(env_vars)} environment variables:")
     for category in ["AUDIO", "DISPLAY", "NETWORK", "RESOURCE"]:
-        category_vars = {k: v for k, v in env_vars.items() if f"CHATTA_{category}" in k}
+        category_vars = {k: v for k, v in env_vars.items() if f"BUMBA_{category}" in k}
         if category_vars:
             print(f"\n{category}:")
             for key, value in sorted(category_vars.items()):

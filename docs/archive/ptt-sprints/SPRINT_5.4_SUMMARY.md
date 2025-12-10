@@ -85,7 +85,7 @@ PTT Configuration Validation Results
   Setting: PTT_TIMEOUT
   Problem: PTT timeout must be positive, got: -10
   Current: -10
-  Fix: Set CHATTA_PTT_TIMEOUT to a positive number (e.g., 120)
+  Fix: Set BUMBA_PTT_TIMEOUT to a positive number (e.g., 120)
 
 ⚠️  WARNINGS (1):
 
@@ -235,14 +235,14 @@ Setup Complete!
 ============================================================
 
 Configuration:
-  CHATTA_PTT_MODE=toggle
-  CHATTA_PTT_KEY_COMBO=ctrl+space
-  CHATTA_PTT_TIMEOUT=120.0
-  CHATTA_PTT_VISUAL_STYLE=compact
-  CHATTA_PTT_AUDIO_FEEDBACK=true
-  CHATTA_PTT_FEEDBACK_VOLUME=0.7
+  BUMBA_PTT_MODE=toggle
+  BUMBA_PTT_KEY_COMBO=ctrl+space
+  BUMBA_PTT_TIMEOUT=120.0
+  BUMBA_PTT_VISUAL_STYLE=compact
+  BUMBA_PTT_AUDIO_FEEDBACK=true
+  BUMBA_PTT_FEEDBACK_VOLUME=0.7
 
-To apply: export CHATTA_PTT_MODE=toggle ...
+To apply: export BUMBA_PTT_MODE=toggle ...
 ```
 
 **Prerequisites Check:**
@@ -342,13 +342,13 @@ PTT Quick Start Guide
    - Release (or press again) to stop and transcribe
 
 2. Configuration
-   - Set environment variables (CHATTA_PTT_*)
+   - Set environment variables (BUMBA_PTT_*)
    - Or use setup wizard
 
 3. Key Settings
-   - CHATTA_PTT_MODE: hold, toggle, or hybrid
-   - CHATTA_PTT_KEY_COMBO: key combination
-   - CHATTA_PTT_TIMEOUT: max recording seconds
+   - BUMBA_PTT_MODE: hold, toggle, or hybrid
+   - BUMBA_PTT_KEY_COMBO: key combination
+   - BUMBA_PTT_TIMEOUT: max recording seconds
 
 4. Common Issues
    - macOS: Grant accessibility permissions
@@ -551,8 +551,8 @@ python -m voice_mode.ptt.setup_helper --setup
 # Follows interactive prompts
 # Gets configuration to add to environment
 # Applies configuration
-export CHATTA_PTT_MODE=hold
-export CHATTA_PTT_KEY_COMBO=down+right
+export BUMBA_PTT_MODE=hold
+export BUMBA_PTT_KEY_COMBO=down+right
 # ... etc
 ```
 

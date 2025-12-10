@@ -14,8 +14,8 @@ def test_cli_audio():
     
     # Set environment variable
     env = os.environ.copy()
-    env['CHATTA_AUDIO_FEEDBACK'] = 'true'
-    env['VOICEMODE_AUDIO_FEEDBACK'] = 'true'
+    env['BUMBA_AUDIO_FEEDBACK'] = 'true'
+    env['BUMBA_AUDIO_FEEDBACK'] = 'true'
     
     print("\n1. Testing with audio feedback ENABLED...")
     print("Listen for:")

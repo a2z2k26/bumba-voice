@@ -1,4 +1,4 @@
-# Contributing to CHATTA
+# Contributing to Bumba Voice
 
 ```
  ██████╗██╗  ██╗ █████╗ ████████╗████████╗ █████╗
@@ -14,7 +14,7 @@ Building Unified Multi-agent Business Applications
 Professional • Intelligent • Secure • Enterprise-Ready
 ```
 
-Thank you for your interest in contributing to CHATTA! This guide will help you get started with development as part of the **BUMBA Platform** ecosystem.
+Thank you for your interest in contributing to Bumba Voice! This guide will help you get started with development as part of the **BUMBA Platform** ecosystem.
 
 ## Development Setup
 

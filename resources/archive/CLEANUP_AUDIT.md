@@ -1,4 +1,4 @@
-# CHATTA System Cleanup Audit Report
+# BUMBA System Cleanup Audit Report
 
 ## Executive Summary
 This audit identifies files and directories that can be safely removed from the productized build without affecting system operability.
@@ -87,7 +87,7 @@ These should be in tests/ directory:
 
 ### Potentially Removable
 - `bumba.config.js` - Verify if used
-- `chatta_mcp_server.sh` - May be replaced by proper entry point
+- `bumba_mcp_server.sh` - May be replaced by proper entry point
 - `.voices.txt` - Check if runtime dependency
 
 ---
@@ -145,7 +145,7 @@ These should be in tests/ directory:
 #!/bin/bash
 # cleanup_for_production.sh
 
-echo "🧹 Cleaning CHATTA for production..."
+echo "🧹 Cleaning BUMBA for production..."
 
 # 1. Remove Python cache
 find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null
@@ -227,7 +227,7 @@ Before removing files:
 
 1. **Create a backup**
    ```bash
-   tar -czf chatta_backup_$(date +%Y%m%d).tar.gz .
+   tar -czf bumba_backup_$(date +%Y%m%d).tar.gz .
    ```
 
 2. **Test after each category removal**

@@ -80,8 +80,8 @@ async def test_cli_integration():
     print("\n3. Testing CLI integration...")
     
     env = os.environ.copy()
-    env['CHATTA_AUDIO_FEEDBACK'] = 'true'
-    env['VOICEMODE_AUDIO_FEEDBACK'] = 'true'
+    env['BUMBA_AUDIO_FEEDBACK'] = 'true'
+    env['BUMBA_AUDIO_FEEDBACK'] = 'true'
     
     cmd = [
         sys.executable, "-m", "voice_mode.cli",

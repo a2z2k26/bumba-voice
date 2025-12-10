@@ -188,7 +188,7 @@ class VoiceProfileManager:
             storage_dir: Directory for profile storage
         """
         if storage_dir is None:
-            storage_dir = Path.home() / ".chatta" / "profiles"
+            storage_dir = Path.home() / ".bumba" / "profiles"
         
         self.storage_dir = Path(storage_dir)
         self.storage_dir.mkdir(parents=True, exist_ok=True)

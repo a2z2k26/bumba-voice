@@ -1,4 +1,4 @@
-# CHATTA Integration Guides
+# Bumba Voice Integration Guides
 
 ```
  ██████╗██╗  ██╗ █████╗ ████████╗████████╗ █████╗
@@ -12,7 +12,7 @@ Natural Voice Conversations for AI Assistants
 Part of BUMBA - Building Unified Multi-agent Business Applications
 ```
 
-This directory contains beginner-friendly, step-by-step integration guides for setting up CHATTA with various AI coding assistants and development tools. Each guide assumes no prior experience with the tool and walks you through from installation to your first voice conversation.
+This directory contains beginner-friendly, step-by-step integration guides for setting up Bumba Voice with various AI coding assistants and development tools. Each guide assumes no prior experience with the tool and walks you through from installation to your first voice conversation.
 
 ## Available Integrations
 
@@ -69,7 +69,7 @@ To add a new integration guide:
 
 ## Integration Features
 
-CHATTA adds these capabilities to your development tools:
+Bumba Voice adds these capabilities to your development tools:
 
 - 🟢 **Natural voice conversations** - Speak your questions and hear responses
 - 🟡 **Real-time interaction** - Code changes happen as you talk

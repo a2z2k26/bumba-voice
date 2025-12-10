@@ -8,12 +8,12 @@ These settings ensure identical Voice Activity Detection behavior across both pl
 
 ```bash
 # VAD Settings for natural conversation flow
-export CHATTA_DISABLE_SILENCE_DETECTION=false
-export CHATTA_VAD_AGGRESSIVENESS=1              # Less aggressive (better for natural speech)
-export CHATTA_SILENCE_THRESHOLD_MS=1200         # 1.2 seconds (allows natural pauses)
-export CHATTA_MIN_RECORDING_DURATION=0.3        # 300ms minimum (captures quick responses)
-export CHATTA_INITIAL_SILENCE_GRACE_PERIOD=2.0  # 2 seconds initial grace
-export CHATTA_VAD_DEBUG=false                   # Set to true for troubleshooting
+export BUMBA_DISABLE_SILENCE_DETECTION=false
+export BUMBA_VAD_AGGRESSIVENESS=1              # Less aggressive (better for natural speech)
+export BUMBA_SILENCE_THRESHOLD_MS=1200         # 1.2 seconds (allows natural pauses)
+export BUMBA_MIN_RECORDING_DURATION=0.3        # 300ms minimum (captures quick responses)
+export BUMBA_INITIAL_SILENCE_GRACE_PERIOD=2.0  # 2 seconds initial grace
+export BUMBA_VAD_DEBUG=false                   # Set to true for troubleshooting
 ```
 
 ### Configuration Files
@@ -26,12 +26,12 @@ export CHATTA_VAD_DEBUG=false                   # Set to true for troubleshootin
       "command": "uv",
       "args": ["run", "voicemode"],
       "env": {
-        "CHATTA_AUDIO_FEEDBACK": "true",
-        "CHATTA_DISABLE_SILENCE_DETECTION": "false",
-        "CHATTA_VAD_AGGRESSIVENESS": "1",
-        "CHATTA_SILENCE_THRESHOLD_MS": "1200",
-        "CHATTA_MIN_RECORDING_DURATION": "0.3",
-        "CHATTA_INITIAL_SILENCE_GRACE_PERIOD": "2.0"
+        "BUMBA_AUDIO_FEEDBACK": "true",
+        "BUMBA_DISABLE_SILENCE_DETECTION": "false",
+        "BUMBA_VAD_AGGRESSIVENESS": "1",
+        "BUMBA_SILENCE_THRESHOLD_MS": "1200",
+        "BUMBA_MIN_RECORDING_DURATION": "0.3",
+        "BUMBA_INITIAL_SILENCE_GRACE_PERIOD": "2.0"
       }
     }
   }
@@ -47,12 +47,12 @@ export CHATTA_VAD_DEBUG=false                   # Set to true for troubleshootin
       "command": "uv",
       "args": ["run", "voicemode"],
       "env": {
-        "CHATTA_AUDIO_FEEDBACK": "true",
-        "CHATTA_DISABLE_SILENCE_DETECTION": "false",
-        "CHATTA_VAD_AGGRESSIVENESS": "1",
-        "CHATTA_SILENCE_THRESHOLD_MS": "1200",
-        "CHATTA_MIN_RECORDING_DURATION": "0.3",
-        "CHATTA_INITIAL_SILENCE_GRACE_PERIOD": "2.0"
+        "BUMBA_AUDIO_FEEDBACK": "true",
+        "BUMBA_DISABLE_SILENCE_DETECTION": "false",
+        "BUMBA_VAD_AGGRESSIVENESS": "1",
+        "BUMBA_SILENCE_THRESHOLD_MS": "1200",
+        "BUMBA_MIN_RECORDING_DURATION": "0.3",
+        "BUMBA_INITIAL_SILENCE_GRACE_PERIOD": "2.0"
       }
     }
   }
@@ -89,7 +89,7 @@ export CHATTA_VAD_DEBUG=false                   # Set to true for troubleshootin
 uv run voicemode converse "Quick test"
 
 # Test with specific VAD settings
-CHATTA_VAD_AGGRESSIVENESS=1 CHATTA_SILENCE_THRESHOLD_MS=1200 uv run voicemode converse "Test settings"
+BUMBA_VAD_AGGRESSIVENESS=1 BUMBA_SILENCE_THRESHOLD_MS=1200 uv run voicemode converse "Test settings"
 
 # Test silence detection directly
 python tests/manual/test_silence_detection_manual.py
@@ -117,20 +117,20 @@ python tests/manual/test_silence_detection_manual.py
 ## Troubleshooting
 
 ### If cutting off too early:
-1. Increase `CHATTA_SILENCE_THRESHOLD_MS` to 1500
-2. Decrease `CHATTA_VAD_AGGRESSIVENESS` to 0
+1. Increase `BUMBA_SILENCE_THRESHOLD_MS` to 1500
+2. Decrease `BUMBA_VAD_AGGRESSIVENESS` to 0
 3. Check microphone gain settings
 
 ### If not detecting silence:
-1. Increase `CHATTA_VAD_AGGRESSIVENESS` to 2
+1. Increase `BUMBA_VAD_AGGRESSIVENESS` to 2
 2. Check for background noise
-3. Enable `CHATTA_VAD_DEBUG=true` for diagnostics
+3. Enable `BUMBA_VAD_DEBUG=true` for diagnostics
 
 ### Debug Mode
 ```bash
 # Enable detailed VAD logging
-export CHATTA_VAD_DEBUG=true
-export CHATTA_DEBUG=true
+export BUMBA_VAD_DEBUG=true
+export BUMBA_DEBUG=true
 
 # Run with debug output
 uv run voicemode converse "Debug test"

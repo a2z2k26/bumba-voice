@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Docker setup script for CHATTA voice services.
+Docker setup script for BUMBA voice services.
 Reads configuration from docker.config.json and sets up Docker infrastructure.
 """
 
@@ -276,7 +276,7 @@ async def health_check():
 
 def create_livekit_config(config: Dict[str, Any]) -> None:
     """Create LiveKit configuration file."""
-    livekit_config = """# LiveKit configuration for CHATTA
+    livekit_config = """# LiveKit configuration for BUMBA
 # WARNING: Replace placeholder keys with your own API credentials
 # Generate keys using: openssl rand -base64 32
 
@@ -315,7 +315,7 @@ logging:
 
 def main():
     """Main setup function."""
-    print("🚀 CHATTA Docker Setup")
+    print("🚀 BUMBA Docker Setup")
     print("=" * 50)
     
     # Load configuration

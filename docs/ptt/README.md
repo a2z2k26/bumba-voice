@@ -5,7 +5,7 @@
 
 ## Overview
 
-The PTT module provides keyboard-controlled voice recording for CHATTA, allowing users to control when audio recording starts and stops via configurable key combinations. This gives users better control over conversation cadence compared to automatic microphone triggering.
+The PTT module provides keyboard-controlled voice recording for Bumba Voice, allowing users to control when audio recording starts and stops via configurable key combinations. This gives users better control over conversation cadence compared to automatic microphone triggering.
 
 ## Features
 
@@ -80,7 +80,7 @@ User Action → Keyboard Handler → Event Queue → Controller → State Machin
 
 ## Installation
 
-The PTT module is included in CHATTA's voice_mode package:
+The PTT module is included in Bumba Voice's voice_mode package:
 
 ```bash
 pip install sounddevice numpy pynput
@@ -138,19 +138,19 @@ controller.enable()
 
 ```bash
 # Mode selection
-export CHATTA_PTT_MODE="hold"              # "hold", "toggle", or "hybrid"
+export BUMBA_PTT_MODE="hold"              # "hold", "toggle", or "hybrid"
 
 # Key combinations
-export CHATTA_PTT_KEY_COMBO="option_r"     # Right Option Key (default)
-export CHATTA_PTT_CANCEL_KEY="escape"      # Cancel recording
+export BUMBA_PTT_KEY_COMBO="option_r"     # Right Option Key (default)
+export BUMBA_PTT_CANCEL_KEY="escape"      # Cancel recording
 
 # Timing
-export CHATTA_PTT_TIMEOUT=120.0            # Max recording duration (seconds)
-export CHATTA_PTT_MIN_DURATION=0.5         # Min hold duration (seconds)
+export BUMBA_PTT_TIMEOUT=120.0            # Max recording duration (seconds)
+export BUMBA_PTT_MIN_DURATION=0.5         # Min hold duration (seconds)
 
 # Audio Feedback
-export CHATTA_PTT_AUDIO_FEEDBACK=true      # Enable audio cues
-export CHATTA_PTT_VISUAL_FEEDBACK=true     # Enable visual feedback
+export BUMBA_PTT_AUDIO_FEEDBACK=true      # Enable audio cues
+export BUMBA_PTT_VISUAL_FEEDBACK=true     # Enable visual feedback
 ```
 
 ### Programmatic Configuration
@@ -593,7 +593,7 @@ Current test coverage (Phase 3 complete):
 ### Completed Phases
 
 - ✅ **Phase 1-3:** Core PTT implementation (state machine, keyboard handling, audio recording)
-- ✅ **Phase 4:** Integration with CHATTA voice transport (34/34 tests passing)
+- ✅ **Phase 4:** Integration with Bumba Voice voice transport (34/34 tests passing)
 
 ### Planned Phases
 
@@ -621,13 +621,13 @@ Current test coverage (Phase 3 complete):
 
 ## License
 
-Part of the CHATTA project. See main LICENSE file.
+Part of the Bumba Voice project. See main LICENSE file.
 
 ## Support
 
-- GitHub Issues: https://github.com/your-org/CHATTA/issues
-- Documentation: https://docs.chatta.ai/ptt
-- Discord: https://discord.gg/chatta
+- GitHub Issues: https://github.com/your-org/bumba-voice/issues
+- Documentation: https://docs.bumba.ai/ptt
+- Discord: https://discord.gg/bumba
 
 ---
 

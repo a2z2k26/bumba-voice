@@ -1,6 +1,6 @@
 [Unit]
-Description=CHATTA LiveKit Frontend
-Documentation=https://github.com/a2z2k25/CHATTA-Voice
+Description=Bumba Voice LiveKit Frontend
+Documentation=https://github.com/a2z2k25/Bumba-Voice
 After=network.target
 Wants=network.target
 

@@ -1,8 +1,8 @@
-# CHATTA - Product Requirements Document (PRD)
+# Bumba Voice - Product Requirements Document (PRD)
 
 ## Executive Summary
 
-**Project Name:** CHATTA (Conversational Helper with Advanced Text-To-Audio)  
+**Project Name:** Bumba Voice (Conversational Helper with Advanced Text-To-Audio)  
 **Version:** 1.0.0  
 **Date:** August 29, 2025  
 **Status:** Implementation Ready  
@@ -12,7 +12,7 @@
 ## 1. Product Vision
 
 ### 1.1 Vision Statement
-CHATTA is a rebranded and locally-optimized voice assistant system that adapts VoiceMode to run entirely on local models (Whisper for STT and Kokoro for TTS), providing complete privacy, zero API costs, and OpenAI-compatible endpoints.
+Bumba Voice is a rebranded and locally-optimized voice assistant system that adapts VoiceMode to run entirely on local models (Whisper for STT and Kokoro for TTS), providing complete privacy, zero API costs, and OpenAI-compatible endpoints.
 
 ### 1.2 Mission
 To provide a fully local, privacy-first voice interaction system that maintains OpenAI API compatibility while eliminating cloud dependencies and ongoing costs.
@@ -26,7 +26,7 @@ To provide a fully local, privacy-first voice interaction system that maintains 
 ## 2. Product Objectives
 
 ### Primary Objectives
-1. **Rebrand VoiceMode to CHATTA:** Update all branding, documentation, and references
+1. **Rebrand VoiceMode to Bumba Voice:** Update all branding, documentation, and references
 2. **Local Model Integration:** Configure Whisper.cpp and Kokoro for local operation
 3. **Documentation Update:** Comprehensive setup guides for local deployment
 4. **Configuration Management:** Environment-based configuration for easy deployment
@@ -43,7 +43,7 @@ To provide a fully local, privacy-first voice interaction system that maintains 
 - Forking and rebranding VoiceMode repository
 - Configuring local Whisper.cpp for STT
 - Configuring local Kokoro for TTS
-- Updating documentation for CHATTA
+- Updating documentation for Bumba Voice
 - Creating deployment scripts and Docker images
 - Testing OpenAI API compatibility
 
@@ -76,12 +76,12 @@ To provide a fully local, privacy-first voice interaction system that maintains 
   - Multiple voice options (af_bella, af_sky, am_adam, etc.)
   - Voice blending capabilities
 
-#### Feature 3: CHATTA Branding
-- **Description:** Rebrand all VoiceMode references to CHATTA
+#### Feature 3: Bumba Voice Branding
+- **Description:** Rebrand all VoiceMode references to Bumba Voice
 - **Priority:** P0 (Critical)
 - **Acceptance Criteria:**
   - Updated package name and metadata
-  - New documentation with CHATTA branding
+  - New documentation with Bumba Voice branding
   - Configuration files renamed appropriately
   - Repository properly attributed to original
 
@@ -124,7 +124,7 @@ To provide a fully local, privacy-first voice interaction system that maintains 
 
 ## 8. Success Criteria
 
-- CHATTA runs fully offline
+- Bumba Voice runs fully offline
 - All voice features work with local models
 - Documentation is clear and complete
 - Docker deployment successful
@@ -140,7 +140,7 @@ To provide a fully local, privacy-first voice interaction system that maintains 
 
 ## 10. Deliverables
 
-1. CHATTA repository (forked from VoiceMode)
+1. Bumba Voice repository (forked from VoiceMode)
 2. Updated documentation
 3. Docker images
 4. Installation scripts
@@ -149,4 +149,4 @@ To provide a fully local, privacy-first voice interaction system that maintains 
 
 ---
 
-*This PRD represents a focused 2-3 week project to adapt existing VoiceMode functionality for local operation as CHATTA.*
+*This PRD represents a focused 2-3 week project to adapt existing VoiceMode functionality for local operation as Bumba Voice.*

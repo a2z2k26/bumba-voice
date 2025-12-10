@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CHATTA Enhanced Setup Wizard with Intelligent Detection
+BUMBA Enhanced Setup Wizard with Intelligent Detection
 ========================================================
 Dynamically detects existing installations and provides bypass options for power users.
 """
@@ -56,9 +56,9 @@ def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def print_header():
-    """Print the CHATTA wizard header with BUMBA branding."""
+    """Print the BUMBA wizard header with BUMBA branding."""
     clear_screen()
-    # CHATTA ASCII logo with gradient
+    # BUMBA ASCII logo with gradient
     logo = [
         ' ██████╗██╗  ██╗ █████╗ ████████╗████████╗ █████╗ ',
         '██╔════╝██║  ██║██╔══██╗╚══██╔══╝╚══██╔══╝██╔══██╗',
@@ -81,7 +81,7 @@ def print_header():
         print(f"{color}{Colors.BOLD}{line}{Colors.END}")
     
     print(f"\n{Colors.GOLD}{'▄' * 60}{Colors.END}")
-    print(f"{Colors.GOLD}{Colors.BOLD}      CHATTA 🎙️ SETUP WIZARD • BUMBA PLATFORM{Colors.END}")
+    print(f"{Colors.GOLD}{Colors.BOLD}      BUMBA 🎙️ SETUP WIZARD • BUMBA PLATFORM{Colors.END}")
     print(f"{Colors.GOLD}{'▀' * 60}{Colors.END}")
     print(f"\n{Colors.WHEAT}Natural Voice Conversations for AI Assistants • Part of the BUMBA Platform{Colors.END}")
     print(f"{Colors.WHEAT}Version 3.34.3 • Enterprise-Ready Voice Integration{Colors.END}\n")
@@ -182,9 +182,9 @@ class IntelligentDetector:
     
     def __init__(self):
         self.detected = {
-            'chatta_installed': False,
-            'chatta_version': None,
-            'chatta_location': None,
+            'bumba_installed': False,
+            'bumba_version': None,
+            'bumba_location': None,
             'claude_code_installed': False,
             'mcp_configured': False,
             'docker_installed': False,
@@ -221,8 +221,8 @@ class IntelligentDetector:
         print_detection_header()
         print("Scanning your system for existing installations...\n")
         
-        # Detect CHATTA installation
-        self.detect_chatta()
+        # Detect BUMBA installation
+        self.detect_bumba()
         
         # Detect dependencies
         self.detect_dependencies()
@@ -244,32 +244,32 @@ class IntelligentDetector:
         
         return self.detected
     
-    def detect_chatta(self):
-        """Detect CHATTA installation."""
+    def detect_bumba(self):
+        """Detect BUMBA installation."""
         try:
-            # Check if CHATTA is installed via pip
+            # Check if BUMBA is installed via pip
             result = run_command(['python', '-c', 
                 'import voice_mode; import pkg_resources; '
-                'print(pkg_resources.get_distribution("chatta").version)'])
+                'print(pkg_resources.get_distribution("bumba").version)'])
             
             if result.returncode == 0:
-                self.detected['chatta_installed'] = True
-                self.detected['chatta_version'] = result.stdout.strip()
-                print_detected(f"CHATTA v{self.detected['chatta_version']} installed")
+                self.detected['bumba_installed'] = True
+                self.detected['bumba_version'] = result.stdout.strip()
+                print_detected(f"BUMBA v{self.detected['bumba_version']} installed")
                 
                 # Find installation location
                 result = run_command(['python', '-c', 
                     'import voice_mode; print(voice_mode.__file__)'])
                 if result.returncode == 0:
-                    self.detected['chatta_location'] = os.path.dirname(result.stdout.strip())
+                    self.detected['bumba_location'] = os.path.dirname(result.stdout.strip())
             else:
-                # Check if we're in CHATTA directory
+                # Check if we're in BUMBA directory
                 if os.path.exists('pyproject.toml'):
                     with open('pyproject.toml') as f:
-                        if 'chatta' in f.read().lower():
-                            self.detected['chatta_installed'] = True
-                            self.detected['chatta_location'] = os.getcwd()
-                            print_detected("CHATTA source code found in current directory")
+                        if 'bumba' in f.read().lower():
+                            self.detected['bumba_installed'] = True
+                            self.detected['bumba_location'] = os.getcwd()
+                            print_detected("BUMBA source code found in current directory")
         except Exception:
             pass
     
@@ -360,7 +360,7 @@ class IntelligentDetector:
                     with open(mcp_path) as f:
                         config = json.load(f)
                         if 'mcpServers' in config:
-                            if any('chatta' in k.lower() or 'voicemode' in k.lower() 
+                            if any('bumba' in k.lower() or 'voicemode' in k.lower() 
                                    for k in config['mcpServers'].keys()):
                                 self.detected['mcp_configured'] = True
                                 print_detected(f"MCP configuration found at {mcp_path}")
@@ -406,13 +406,13 @@ class IntelligentDetector:
         score = 0
         max_score = 0
         
-        # CHATTA installation (20 points)
+        # BUMBA installation (20 points)
         max_score += 20
-        if self.detected['chatta_installed']:
+        if self.detected['bumba_installed']:
             score += 20
-            print(f"  {Colors.GREEN}✓{Colors.END} CHATTA: Installed {f'(v{self.detected['chatta_version']})' if self.detected['chatta_version'] else ''}")
+            print(f"  {Colors.GREEN}✓{Colors.END} BUMBA: Installed {f'(v{self.detected['bumba_version']})' if self.detected['bumba_version'] else ''}")
         else:
-            print(f"  {Colors.YELLOW}○{Colors.END} CHATTA: Not installed")
+            print(f"  {Colors.YELLOW}○{Colors.END} BUMBA: Not installed")
         
         # Essential dependencies (5 points each)
         essential_deps = ['git', 'curl', 'ffmpeg']
@@ -544,7 +544,7 @@ class EnhancedSetupWizard:
         else:
             print(f"{Colors.YELLOW}Detection skipped. Running full setup...{Colors.END}\n")
         
-        print(f"\nWelcome! I'll help you set up CHATTA for natural voice conversations.")
+        print(f"\nWelcome! I'll help you set up BUMBA for natural voice conversations.")
         print(f"This wizard will guide you through {8 - len(self.steps_to_skip)} steps.")
         print(f"Estimated time: {(8 - len(self.steps_to_skip)) * 2}-{(8 - len(self.steps_to_skip)) * 3} minutes\n")
         
@@ -576,11 +576,11 @@ class EnhancedSetupWizard:
             else:
                 print_info("Skipping API configuration (already configured)")
             
-            # Step 5: CHATTA (skip if installed)
-            if 'chatta' not in self.steps_to_skip:
-                self.install_chatta()
+            # Step 5: BUMBA (skip if installed)
+            if 'bumba' not in self.steps_to_skip:
+                self.install_bumba()
             else:
-                print_info("Skipping CHATTA installation (already installed)")
+                print_info("Skipping BUMBA installation (already installed)")
             
             # Step 6: Services (skip if running)
             if 'services' not in self.steps_to_skip:
@@ -606,16 +606,16 @@ class EnhancedSetupWizard:
         except Exception as e:
             print_error(f"\nSetup failed: {e}")
             print("\nPlease check the error above and try again.")
-            print("For help, visit: https://github.com/your-repo/chatta/issues")
+            print("For help, visit: https://github.com/your-repo/bumba/issues")
     
     def analyze_detection_results(self):
         """Analyze detection results and determine what steps to skip."""
         d = self.detected
         
-        # Skip CHATTA installation if already installed
-        if d['chatta_installed']:
-            self.steps_to_skip.append('chatta')
-            self.config['chatta_installed'] = True
+        # Skip BUMBA installation if already installed
+        if d['bumba_installed']:
+            self.steps_to_skip.append('bumba')
+            self.config['bumba_installed'] = True
         
         # Skip dependency installation if all essential ones are installed
         essential = ['git', 'curl', 'ffmpeg']
@@ -654,10 +654,10 @@ class EnhancedSetupWizard:
         self.detected = self.detector.detect_all()
         
         # Install only what's missing
-        if not self.detected['chatta_installed']:
-            print("\nInstalling CHATTA...")
+        if not self.detected['bumba_installed']:
+            print("\nInstalling BUMBA...")
             run_command(['pip', 'install', '-e', '.'] if os.path.exists('pyproject.toml') 
-                       else ['pip', 'install', 'chatta'])
+                       else ['pip', 'install', 'bumba'])
         
         if not self.detected['docker_running'] and self.detected['docker_installed']:
             print("\nStarting Docker services...")
@@ -671,9 +671,9 @@ class EnhancedSetupWizard:
         print(f"\n{Colors.GRADIENT_GREEN}{'═' * 52}{Colors.END}")
         print(f"🏁 {Colors.GRADIENT_GREEN}{Colors.BOLD}INSTALLATION COMPLETE{Colors.END} 🏁")
         print(f"{Colors.GRADIENT_GREEN}{'═' * 52}{Colors.END}\n")
-        print(f"🟢 {Colors.GREEN}CHATTA is ready for voice conversations{Colors.END}")
+        print(f"🟢 {Colors.GREEN}BUMBA is ready for voice conversations{Colors.END}")
         print(f"🟢 {Colors.GREEN}Part of the BUMBA Platform Suite{Colors.END}\n")
-        print(f"{Colors.CYAN}Run 'chatta converse' to start using voice mode{Colors.END}")
+        print(f"{Colors.CYAN}Run 'bumba converse' to start using voice mode{Colors.END}")
         print(f"{Colors.CYAN}Run 'claude' to use with Claude Code{Colors.END}")
     
     def quick_mcp_config(self):
@@ -683,7 +683,7 @@ class EnhancedSetupWizard:
         
         config = {"mcpServers": {}} if not mcp_path.exists() else json.loads(mcp_path.read_text())
         
-        config["mcpServers"]["chatta"] = {
+        config["mcpServers"]["bumba"] = {
             "type": "stdio",
             "command": "python",
             "args": ["-m", "voice_mode.server"],
@@ -707,7 +707,7 @@ class EnhancedSetupWizard:
 def main():
     """Main entry point with argument parsing."""
     parser = argparse.ArgumentParser(
-        description="CHATTA Intelligent Setup Wizard",
+        description="BUMBA Intelligent Setup Wizard",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=textwrap.dedent('''
         Examples:
@@ -755,7 +755,7 @@ def main():
     parser.add_argument(
         '--version', '-v',
         action='version',
-        version='CHATTA Setup Wizard v2.0'
+        version='BUMBA Setup Wizard v2.0'
     )
     
     args = parser.parse_args()
@@ -763,10 +763,10 @@ def main():
     # Skip wizard entirely for automated installations
     if args.skip_wizard:
         print(f"{Colors.GREEN}Bypassing wizard for automated installation...{Colors.END}")
-        # Just ensure CHATTA is installed
-        subprocess.run([sys.executable, '-m', 'pip', 'install', '--upgrade', 'chatta'], 
+        # Just ensure BUMBA is installed
+        subprocess.run([sys.executable, '-m', 'pip', 'install', '--upgrade', 'bumba'], 
                       capture_output=True)
-        print(f"{Colors.GREEN}✓ CHATTA installed/upgraded{Colors.END}")
+        print(f"{Colors.GREEN}✓ BUMBA installed/upgraded{Colors.END}")
         return
     
     # Check-only mode

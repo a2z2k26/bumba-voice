@@ -1,17 +1,17 @@
 ```
- ██████╗ ██╗  ██╗  █████╗  ████████╗ ████████╗  █████╗
-██╔════╝ ██║  ██║ ██╔══██╗ ╚══██╔══╝ ╚══██╔══╝ ██╔══██╗
-██║      ███████║ ███████║    ██║       ██║    ███████║
-██║      ██╔══██║ ██╔══██║    ██║       ██║    ██╔══██║
-╚██████╗ ██║  ██║ ██║  ██║    ██║       ██║    ██║  ██║
- ╚═════╝ ╚═╝  ╚═╝ ╚═╝  ╚═╝    ╚═╝       ╚═╝    ╚═╝  ╚═╝
+██████╗ ██╗   ██╗███╗   ███╗██████╗  █████╗     ██╗   ██╗ ██████╗ ██╗ ██████╗███████╗
+██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔══██╗    ██║   ██║██╔═══██╗██║██╔════╝██╔════╝
+██████╔╝██║   ██║██╔████╔██║██████╔╝███████║    ██║   ██║██║   ██║██║██║     █████╗
+██╔══██╗██║   ██║██║╚██╔╝██║██╔══██╗██╔══██║    ╚██╗ ██╔╝██║   ██║██║██║     ██╔══╝
+██████╔╝╚██████╔╝██║ ╚═╝ ██║██████╔╝██║  ██║     ╚████╔╝ ╚██████╔╝██║╚██████╗███████╗
+╚═════╝  ╚═════╝ ╚═╝     ╚═╝╚═════╝ ╚═╝  ╚═╝      ╚═══╝   ╚═════╝ ╚═╝ ╚═════╝╚══════╝
 ```
 
 [![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://python.org)
 
 <br>
 
-### Talk with Claude. Keyboard control. Optimized latency. CHATTA-Voice is a keyboard-driven push-to-talk voice assistant for Claude Code and AI assistants, delivering 60% faster response times through optimized audio processing. Built on the Model Context Protocol (MCP), it combines precise PTT control with sub-2-second latency for natural, real-time conversations. ###
+### Talk with Claude. Keyboard control. Optimized latency. Bumba Voice is a keyboard-driven push-to-talk voice assistant for Claude Code and AI assistants, delivering 60% faster response times through optimized audio processing. Built on the Model Context Protocol (MCP), it combines precise PTT control with sub-2-second latency for natural, real-time conversations. ###
 
 ---
 
@@ -26,7 +26,7 @@
 ### 🟡 60% Faster Response Times (sub 2sec) ###
 
 - **Traditional flows**: 3.5s average (record → process → speak)
-- **CHATTA-Voice flow**: 1.4s average (parallel processing, WebRTC VAD, connection pooling)
+- **Bumba Voice flow**: 1.4s average (parallel processing, WebRTC VAD, connection pooling)
 
 ---
 
@@ -41,7 +41,7 @@
 
 ### 🏁 Performance ###
 
-| Metric | Traditional | CHATTA | Improvement |
+| Metric | Traditional | Bumba Voice | Improvement |
 |--------|------------|--------|-------------|
 | **Total Turnaround** | 3.5s | 1.4s | **60% faster** |
 | Time to First Audio | 2.1s | 0.8s | 62% faster |
@@ -66,15 +66,15 @@
 
 ```bash
 # Clone and install
-git clone https://github.com/a2z2k25/CHATTA-Voice
-cd CHATTA-Voice
+git clone https://github.com/a2z2k25/Bumba-Voice
+cd Bumba-Voice
 make dev-install
 
 # Or install from source (requires uv)
 uv pip install -e .
 
 # Or install released package (coming soon)
-pip install chatta
+pip install bumba
 
 ```
 
@@ -86,7 +86,7 @@ Add to Claude Code (`~/.claude/mcp_settings.json)
 ```json
 {
   "mcpServers": {
-    "chatta": {
+    "bumba": {
       "command": "python",
       "args": ["-m", "voice_mode.server"]
     }
@@ -102,9 +102,9 @@ Create `voicemode.env` in your project root:
 
 ```bash
 # Push-to-Talk Configuration
-CHATTA_PTT_ENABLED=true
-CHATTA_PTT_MODE=hold              # hold, toggle, or hybrid
-CHATTA_PTT_KEY_COMBO=option_r     # Your preferred key combo (Right Option Key)
+BUMBA_PTT_ENABLED=true
+BUMBA_PTT_MODE=hold              # hold, toggle, or hybrid
+BUMBA_PTT_KEY_COMBO=option_r     # Your preferred key combo (Right Option Key)
 
 # Voice Services (optional - uses OpenAI by default)
 OPENAI_API_KEY=your-key-here      # For cloud TTS/STT
@@ -181,9 +181,9 @@ OPENAI_API_KEY=your-key-here      # For cloud TTS/STT
 
 ```bash
 # PTT Settings
-CHATTA_PTT_ENABLED=true|false
-CHATTA_PTT_MODE=hold|toggle|hybrid
-CHATTA_PTT_KEY_COMBO=option_r
+BUMBA_PTT_ENABLED=true|false
+BUMBA_PTT_MODE=hold|toggle|hybrid
+BUMBA_PTT_KEY_COMBO=option_r
 
 # Voice Preferences
 VOICEMODE_TTS_VOICE=alloy,nova,shimmer  # Preferred voices in order
@@ -249,7 +249,7 @@ python -m voice_mode.tools.devices
 ### 🔴 PTT Not Working ###
 - Check `voicemode.env` has correct settings
 - Verify key combination doesn't conflict with system shortcuts
-- Try a different key combo: `CHATTA_PTT_KEY_COMBO=f12`
+- Try a different key combo: `BUMBA_PTT_KEY_COMBO=f12`
 
 <br>
 

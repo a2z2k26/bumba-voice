@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Final Voice Flow Demo - CHATTA with Docker Services
+Final Voice Flow Demo - BUMBA with Docker Services
 Demonstrates: Kokoro TTS → User Speech → Whisper STT → Kokoro Response
 """
 import os
@@ -23,7 +23,7 @@ def check_services():
 
 async def kokoro_speak(text):
     """Speak text using Kokoro TTS"""
-    print(f"🤖 CHATTA: {text}")
+    print(f"🤖 BUMBA: {text}")
     
     response = requests.post(
         "http://localhost:7888/v1/audio/speech",
@@ -63,7 +63,7 @@ async def whisper_transcribe(audio_file):
 
 async def main():
     print("="*60)
-    print("🎙️  CHATTA + Docker Services Voice Flow")
+    print("🎙️  BUMBA + Docker Services Voice Flow")
     print("="*60)
     
     if not check_services():
@@ -75,7 +75,7 @@ async def main():
     # Step 1: Greeting
     print("📍 Step 1: Kokoro TTS Greeting")
     await kokoro_speak(
-        "Hello! I'm CHATTA with Docker services. "
+        "Hello! I'm BUMBA with Docker services. "
         "I'll now simulate your voice input and demonstrate the complete flow."
     )
     
@@ -83,7 +83,7 @@ async def main():
     
     # Step 2: Simulate user input
     print("\n📍 Step 2: Simulating User Voice")
-    user_text = "Hello CHATTA, the voice services are working perfectly!"
+    user_text = "Hello BUMBA, the voice services are working perfectly!"
     print(f"👤 Simulated: {user_text}")
     
     # Create test audio
@@ -125,7 +125,7 @@ async def main():
     print("   2. User Voice - Simulated input")
     print("   3. Whisper STT - Transcribed speech")
     print("   4. Kokoro TTS - Generated response")
-    print("\n💡 This is the complete voice pipeline CHATTA uses!")
+    print("\n💡 This is the complete voice pipeline BUMBA uses!")
 
 if __name__ == "__main__":
     asyncio.run(main())

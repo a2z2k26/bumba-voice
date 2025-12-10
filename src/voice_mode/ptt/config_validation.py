@@ -106,7 +106,7 @@ class PTTConfigValidator:
                 level=ValidationLevel.ERROR,
                 setting='PTT_MODE',
                 message='PTT mode is not set',
-                suggestion='Set CHATTA_PTT_MODE to one of: hold, toggle, hybrid',
+                suggestion='Set BUMBA_PTT_MODE to one of: hold, toggle, hybrid',
                 current_value=None
             ))
             return
@@ -127,7 +127,7 @@ class PTTConfigValidator:
                 level=ValidationLevel.ERROR,
                 setting='PTT_KEY_COMBO',
                 message='PTT key combination is not set',
-                suggestion='Set CHATTA_PTT_KEY_COMBO (e.g., "option_r", "ctrl+space")',
+                suggestion='Set BUMBA_PTT_KEY_COMBO (e.g., "option_r", "ctrl+space")',
                 current_value=None
             ))
             return
@@ -193,7 +193,7 @@ class PTTConfigValidator:
                 level=ValidationLevel.ERROR,
                 setting='PTT_TIMEOUT',
                 message='PTT timeout is not set',
-                suggestion='Set CHATTA_PTT_TIMEOUT to a positive number (seconds)',
+                suggestion='Set BUMBA_PTT_TIMEOUT to a positive number (seconds)',
                 current_value=None
             ))
             return
@@ -203,7 +203,7 @@ class PTTConfigValidator:
                 level=ValidationLevel.ERROR,
                 setting='PTT_TIMEOUT',
                 message=f'PTT timeout must be a number, got: {type(timeout).__name__}',
-                suggestion='Set CHATTA_PTT_TIMEOUT to a positive number (e.g., 120)',
+                suggestion='Set BUMBA_PTT_TIMEOUT to a positive number (e.g., 120)',
                 current_value=timeout
             ))
             return
@@ -213,7 +213,7 @@ class PTTConfigValidator:
                 level=ValidationLevel.ERROR,
                 setting='PTT_TIMEOUT',
                 message=f'PTT timeout must be positive, got: {timeout}',
-                suggestion='Set CHATTA_PTT_TIMEOUT to a positive number (e.g., 120)',
+                suggestion='Set BUMBA_PTT_TIMEOUT to a positive number (e.g., 120)',
                 current_value=timeout
             ))
         elif timeout < 10:
@@ -243,7 +243,7 @@ class PTTConfigValidator:
                 level=ValidationLevel.ERROR,
                 setting='PTT_MIN_DURATION',
                 message=f'PTT min duration must be a number, got: {type(min_duration).__name__}',
-                suggestion='Set CHATTA_PTT_MIN_DURATION to a positive number (e.g., 0.5)',
+                suggestion='Set BUMBA_PTT_MIN_DURATION to a positive number (e.g., 0.5)',
                 current_value=min_duration
             ))
             return
@@ -253,7 +253,7 @@ class PTTConfigValidator:
                 level=ValidationLevel.ERROR,
                 setting='PTT_MIN_DURATION',
                 message=f'PTT min duration must be non-negative, got: {min_duration}',
-                suggestion='Set CHATTA_PTT_MIN_DURATION to 0 or positive value',
+                suggestion='Set BUMBA_PTT_MIN_DURATION to 0 or positive value',
                 current_value=min_duration
             ))
         elif min_duration > 5:
@@ -275,7 +275,7 @@ class PTTConfigValidator:
                 level=ValidationLevel.ERROR,
                 setting='PTT_SILENCE_DURATION',
                 message=f'PTT silence duration must be a number, got: {type(silence_duration).__name__}',
-                suggestion='Set CHATTA_PTT_SILENCE_DURATION to a positive number (e.g., 1.5)',
+                suggestion='Set BUMBA_PTT_SILENCE_DURATION to a positive number (e.g., 1.5)',
                 current_value=silence_duration
             ))
             return
@@ -285,7 +285,7 @@ class PTTConfigValidator:
                 level=ValidationLevel.ERROR,
                 setting='PTT_SILENCE_DURATION',
                 message=f'PTT silence duration must be positive, got: {silence_duration}',
-                suggestion='Set CHATTA_PTT_SILENCE_DURATION to a positive number (1.0-3.0s)',
+                suggestion='Set BUMBA_PTT_SILENCE_DURATION to a positive number (1.0-3.0s)',
                 current_value=silence_duration
             ))
         elif silence_duration < 0.5:
@@ -321,7 +321,7 @@ class PTTConfigValidator:
                 level=ValidationLevel.ERROR,
                 setting='PTT_FEEDBACK_VOLUME',
                 message=f'PTT feedback volume must be a number, got: {type(volume).__name__}',
-                suggestion='Set CHATTA_PTT_FEEDBACK_VOLUME to a number between 0.0 and 1.0',
+                suggestion='Set BUMBA_PTT_FEEDBACK_VOLUME to a number between 0.0 and 1.0',
                 current_value=volume
             ))
             return
@@ -345,7 +345,7 @@ class PTTConfigValidator:
                 level=ValidationLevel.WARNING,
                 setting=setting_name,
                 message=f'{setting_name} should be true/false, got: {value}',
-                suggestion=f'Set CHATTA_{setting_name} to true or false',
+                suggestion=f'Set BUMBA_{setting_name} to true or false',
                 current_value=value
             ))
 

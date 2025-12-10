@@ -21,7 +21,7 @@ def clean_env(monkeypatch):
     """Clean PTT environment variables for isolated testing"""
     # Remove all PTT-related env vars
     for key in list(os.environ.keys()):
-        if key.startswith("CHATTA_PTT_"):
+        if key.startswith("BUMBA_PTT_"):
             monkeypatch.delenv(key, raising=False)
 
     # Reload config to pick up changes
@@ -53,9 +53,9 @@ def ptt_config():
 @pytest.fixture
 def ptt_enabled_config(monkeypatch):
     """Configuration with PTT enabled"""
-    monkeypatch.setenv("CHATTA_PTT_ENABLED", "true")
-    monkeypatch.setenv("CHATTA_PTT_KEY_COMBO", "space")
-    monkeypatch.setenv("CHATTA_PTT_MODE", "hold")
+    monkeypatch.setenv("BUMBA_PTT_ENABLED", "true")
+    monkeypatch.setenv("BUMBA_PTT_KEY_COMBO", "space")
+    monkeypatch.setenv("BUMBA_PTT_MODE", "hold")
 
     import voice_mode.config as config
     from importlib import reload

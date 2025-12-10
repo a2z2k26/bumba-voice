@@ -3,7 +3,7 @@
 import pytest
 from click.testing import CliRunner
 from unittest.mock import patch, MagicMock
-from voice_mode.cli import voice_mode_main_cli
+from voice_mode.cli import bumba_main
 
 
 class TestWhisperModelsCLI:
@@ -15,7 +15,7 @@ class TestWhisperModelsCLI:
         
         # Just test that the command runs without mocking
         # The actual implementation will use real functions
-        result = runner.invoke(voice_mode_main_cli, ['whisper', 'models'])
+        result = runner.invoke(bumba_main, ['whisper', 'models'])
         
         assert result.exit_code == 0
         assert 'Whisper Models:' in result.output
@@ -30,7 +30,7 @@ class TestWhisperModelActiveCLI:
         
         # Let's just test that the command runs without mocking
         # since the actual model can vary
-        result = runner.invoke(voice_mode_main_cli, ['whisper', 'model', 'active'])
+        result = runner.invoke(bumba_main, ['whisper', 'model', 'active'])
         
         assert result.exit_code == 0
         assert 'Active Whisper model:' in result.output
@@ -45,7 +45,7 @@ class TestWhisperModelActiveCLI:
             
             mock_installed.return_value = True
             
-            result = runner.invoke(voice_mode_main_cli, ['whisper', 'model', 'active', 'small'])
+            result = runner.invoke(bumba_main, ['whisper', 'model', 'active', 'small'])
             
             assert result.exit_code == 0
             assert "Active model set to: small" in result.output
@@ -60,7 +60,7 @@ class TestWhisperModelActiveCLI:
         with patch('voice_mode.tools.services.whisper.models.is_whisper_model_installed') as mock_installed:
             mock_installed.return_value = False
             
-            result = runner.invoke(voice_mode_main_cli, ['whisper', 'model', 'active', 'small'])
+            result = runner.invoke(bumba_main, ['whisper', 'model', 'active', 'small'])
             
             # The CLI exits with code 1 when model is not installed (click.Abort())
             assert result.exit_code == 1
@@ -77,7 +77,7 @@ class TestWhisperModelInstallCLI:
         with patch('asyncio.run') as mock_run:
             mock_run.return_value = '{"success": true, "results": [{"model": "large-v2"}]}'
             
-            result = runner.invoke(voice_mode_main_cli, ['whisper', 'model', 'install'])
+            result = runner.invoke(bumba_main, ['whisper', 'model', 'install'])
             
             assert result.exit_code == 0
             assert '✅ Model download completed!' in result.output
@@ -89,7 +89,7 @@ class TestWhisperModelInstallCLI:
         with patch('asyncio.run') as mock_run:
             mock_run.return_value = '{"success": true, "results": [{"model": "small"}]}'
             
-            result = runner.invoke(voice_mode_main_cli, ['whisper', 'model', 'install', 'small'])
+            result = runner.invoke(bumba_main, ['whisper', 'model', 'install', 'small'])
             
             assert result.exit_code == 0
             assert '✅ Model download completed!' in result.output
@@ -101,7 +101,7 @@ class TestWhisperModelInstallCLI:
         with patch('asyncio.run') as mock_run:
             mock_run.return_value = '{"success": false, "error": "Invalid model: invalid-model"}'
             
-            result = runner.invoke(voice_mode_main_cli, ['whisper', 'model', 'install', 'invalid-model'])
+            result = runner.invoke(bumba_main, ['whisper', 'model', 'install', 'invalid-model'])
             
             # Should still exit 0 but show error message
             assert result.exit_code == 0
@@ -124,7 +124,7 @@ class TestWhisperModelRemoveCLI:
             mock_confirm.return_value = True
             mock_dir.return_value = MagicMock()
             
-            result = runner.invoke(voice_mode_main_cli, ['whisper', 'model', 'remove', 'tiny'])
+            result = runner.invoke(bumba_main, ['whisper', 'model', 'remove', 'tiny'])
             
             # Note: The actual implementation exits in the command, not at CLI level
             # so we check the mocks were called
@@ -138,7 +138,7 @@ class TestWhisperModelRemoveCLI:
         with patch('voice_mode.tools.services.whisper.models.is_whisper_model_installed') as mock_installed:
             mock_installed.return_value = False
             
-            result = runner.invoke(voice_mode_main_cli, ['whisper', 'model', 'remove', 'base'])
+            result = runner.invoke(bumba_main, ['whisper', 'model', 'remove', 'base'])
             
             assert result.exit_code == 0
             assert "Model 'base' is not installed" in result.output
@@ -147,7 +147,7 @@ class TestWhisperModelRemoveCLI:
         """Test removing an invalid model name."""
         runner = CliRunner()
         
-        result = runner.invoke(voice_mode_main_cli, ['whisper', 'model', 'remove', 'invalid-model'])
+        result = runner.invoke(bumba_main, ['whisper', 'model', 'remove', 'invalid-model'])
         
         assert result.exit_code == 1
         assert "not a valid model" in result.output

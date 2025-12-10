@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Performance profiling and optimization framework for CHATTA voice mode."""
+"""Performance profiling and optimization framework for Bumba Voice mode."""
 
 import time
 import cProfile

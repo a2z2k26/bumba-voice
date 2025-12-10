@@ -1,10 +1,10 @@
 # Scripts Directory 🔧
 
-This directory contains utility scripts and test files for CHATTA.
+This directory contains utility scripts and test files for BUMBA.
 
 ## Shell Scripts
 
-- **chatta_mcp_server.sh** - MCP server launcher script
+- **bumba_mcp_server.sh** - MCP server launcher script
 - **safe_cleanup.sh** - Safe cleanup utility
 - **security_cleanup.sh** - Security-focused cleanup tool
 - **docker_setup.py** - Docker configuration setup
@@ -32,6 +32,6 @@ python scripts/test_audio_simple.py
 
 Shell scripts should be made executable first:
 ```bash
-chmod +x scripts/chatta_mcp_server.sh
-./scripts/chatta_mcp_server.sh
+chmod +x scripts/bumba_mcp_server.sh
+./scripts/bumba_mcp_server.sh
 ```

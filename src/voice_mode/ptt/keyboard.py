@@ -3,14 +3,28 @@ Keyboard event handling for Push-to-Talk functionality.
 
 This module provides cross-platform keyboard monitoring using pynput,
 managing key combination detection and event processing.
+
+NOTE: pynput is imported lazily to avoid system-wide keyboard event
+interception on macOS when the module is loaded but PTT is not used.
 """
 
 import logging
 import platform
-from typing import Set, Optional, Callable
-from pynput import keyboard
+from typing import Set, Optional, Callable, TYPE_CHECKING
 from threading import Lock
 from .logging import get_ptt_logger
+
+# Lazy import of pynput to avoid system keyboard lag on macOS
+# pynput registers event taps on import, which affects all keyboard input
+_keyboard_module = None
+
+def _get_keyboard_module():
+    """Lazily import pynput.keyboard only when actually needed."""
+    global _keyboard_module
+    if _keyboard_module is None:
+        from pynput import keyboard as kb
+        _keyboard_module = kb
+    return _keyboard_module
 
 logger = logging.getLogger(__name__)
 
@@ -85,12 +99,29 @@ class KeyboardHandler:
             # Normalize key names
             if key in ["ctrl", "control"]:
                 normalized.add("ctrl")
+            elif key in ["ctrl_l", "control_l"]:
+                normalized.add("ctrl_l")
+            elif key in ["ctrl_r", "control_r"]:
+                normalized.add("ctrl_r")
             elif key in ["alt", "option"]:
                 normalized.add("alt")
+            elif key in ["alt_l", "option_l"]:
+                normalized.add("alt_l")
+            elif key in ["alt_r", "option_r"]:
+                # Map option_r (user-friendly) to alt_r (pynput reports)
+                normalized.add("alt_r")
             elif key in ["shift"]:
                 normalized.add("shift")
+            elif key in ["shift_l"]:
+                normalized.add("shift_l")
+            elif key in ["shift_r"]:
+                normalized.add("shift_r")
             elif key in ["cmd", "command", "meta", "super"]:
                 normalized.add("cmd")
+            elif key in ["cmd_l", "command_l"]:
+                normalized.add("cmd_l")
+            elif key in ["cmd_r", "command_r"]:
+                normalized.add("cmd_r")
             else:
                 normalized.add(key)
 
@@ -204,6 +235,7 @@ class KeyboardHandler:
             return True
 
         try:
+            keyboard = _get_keyboard_module()
             self.listener = keyboard.Listener(
                 on_press=self._on_press,
                 on_release=self._on_release
@@ -268,7 +300,8 @@ def check_keyboard_permissions() -> tuple[bool, str]:
     if system == "Darwin":
         # macOS - check accessibility permissions
         try:
-            # Try to create a test listener
+            # Try to create a test listener (lazy import)
+            keyboard = _get_keyboard_module()
             test_listener = keyboard.Listener(on_press=lambda k: None)
             test_listener.start()
             test_listener.stop()

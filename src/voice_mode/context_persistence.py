@@ -188,7 +188,7 @@ class JSONStorage:
     def __init__(self, storage_dir: Optional[Path] = None):
         """Initialize JSON storage."""
         if storage_dir is None:
-            storage_dir = Path.home() / ".chatta" / "contexts"
+            storage_dir = Path.home() / ".bumba" / "contexts"
         
         self.storage_dir = Path(storage_dir)
         self.storage_dir.mkdir(parents=True, exist_ok=True)
@@ -245,7 +245,7 @@ class SQLiteStorage:
     def __init__(self, db_path: Optional[Path] = None):
         """Initialize SQLite storage."""
         if db_path is None:
-            db_path = Path.home() / ".chatta" / "contexts.db"
+            db_path = Path.home() / ".bumba" / "contexts.db"
         
         self.db_path = Path(db_path)
         self.db_path.parent.mkdir(parents=True, exist_ok=True)

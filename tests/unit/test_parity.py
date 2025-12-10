@@ -115,9 +115,9 @@ class ParityTester:
         
         env = os.environ.copy()
         env.update({
-            "CHATTA_AUDIO_FEEDBACK": "true",
-            "VOICEMODE_AUDIO_FEEDBACK": "true",
-            "CHATTA_VAD_DEBUG": "false"
+            "BUMBA_AUDIO_FEEDBACK": "true",
+            "BUMBA_AUDIO_FEEDBACK": "true",
+            "BUMBA_VAD_DEBUG": "false"
         })
         
         cmd = [
@@ -191,8 +191,8 @@ class ParityTester:
         
         env = os.environ.copy()
         env.update({
-            "CHATTA_AUDIO_FEEDBACK": "true",
-            "VOICEMODE_AUDIO_FEEDBACK": "true"
+            "BUMBA_AUDIO_FEEDBACK": "true",
+            "BUMBA_AUDIO_FEEDBACK": "true"
         })
         
         try:

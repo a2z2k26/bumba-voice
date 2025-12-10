@@ -14,7 +14,7 @@ class TestPTTConfiguration:
         """Test default PTT configuration values"""
         # Clear any existing PTT environment variables
         for key in list(os.environ.keys()):
-            if key.startswith("CHATTA_PTT_"):
+            if key.startswith("BUMBA_PTT_"):
                 monkeypatch.delenv(key, raising=False)
 
         # Reload config module to pick up changes
@@ -32,10 +32,10 @@ class TestPTTConfiguration:
     def test_ptt_env_override(self, monkeypatch):
         """Test PTT configuration from environment variables"""
         # Set environment variables
-        monkeypatch.setenv("CHATTA_PTT_ENABLED", "true")
-        monkeypatch.setenv("CHATTA_PTT_KEY_COMBO", "ctrl+space")
-        monkeypatch.setenv("CHATTA_PTT_MODE", "toggle")
-        monkeypatch.setenv("CHATTA_PTT_TIMEOUT", "60.0")
+        monkeypatch.setenv("BUMBA_PTT_ENABLED", "true")
+        monkeypatch.setenv("BUMBA_PTT_KEY_COMBO", "ctrl+space")
+        monkeypatch.setenv("BUMBA_PTT_MODE", "toggle")
+        monkeypatch.setenv("BUMBA_PTT_TIMEOUT", "60.0")
 
         # Reload config module
         import voice_mode.config as config
@@ -51,23 +51,23 @@ class TestPTTConfiguration:
         """Test boolean environment variable parsing"""
         # Test various true values
         for true_val in ["true", "1", "yes", "on"]:
-            monkeypatch.setenv("CHATTA_PTT_ENABLED", true_val)
+            monkeypatch.setenv("BUMBA_PTT_ENABLED", true_val)
             import voice_mode.config as config
             reload(config)
             assert config.PTT_ENABLED is True, f"Failed for value: {true_val}"
 
         # Test false values
         for false_val in ["false", "0", "no", "off", ""]:
-            monkeypatch.setenv("CHATTA_PTT_ENABLED", false_val)
+            monkeypatch.setenv("BUMBA_PTT_ENABLED", false_val)
             reload(config)
             assert config.PTT_ENABLED is False, f"Failed for value: {false_val}"
 
     def test_ptt_numeric_config(self, monkeypatch):
         """Test numeric configuration values"""
-        monkeypatch.setenv("CHATTA_PTT_TIMEOUT", "30.5")
-        monkeypatch.setenv("CHATTA_PTT_RELEASE_DELAY", "0.2")
-        monkeypatch.setenv("CHATTA_PTT_MIN_DURATION", "1.0")
-        monkeypatch.setenv("CHATTA_PTT_FEEDBACK_VOLUME", "0.5")
+        monkeypatch.setenv("BUMBA_PTT_TIMEOUT", "30.5")
+        monkeypatch.setenv("BUMBA_PTT_RELEASE_DELAY", "0.2")
+        monkeypatch.setenv("BUMBA_PTT_MIN_DURATION", "1.0")
+        monkeypatch.setenv("BUMBA_PTT_FEEDBACK_VOLUME", "0.5")
 
         import voice_mode.config as config
         reload(config)
@@ -79,9 +79,9 @@ class TestPTTConfiguration:
 
     def test_ptt_platform_settings(self, monkeypatch):
         """Test platform-specific settings"""
-        monkeypatch.setenv("CHATTA_PTT_MACOS_ACCESSIBILITY_CHECK", "false")
-        monkeypatch.setenv("CHATTA_PTT_WINDOWS_HOOK_TYPE", "high_level")
-        monkeypatch.setenv("CHATTA_PTT_LINUX_INPUT_METHOD", "x11")
+        monkeypatch.setenv("BUMBA_PTT_MACOS_ACCESSIBILITY_CHECK", "false")
+        monkeypatch.setenv("BUMBA_PTT_WINDOWS_HOOK_TYPE", "high_level")
+        monkeypatch.setenv("BUMBA_PTT_LINUX_INPUT_METHOD", "x11")
 
         import voice_mode.config as config
         reload(config)
@@ -92,9 +92,9 @@ class TestPTTConfiguration:
 
     def test_ptt_debug_settings(self, monkeypatch):
         """Test debug-related settings"""
-        monkeypatch.setenv("CHATTA_PTT_DEBUG", "true")
-        monkeypatch.setenv("CHATTA_PTT_LOG_KEYS", "true")
-        monkeypatch.setenv("CHATTA_PTT_SIMULATE", "true")
+        monkeypatch.setenv("BUMBA_PTT_DEBUG", "true")
+        monkeypatch.setenv("BUMBA_PTT_LOG_KEYS", "true")
+        monkeypatch.setenv("BUMBA_PTT_SIMULATE", "true")
 
         import voice_mode.config as config
         reload(config)
@@ -105,7 +105,7 @@ class TestPTTConfiguration:
 
     def test_ptt_cancel_key_config(self, monkeypatch):
         """Test cancel key configuration"""
-        monkeypatch.setenv("CHATTA_PTT_CANCEL_KEY", "f12")
+        monkeypatch.setenv("BUMBA_PTT_CANCEL_KEY", "f12")
 
         import voice_mode.config as config
         reload(config)

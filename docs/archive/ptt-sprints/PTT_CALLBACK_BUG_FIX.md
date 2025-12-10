@@ -161,15 +161,15 @@ Error during visual feedback cleanup: PTTLogger.log_event() missing 1 required p
 ### Environment Variables (~/. zshrc)
 
 ```bash
-export CHATTA_PTT_ENABLED=true
-export CHATTA_PTT_MODE=hold
-export CHATTA_PTT_KEY_COMBO=space
-export CHATTA_PTT_CANCEL_KEY=escape
-export CHATTA_PTT_TIMEOUT=120
-export CHATTA_PTT_VISUAL_FEEDBACK=true
-export CHATTA_PTT_VISUAL_STYLE=compact
-export CHATTA_PTT_SHOW_DURATION=true
-export CHATTA_PTT_STATISTICS=true
+export BUMBA_PTT_ENABLED=true
+export BUMBA_PTT_MODE=hold
+export BUMBA_PTT_KEY_COMBO=space
+export BUMBA_PTT_CANCEL_KEY=escape
+export BUMBA_PTT_TIMEOUT=120
+export BUMBA_PTT_VISUAL_FEEDBACK=true
+export BUMBA_PTT_VISUAL_STYLE=compact
+export BUMBA_PTT_SHOW_DURATION=true
+export BUMBA_PTT_STATISTICS=true
 ```
 
 **Note:** Space bar selected as default key after testing showed it works more reliably than arrow key combinations.

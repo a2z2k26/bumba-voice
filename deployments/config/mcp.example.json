@@ -1,10 +1,10 @@
 {
   "mcpServers": {
-    "chatta": {
-      "command": "chatta",
+    "bumba": {
+      "command": "bumba",
       "args": ["mcp"],
       "env": {
-        "CHATTA_MODE": "local"
+        "BUMBA_MODE": "local"
       }
     }
   }

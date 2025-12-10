@@ -1,6 +1,6 @@
 # Setup Directory 🔧
 
-This directory contains installation and setup tools for CHATTA.
+This directory contains installation and setup tools for BUMBA.
 
 ## Files
 

@@ -408,7 +408,7 @@ Clear, actionable cancel messages:
    ↓
 4. Statistics updated with timeout cancel
    ↓
-5. Suggestion shown: Increase CHATTA_PTT_TIMEOUT
+5. Suggestion shown: Increase BUMBA_PTT_TIMEOUT
 ```
 
 ---

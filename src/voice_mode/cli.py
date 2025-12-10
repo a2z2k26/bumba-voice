@@ -1,5 +1,5 @@
 """
-CLI entry points for chatta package.
+CLI entry points for bumba package.
 """
 import asyncio
 import sys
@@ -11,7 +11,7 @@ import click
 # Suppress known deprecation warnings for better user experience
 # These apply to both CLI commands and MCP server operation
 # They can be shown with VOICEMODE_DEBUG=true or --debug flag
-if not os.environ.get('CHATTA_DEBUG', '').lower() in ('true', '1', 'yes'):
+if not os.environ.get('BUMBA_DEBUG', '').lower() in ('true', '1', 'yes'):
     # Suppress audioop deprecation warning from pydub
     warnings.filterwarnings('ignore', message='.*audioop.*deprecated.*', category=DeprecationWarning)
     # Suppress pkg_resources deprecation warning from webrtcvad
@@ -21,18 +21,18 @@ if not os.environ.get('CHATTA_DEBUG', '').lower() in ('true', '1', 'yes'):
     
     # Also suppress INFO logging for CLI commands (but not for MCP server)
     import logging
-    logging.getLogger("chatta").setLevel(logging.WARNING)
+    logging.getLogger("bumba").setLevel(logging.WARNING)
     logging.getLogger("httpx").setLevel(logging.WARNING)
 
 
 # Service management CLI - runs MCP server by default, subcommands override
 @click.group(invoke_without_command=True)
-@click.version_option(prog_name='CHATTA', message='%(prog)s %(version)s - BUMBA Platform Voice Module')
+@click.version_option(prog_name='Bumba Voice', message='%(prog)s %(version)s - BUMBA Platform Voice Module')
 @click.help_option('-h', '--help', help='Show this message and exit')
 @click.option('--debug', is_flag=True, help='Enable debug mode and show all warnings')
 @click.pass_context
-def chatta_cli(ctx, debug):
-    """🏁 CHATTA - Natural Voice Conversations for AI Assistants
+def bumba_cli(ctx, debug):
+    """🏁 Bumba Voice - Natural Voice Conversations for AI Assistants
 
     Building Unified Multi-agent Business Applications
     Professional • Intelligent • Secure • Enterprise-Ready
@@ -41,17 +41,17 @@ def chatta_cli(ctx, debug):
     With subcommands, executes service management operations.
 
     Examples:
-      chatta            # Start MCP server
-      chatta converse   # Start voice conversation
-      chatta setup      # Run setup wizard
+      bumba            # Start MCP server
+      bumba converse   # Start voice conversation
+      bumba setup      # Run setup wizard
     """
     if debug:
         # Re-enable warnings if debug flag is set
         warnings.resetwarnings()
-        os.environ['CHATTA_DEBUG'] = 'true'
+        os.environ['BUMBA_DEBUG'] = 'true'
         # Re-enable INFO logging
         import logging
-        logging.getLogger("chatta").setLevel(logging.INFO)
+        logging.getLogger("bumba").setLevel(logging.INFO)
     
     if ctx.invoked_subcommand is None:
         # No subcommand - run MCP server
@@ -60,27 +60,27 @@ def chatta_cli(ctx, debug):
         voice_mode_main()
 
 
-def chatta_main() -> None:
-    """Entry point for chatta command - starts the MCP server or runs subcommands."""
-    chatta_cli()
+def bumba_main() -> None:
+    """Entry point for bumba command - starts the MCP server or runs subcommands."""
+    bumba_cli()
 
 
 # Service group commands
-@chatta_cli.group()
+@bumba_cli.group()
 @click.help_option('-h', '--help', help='Show this message and exit')
 def kokoro():
     """Manage Kokoro TTS service."""
     pass
 
 
-@chatta_cli.group()
+@bumba_cli.group()
 @click.help_option('-h', '--help', help='Show this message and exit')
 def whisper():
     """Manage Whisper STT service."""
     pass
 
 
-@chatta_cli.group()
+@bumba_cli.group()
 @click.help_option('-h', '--help', help='Show this message and exit')
 def livekit():
     """Manage LiveKit RTC service."""
@@ -482,7 +482,7 @@ def whisper_model_active(model_name):
         # Check if model is installed
         if not is_whisper_model_installed(model_name):
             click.echo(f"Error: Model '{model_name}' is not installed.", err=True)
-            click.echo(f"Install it with: chatta whisper model install {model_name}", err=True)
+            click.echo(f"Install it with: bumba whisper model install {model_name}", err=True)
             raise click.Abort()
         
         # Get previous model
@@ -504,11 +504,11 @@ def whisper_model_active(model_name):
                 click.echo(f"  {click.style('voicemode whisper restart', fg='yellow', bold=True)}")
             else:
                 click.echo(f"\nWhisper service is not running. Start it with:")
-                click.echo(f"  chatta whisper start")
+                click.echo(f"  bumba whisper start")
                 click.echo(f"(or restart the whisper service if it's managed by systemd/launchd)")
         except:
             click.echo(f"\nPlease restart the whisper service for changes to take effect:")
-            click.echo(f"  chatta whisper restart")
+            click.echo(f"  bumba whisper restart")
     
     else:
         # Show current model
@@ -536,8 +536,8 @@ def whisper_model_active(model_name):
         except:
             pass
         
-        click.echo(f"\nTo change: chatta whisper model active <model-name>")
-        click.echo(f"To list all models: chatta whisper models")
+        click.echo(f"\nTo change: bumba whisper model active <model-name>")
+        click.echo(f"To list all models: bumba whisper models")
 
 
 @whisper.command("models")
@@ -613,8 +613,8 @@ def whisper_models():
     click.echo(f"Models directory: {model_dir}")
     click.echo(f"Total size: {format_size(total_installed_size)} installed / {format_size(total_available_size)} available")
     click.echo("")
-    click.echo("To download a model: chatta whisper model install <model-name>")
-    click.echo("To set default model: chatta whisper model <model-name>")
+    click.echo("To download a model: bumba whisper model install <model-name>")
+    click.echo("To set default model: bumba whisper model <model-name>")
 
 
 @whisper_model.command("install")
@@ -1213,10 +1213,10 @@ def frontend_build(force):
 
 
 # Configuration management group
-@chatta_cli.group()
+@bumba_cli.group()
 @click.help_option('-h', '--help', help='Show this message and exit')
 def config():
-    """Manage CHATTA configuration."""
+    """Manage Bumba Voice configuration."""
     pass
 
 
@@ -1237,7 +1237,7 @@ def config_get(key):
     from pathlib import Path
     
     # Read from the env file
-    env_file = Path.home() / ".chatta" / "chatta.env"
+    env_file = Path.home() / ".bumba" / "bumba.env"
     if not env_file.exists():
         click.echo(f"❌ Configuration file not found: {env_file}")
         return
@@ -1278,7 +1278,7 @@ def config_set(key, value):
 
 
 # Diagnostics group
-@chatta_cli.group()
+@bumba_cli.group()
 @click.help_option('-h', '--help', help='Show this message and exit')
 def diag():
     """Diagnostic tools for voicemode."""
@@ -1287,7 +1287,7 @@ def diag():
 
 @diag.command()
 def info():
-    """Show chatta installation information."""
+    """Show Bumba Voice installation information."""
     from voice_mode.tools.diagnostics import voice_mode_info
     result = asyncio.run(voice_mode_info.fn())
     click.echo(result)
@@ -1361,7 +1361,7 @@ def dependencies():
 @click.version_option()
 @click.help_option('-h', '--help')
 def cli():
-    """CHATTA CLI - Manage conversations, view logs, and analyze voice interactions."""
+    """Bumba Voice CLI - Manage conversations, view logs, and analyze voice interactions."""
     pass
 
 
@@ -1372,11 +1372,11 @@ from voice_mode.cli_commands import exchanges as exchanges_cmd
 cli.add_command(exchanges_cmd.exchanges)
 
 # Add exchanges to main CLI
-chatta_cli.add_command(exchanges_cmd.exchanges)
+bumba_cli.add_command(exchanges_cmd.exchanges)
 
 
 # Converse command - direct voice conversation from CLI
-@chatta_cli.command()
+@bumba_cli.command()
 @click.help_option('-h', '--help')
 @click.option('--message', '-m', default="Hello! How can I help you today?", help='Initial message to speak')
 @click.option('--wait/--no-wait', default=True, help='Wait for response after speaking')
@@ -1403,16 +1403,16 @@ def converse(message, wait, duration, min_duration, transport, room_name, voice,
     Examples:
     
         # Simple conversation
-        chatta converse
+        bumba converse
         
         # Speak a message without waiting
-        chatta converse -m "Hello there!" --no-wait
+        bumba converse -m "Hello there!" --no-wait
         
         # Continuous conversation mode
-        chatta converse --continuous
+        bumba converse --continuous
         
         # Use specific voice
-        chatta converse --voice nova
+        bumba converse --voice nova
     """
     from voice_mode.tools.converse import converse as converse_fn
     
@@ -1539,9 +1539,9 @@ def converse(message, wait, duration, min_duration, transport, room_name, voice,
 
 
 # Version command
-@chatta_cli.command()
+@bumba_cli.command()
 def version():
-    """Show CHATTA version and check for updates."""
+    """Show Bumba Voice version and check for updates."""
     import requests
     from importlib.metadata import version as get_version, PackageNotFoundError
     
@@ -1551,7 +1551,7 @@ def version():
         # Fallback for development installations
         current_version = "development"
     
-    click.echo(f"CHATTA version: {current_version}")
+    click.echo(f"Bumba Voice version: {current_version}")
     
     # Check for updates if not in development mode
     if current_version != "development":
@@ -1575,11 +1575,11 @@ def version():
 
 
 # Update command
-@chatta_cli.command()
+@bumba_cli.command()
 @click.help_option('-h', '--help')
 @click.option('--force', is_flag=True, help='Force reinstall even if already up to date')
 def update(force):
-    """Update CHATTA to the latest version.
+    """Update Bumba Voice to the latest version.
     
     Automatically detects installation method (UV tool, UV pip, or regular pip)
     and uses the appropriate update command.
@@ -1680,7 +1680,7 @@ def update(force):
     
     if is_uv_tool:
         # UV tool installation - use uv tool upgrade
-        click.echo(f"Updating CHATTA (UV tool: {tool_name})...")
+        click.echo(f"Updating Bumba Voice (UV tool: {tool_name})...")
         
         result = subprocess.run(
             ["uv", "tool", "upgrade", tool_name],
@@ -1693,14 +1693,14 @@ def update(force):
                 new_version = get_version("voice-mode")
                 click.echo(f"✅ Successfully updated to version {new_version}")
             except PackageNotFoundError:
-                click.echo("✅ Successfully updated CHATTA")
+                click.echo("✅ Successfully updated Bumba Voice")
         else:
             click.echo(f"❌ Update failed: {result.stderr}")
             click.echo(f"Try running manually: uv tool upgrade {tool_name}")
     
     elif detect_uv_venv():
         # UV-managed virtual environment
-        click.echo("Updating CHATTA (UV virtual environment)...")
+        click.echo("Updating Bumba Voice (UV virtual environment)...")
         
         result = subprocess.run(
             ["uv", "pip", "install", "--upgrade", "voice-mode"],
@@ -1713,7 +1713,7 @@ def update(force):
                 new_version = get_version("voice-mode")
                 click.echo(f"✅ Successfully updated to version {new_version}")
             except PackageNotFoundError:
-                click.echo("✅ Successfully updated CHATTA")
+                click.echo("✅ Successfully updated Bumba Voice")
         else:
             click.echo(f"❌ Update failed: {result.stderr}")
             click.echo("Try running: uv pip install --upgrade voice-mode")
@@ -1723,14 +1723,14 @@ def update(force):
         has_uv = check_uv_available()
         
         if has_uv:
-            click.echo("Updating CHATTA (using UV)...")
+            click.echo("Updating Bumba Voice (using UV)...")
             result = subprocess.run(
                 ["uv", "pip", "install", "--upgrade", "voice-mode"],
                 capture_output=True,
                 text=True
             )
         else:
-            click.echo("Updating CHATTA (using pip)...")
+            click.echo("Updating Bumba Voice (using pip)...")
             result = subprocess.run(
                 [sys.executable, "-m", "pip", "install", "--upgrade", "voice-mode"],
                 capture_output=True,
@@ -1742,7 +1742,7 @@ def update(force):
                 new_version = get_version("voice-mode")
                 click.echo(f"✅ Successfully updated to version {new_version}")
             except PackageNotFoundError:
-                click.echo("✅ Successfully updated CHATTA")
+                click.echo("✅ Successfully updated Bumba Voice")
         else:
             click.echo(f"❌ Update failed: {result.stderr}")
             if has_uv:
@@ -1752,7 +1752,7 @@ def update(force):
 
 
 # Completions command
-@chatta_cli.command()
+@bumba_cli.command()
 @click.help_option('-h', '--help')
 @click.argument('shell', type=click.Choice(['bash', 'zsh', 'fish']))
 @click.option('--install', is_flag=True, help='Install completion script to the appropriate location')
@@ -1760,10 +1760,10 @@ def completions(shell, install):
     """Generate or install shell completion scripts.
     
     Examples:
-        chatta completions bash              # Output bash completion to stdout
-        chatta completions bash --install    # Install to ~/.bash_completion.d/
-        chatta completions zsh --install     # Install to ~/.zfunc/
-        chatta completions fish --install    # Install to ~/.config/fish/completions/
+        bumba completions bash              # Output bash completion to stdout
+        bumba completions bash --install    # Install to ~/.bash_completion.d/
+        bumba completions zsh --install     # Install to ~/.zfunc/
+        bumba completions fish --install    # Install to ~/.config/fish/completions/
     """
     from pathlib import Path
     
@@ -1774,7 +1774,7 @@ _voicemode_completion() {
     local IFS=$'\\n'
     local response
     
-    response=$(env _VOICEMODE_COMPLETE=bash_complete COMP_WORDS="${COMP_WORDS[*]}" COMP_CWORD=$COMP_CWORD chatta 2>/dev/null)
+    response=$(env _VOICEMODE_COMPLETE=bash_complete COMP_WORDS="${COMP_WORDS[*]}" COMP_CWORD=$COMP_CWORD bumba 2>/dev/null)
     
     for completion in $response; do
         IFS=',' read type value <<< "$completion"
@@ -1800,7 +1800,7 @@ complete -o default -F _voicemode_completion voicemode
 
 _voicemode() {
     local -a response
-    response=(${(f)"$(env _VOICEMODE_COMPLETE=zsh_complete COMP_WORDS="${words[*]}" COMP_CWORD=$((CURRENT-1)) chatta 2>/dev/null)"})
+    response=(${(f)"$(env _VOICEMODE_COMPLETE=zsh_complete COMP_WORDS="${words[*]}" COMP_CWORD=$((CURRENT-1)) bumba 2>/dev/null)"})
     
     for completion in $response; do
         IFS=',' read type value <<< "$completion"
@@ -1814,14 +1814,14 @@ compdef _voicemode voicemode
     elif shell == 'fish':
         completion_script = '''# fish completion for voicemode
 function __fish_voicemode_complete
-    set -l response (env _VOICEMODE_COMPLETE=fish_complete COMP_WORDS=(commandline -cp) COMP_CWORD=(commandline -t) chatta 2>/dev/null)
+    set -l response (env _VOICEMODE_COMPLETE=fish_complete COMP_WORDS=(commandline -cp) COMP_CWORD=(commandline -t) bumba 2>/dev/null)
     
     for completion in $response
         echo $completion
     end
 end
 
-complete -c chatta -f -a '(__fish_voicemode_complete)'
+complete -c bumba -f -a '(__fish_voicemode_complete)'
 '''
     
     if install:

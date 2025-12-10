@@ -1,4 +1,4 @@
-# Changelog: Chatta Identity Enhancement
+# Changelog: Bumba Identity Enhancement
 
 ---
 
@@ -7,7 +7,7 @@
 ### Added
 
 #### Automatic Identity Instruction Loading
-- **Feature:** "Chatta" conversational identity now automatically loads with `mcp__chatta__converse` tool
+- **Feature:** "Bumba" conversational identity now automatically loads with `mcp__bumba__converse` tool
 - **Implementation:** Embedded identity instruction in `src/voice_mode/prompts/converse.py`
 - **Benefit:** Eliminates need for manual CLAUDE.md reading
 - **Impact:** Consistent voice conversation behavior across all sessions
@@ -19,7 +19,7 @@
 - Maintains existing conversation instructions
 
 #### Documentation
-- Created `docs/voice/CHATTA_IDENTITY_ENHANCEMENT.md` - Complete enhancement documentation
+- Created `docs/voice/BUMBA_IDENTITY_ENHANCEMENT.md` - Complete enhancement documentation
 - Updated `CLAUDE.md` - Added note about automatic loading (lines 136-137)
 - Created `docs/voice/CHANGELOG_IDENTITY_ENHANCEMENT.md` - This changelog
 
@@ -38,16 +38,16 @@
  def converse() -> str:
      """Have an ongoing two-way voice conversation with the user."""
 +
-+    # Identity instruction for "Chatta" conversational persona
-+    identity_instruction = """## Conversational Identity: "Chatta"
++    # Identity instruction for "Bumba" conversational persona
++    identity_instruction = """## Conversational Identity: "Bumba"
 +
 +When using the converse tool for voice conversations:
-+- Respond naturally when addressed as "Chatta" (conversational name)
++- Respond naturally when addressed as "Bumba" (conversational name)
 +- This is a theatrical persona - you remain Claude Code
 +- Voice interactions only (not text, code, or docs)
-+- Don't introduce as "Chatta" unprompted
++- Don't introduce as "Bumba" unprompted
 +- Casual acknowledgment, no emphasis or over-use
-+- Example: User: "Hey Chatta" → You: "Yes?" (natural, casual)"""
++- Example: User: "Hey Bumba" → You: "Yes?" (natural, casual)"""
 +
 +    # Existing conversation instructions
      instructions = [
@@ -91,12 +91,12 @@
 ### Fixed
 
 #### Inconsistent Identity Awareness
-- **Problem:** "Chatta" identity required manual CLAUDE.md reading
+- **Problem:** "Bumba" identity required manual CLAUDE.md reading
 - **Solution:** Embedded in prompt, automatically loaded
 - **Result:** 100% consistent behavior across sessions
 
 #### User Experience Friction
-- **Problem:** Users had to remind Claude about "Chatta" identity
+- **Problem:** Users had to remind Claude about "Bumba" identity
 - **Solution:** Auto-loading eliminates manual intervention
 - **Result:** Seamless voice conversation experience
 
@@ -120,15 +120,15 @@
 
 #### Before (Old Behavior)
 ```
-User: "Hey Chatta, how are you?"
-Claude: "I'm not sure what 'Chatta' refers to..."
+User: "Hey Bumba, how are you?"
+Claude: "I'm not sure what 'Bumba' refers to..."
 User: "Please read CLAUDE.md"
 Claude: [After reading] "Ah yes, I understand. How can I help?"
 ```
 
 #### After (New Behavior)
 ```
-User: "Hey Chatta, how are you?"
+User: "Hey Bumba, how are you?"
 Claude: "I'm doing well! What can I help you with?"
 ```
 
@@ -136,8 +136,8 @@ Claude: "I'm doing well! What can I help you with?"
 
 To verify the enhancement is active:
 
-1. Start voice conversation: Use `mcp__chatta__converse` tool
-2. Address Claude as "Chatta"
+1. Start voice conversation: Use `mcp__bumba__converse` tool
+2. Address Claude as "Bumba"
 3. Observe natural recognition without needing to reference CLAUDE.md
 
 ### Rollback
@@ -145,8 +145,8 @@ To verify the enhancement is active:
 If needed, restore original behavior:
 
 ```bash
-cp /Users/az/Claude/CHATTA/src/voice_mode/prompts/converse.py.backup \
-   /Users/az/Claude/CHATTA/src/voice_mode/prompts/converse.py
+cp /Users/az/Claude/Bumba-Voice/src/voice_mode/prompts/converse.py.backup \
+   /Users/az/Claude/Bumba-Voice/src/voice_mode/prompts/converse.py
 # Restart MCP server
 ```
 
@@ -162,7 +162,7 @@ cp /Users/az/Claude/CHATTA/src/voice_mode/prompts/converse.py.backup \
 - Behavioral guideline presence (11/11 checks)
 
 ### User Acceptance Tests ✅
-- Basic "Chatta" recognition
+- Basic "Bumba" recognition
 - No unprompted introduction
 - Context boundary (voice-only)
 - Casual acknowledgment style
@@ -173,8 +173,8 @@ cp /Users/az/Claude/CHATTA/src/voice_mode/prompts/converse.py.backup \
 
 ### Edge Case Tests ✅
 - Rapid context switching
-- User rejects "Chatta" name
-- "Who is Chatta?" clarification
+- User rejects "Bumba" name
+- "Who is Bumba?" clarification
 - Text mode mention handling
 - No name usage during voice
 - Mixed tool usage
@@ -235,7 +235,7 @@ cp /Users/az/Claude/CHATTA/src/voice_mode/prompts/converse.py.backup \
 - Context boundary enforcement is prompt-based
 
 ### Customization
-- Identity name ("Chatta") is hardcoded
+- Identity name ("Bumba") is hardcoded
 - Custom names require code modification
 - No user-configurable identity system (yet)
 
@@ -269,7 +269,7 @@ cp /Users/az/Claude/CHATTA/src/voice_mode/prompts/converse.py.backup \
 ## References
 
 ### Documentation
-- [CHATTA_IDENTITY_ENHANCEMENT.md](CHATTA_IDENTITY_ENHANCEMENT.md) - Complete enhancement guide
+- [Bumba Voice_IDENTITY_ENHANCEMENT.md](Bumba Voice_IDENTITY_ENHANCEMENT.md) - Complete enhancement guide
 - [CONVERSATIONAL_IDENTITY.md](CONVERSATIONAL_IDENTITY.md) - Comprehensive identity guidelines
 - [CLAUDE.md](../../CLAUDE.md) - Project instructions (updated)
 

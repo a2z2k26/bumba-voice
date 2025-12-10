@@ -1,25 +1,25 @@
-# CHATTA Docker Voice Services Setup
+# Bumba Voice Docker Voice Services Setup
 
 ## Overview
-CHATTA provides containerized voice services for speech-to-text (STT), text-to-speech (TTS), and real-time WebRTC communication through Docker containers. This setup enables local, privacy-focused voice AI capabilities without cloud dependencies.
+Bumba Voice provides containerized voice services for speech-to-text (STT), text-to-speech (TTS), and real-time WebRTC communication through Docker containers. This setup enables local, privacy-focused voice AI capabilities without cloud dependencies.
 
 ## Services
 
 ### 1. Whisper STT (Speech-to-Text)
-- **Container**: chatta-whisper
+- **Container**: bumba-whisper
 - **Port**: 8880
 - **Model**: OpenAI Whisper base model
 - **API**: OpenAI-compatible transcription endpoint
 
 ### 2. Kokoro TTS (Text-to-Speech)
-- **Container**: chatta-kokoro
+- **Container**: bumba-kokoro
 - **Port**: 7888
 - **Model**: Kokoro ONNX v0.87
 - **API**: OpenAI-compatible speech synthesis endpoint
 - **Voices**: af_alloy, af_aoede, af_bella, and more
 
 ### 3. LiveKit (WebRTC)
-- **Container**: chatta-livekit
+- **Container**: bumba-livekit
 - **Ports**: 
   - 7880-7881 (TCP)
   - 50000-50100 (UDP)
@@ -62,7 +62,7 @@ curl http://localhost:8880/health
 curl http://localhost:7888/health
 
 # Check LiveKit (no HTTP endpoint, check process)
-docker ps | grep chatta-livekit
+docker ps | grep bumba-livekit
 ```
 
 ## API Usage
@@ -98,7 +98,7 @@ with open("audio.wav", "rb") as f:
 curl -X POST http://localhost:7888/v1/audio/speech \
   -H "Content-Type: application/json" \
   -d '{
-    "input": "Hello CHATTA voice services",
+    "input": "Hello Bumba Voice voice services",
     "voice": "af_alloy",
     "model": "tts-1"
   }' \
@@ -112,7 +112,7 @@ import requests
 response = requests.post(
     "http://localhost:7888/v1/audio/speech",
     json={
-        "input": "Hello from CHATTA",
+        "input": "Hello from Bumba Voice",
         "voice": "af_alloy",
         "model": "tts-1"
     }
@@ -150,11 +150,11 @@ This will test:
 
 1. **Test TTS Generation:**
 ```bash
-echo "Testing CHATTA voice" | \
+echo "Testing Bumba Voice voice" | \
   curl -X POST http://localhost:7888/v1/audio/speech \
   -H "Content-Type: application/json" \
   -d @- \
-  --data-raw '{"input":"Testing CHATTA voice","voice":"af_alloy","model":"tts-1"}' \
+  --data-raw '{"input":"Testing Bumba Voice voice","voice":"af_alloy","model":"tts-1"}' \
   --output test.wav && afplay test.wav
 ```
 
@@ -228,13 +228,13 @@ mkdir -p models/whisper models/kokoro
 
 ```
 ┌─────────────────────────────────────────┐
-│           CHATTA Application            │
+│           Bumba Voice Application            │
 ├─────────────────────────────────────────┤
 │          MCP Voice Tools                │
 └────────────┬────────────────────────────┘
              │
     ┌────────┴───────────────────┐
-    │   Docker Network: chatta    │
+    │   Docker Network: bumba    │
     ├────────────────────────────┤
     │                            │
     │  ┌──────────────┐         │
@@ -284,8 +284,8 @@ rtc:
 
 ## Next Steps
 
-1. **Integration with CHATTA MCP**:
-   - Services auto-discovered by CHATTA's provider system
+1. **Integration with Bumba Voice MCP**:
+   - Services auto-discovered by Bumba Voice's provider system
    - Available through `voice_converse` MCP tool
 
 2. **Production Deployment**:

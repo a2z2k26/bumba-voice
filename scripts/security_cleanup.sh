@@ -1,8 +1,8 @@
 #!/bin/bash
-# Security cleanup script for CHATTA 1.0 public release
+# Security cleanup script for BUMBA 1.0 public release
 # This script removes personal information and sensitive data
 
-echo "🔒 CHATTA Security Cleanup for Public Release"
+echo "🔒 BUMBA Security Cleanup for Public Release"
 echo "=============================================="
 echo ""
 echo "This script will:"
@@ -36,12 +36,12 @@ changes_made=0
 echo ""
 echo "🔧 Fixing absolute paths with personal information..."
 
-# Fix chatta_mcp_server.sh
-if [ -f "chatta_mcp_server.sh" ]; then
+# Fix bumba_mcp_server.sh
+if [ -f "bumba_mcp_server.sh" ]; then
     sed -i.security 's|./project
-    if [ -f "chatta_mcp_server.sh.security" ]; then
-        rm "chatta_mcp_server.sh.security"
-        echo "   ✅ Fixed chatta_mcp_server.sh"
+    if [ -f "bumba_mcp_server.sh.security" ]; then
+        rm "bumba_mcp_server.sh.security"
+        echo "   ✅ Fixed bumba_mcp_server.sh"
         ((changes_made++))
     fi
 fi
@@ -107,7 +107,7 @@ fi
 # Create comprehensive .env.example if none exists
 if [ ! -f ".env.example" ]; then
     cat > .env.example << 'EOF'
-# CHATTA Environment Variables
+# BUMBA Environment Variables
 
 # Optional: OpenAI API Configuration
 OPENAI_API_KEY=
@@ -124,19 +124,19 @@ WHISPER_PORT=8880
 LIVEKIT_PORT=2022
 
 # Performance Settings
-CHATTA_CONNECTION_POOL_SIZE=10
-CHATTA_REQUEST_TIMEOUT=5
-CHATTA_CACHE_ENABLED=true
-CHATTA_PARALLEL_REQUESTS=true
-CHATTA_HEALTH_CHECK_INTERVAL=30
+BUMBA_CONNECTION_POOL_SIZE=10
+BUMBA_REQUEST_TIMEOUT=5
+BUMBA_CACHE_ENABLED=true
+BUMBA_PARALLEL_REQUESTS=true
+BUMBA_HEALTH_CHECK_INTERVAL=30
 
 # Audio Settings
-CHATTA_AUDIO_FEEDBACK=true
-CHATTA_DISABLE_SILENCE_DETECTION=false
-CHATTA_VAD_AGGRESSIVENESS=1
-CHATTA_SILENCE_THRESHOLD_MS=1200
-CHATTA_MIN_RECORDING_DURATION=0.3
-CHATTA_INITIAL_SILENCE_GRACE_PERIOD=2.0
+BUMBA_AUDIO_FEEDBACK=true
+BUMBA_DISABLE_SILENCE_DETECTION=false
+BUMBA_VAD_AGGRESSIVENESS=1
+BUMBA_SILENCE_THRESHOLD_MS=1200
+BUMBA_MIN_RECORDING_DURATION=0.3
+BUMBA_INITIAL_SILENCE_GRACE_PERIOD=2.0
 EOF
     echo "   ✅ Created comprehensive .env.example"
     ((env_created++))

@@ -93,9 +93,9 @@ reset()                        # Start new session
 
 **New Variables:**
 ```bash
-export CHATTA_PTT_STATISTICS=true              # Enable statistics tracking
-export CHATTA_PTT_STATS_AUTO_EXPORT=false      # Auto-export on disable
-export CHATTA_PTT_STATS_EXPORT_PATH=/path/     # Export directory
+export BUMBA_PTT_STATISTICS=true              # Enable statistics tracking
+export BUMBA_PTT_STATS_AUTO_EXPORT=false      # Auto-export on disable
+export BUMBA_PTT_STATS_EXPORT_PATH=/path/     # Export directory
 ```
 
 **Defaults:**

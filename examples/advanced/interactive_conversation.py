@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CHATTA Interactive Voice Conversation
+BUMBA Interactive Voice Conversation
 A real conversation flow using Kokoro TTS and Whisper STT
 """
 import requests
@@ -12,7 +12,7 @@ import sys
 
 def speak_kokoro(text, voice="af_alloy"):
     """Generate speech using Kokoro TTS and play it"""
-    print(f"🤖 CHATTA: {text}")
+    print(f"🤖 BUMBA: {text}")
     
     try:
         response = requests.post(
@@ -67,7 +67,7 @@ def record_audio(duration=5, output_file="recording.wav"):
         else:
             # Use macOS say to create test audio
             print("⚠️  No recording tool found, using test phrase")
-            test_phrase = "Hello CHATTA, this is a test message"
+            test_phrase = "Hello BUMBA, this is a test message"
             subprocess.run([
                 "say", "-o", output_file,
                 "--data-format=LEI16@16000",
@@ -113,7 +113,7 @@ def simple_response(user_input):
     elif "how are you" in user_input_lower:
         return "I'm functioning perfectly, thank you for asking! My voice services are operational and ready to chat."
     elif "name" in user_input_lower:
-        return "I'm CHATTA, your voice-enabled AI assistant. Nice to meet you!"
+        return "I'm BUMBA, your voice-enabled AI assistant. Nice to meet you!"
     elif "bye" in user_input_lower or "goodbye" in user_input_lower:
         return "Goodbye! It was lovely talking with you. Have a wonderful day!"
     elif "test" in user_input_lower:
@@ -126,7 +126,7 @@ def simple_response(user_input):
 def conversation_flow():
     """Main conversation flow"""
     print("\n" + "="*60)
-    print("🎙️  CHATTA Interactive Voice Conversation")
+    print("🎙️  BUMBA Interactive Voice Conversation")
     print("="*60)
     print("Testing Kokoro TTS → Your Voice → Whisper STT → Kokoro TTS")
     print("-"*60)
@@ -150,7 +150,7 @@ def conversation_flow():
     time.sleep(1)
     
     # 1. Kokoro greets you
-    greeting = "Hello! I'm CHATTA, your voice assistant. I'm ready to have a conversation with you. Please say something after the beep!"
+    greeting = "Hello! I'm BUMBA, your voice assistant. I'm ready to have a conversation with you. Please say something after the beep!"
     if not speak_kokoro(greeting):
         print("Failed to generate greeting")
         return
@@ -227,7 +227,7 @@ def test_microphone():
     return None
 
 if __name__ == "__main__":
-    print("🎤 CHATTA Voice Conversation Demo")
+    print("🎤 BUMBA Voice Conversation Demo")
     print("-" * 40)
     
     # Test microphone first

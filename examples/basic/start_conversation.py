@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Quick script to start a voice conversation with Chatta"""
+"""Quick script to start a voice conversation with Bumba"""
 
 import asyncio
 import sys

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Full back-and-forth CHATTA voice conversation test."""
+"""Full back-and-forth BUMBA voice conversation test."""
 
 import asyncio
 import os
@@ -10,13 +10,13 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 # Configure environment for local services
 os.environ.setdefault("PREFER_LOCAL", "true")
-os.environ.setdefault("CHATTA_AUDIO_FEEDBACK", "true")
-os.environ.setdefault("CHATTA_DISABLE_SILENCE_DETECTION", "false")
+os.environ.setdefault("BUMBA_AUDIO_FEEDBACK", "true")
+os.environ.setdefault("BUMBA_DISABLE_SILENCE_DETECTION", "false")
 
 async def full_conversation():
     """Run a full back-and-forth voice conversation."""
     print("=" * 70)
-    print("🎤 CHATTA Full Conversation Test")
+    print("🎤 BUMBA Full Conversation Test")
     print("=" * 70)
     print()
     
@@ -34,13 +34,13 @@ async def full_conversation():
         else:
             raise ImportError("Cannot find converse function")
             
-        print("✅ CHATTA voice module loaded successfully")
+        print("✅ BUMBA voice module loaded successfully")
         print()
         
         # Conversation turns
         conversation_turns = [
             {
-                "message": "Hello! I'm CHATTA, your voice assistant. I've completed all 48 sprints and I'm ready for a conversation. What's your name?",
+                "message": "Hello! I'm BUMBA, your voice assistant. I've completed all 48 sprints and I'm ready for a conversation. What's your name?",
                 "wait_for_response": True,
                 "listen_duration": 4.0
             },
@@ -55,7 +55,7 @@ async def full_conversation():
                 "listen_duration": 4.0
             },
             {
-                "message": "Great choice! Thanks for testing the CHATTA voice system with me. The full conversation pipeline is working perfectly!",
+                "message": "Great choice! Thanks for testing the BUMBA voice system with me. The full conversation pipeline is working perfectly!",
                 "wait_for_response": False
             }
         ]
@@ -64,7 +64,7 @@ async def full_conversation():
         for i, turn in enumerate(conversation_turns, 1):
             print(f"📍 Turn {i}/{len(conversation_turns)}")
             print("-" * 40)
-            print(f"🤖 CHATTA: {turn['message'][:60]}...")
+            print(f"🤖 BUMBA: {turn['message'][:60]}...")
             print()
             
             result = await converse(
@@ -91,7 +91,7 @@ async def full_conversation():
                 elif i == 3:
                     # Reference their language choice in final message
                     if user_text:
-                        conversation_turns[i]["message"] = f"{user_text} is a great choice! Thanks for testing the CHATTA voice system with me. The full conversation pipeline is working perfectly!"
+                        conversation_turns[i]["message"] = f"{user_text} is a great choice! Thanks for testing the BUMBA voice system with me. The full conversation pipeline is working perfectly!"
             
             elif turn['wait_for_response']:
                 print("⚠️  No response detected")
@@ -108,14 +108,14 @@ async def full_conversation():
         
     except ImportError as e:
         print(f"❌ Import Error: {e}")
-        print("   Make sure you're in the CHATTA project directory")
+        print("   Make sure you're in the BUMBA project directory")
     except Exception as e:
         print(f"❌ Error during test: {e}")
         import traceback
         traceback.print_exc()
 
 if __name__ == "__main__":
-    print("Starting CHATTA full conversation test...")
+    print("Starting BUMBA full conversation test...")
     print("📢 Speak clearly when prompted!")
     print()
     asyncio.run(full_conversation())

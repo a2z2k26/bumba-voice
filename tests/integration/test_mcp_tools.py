@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Test if CHATTA MCP server exposes tools correctly"""
+"""Test if BUMBA MCP server exposes tools correctly"""
 import json
 import os
 import subprocess
@@ -98,7 +98,7 @@ def test_mcp_tools():
 
 if __name__ == "__main__":
     print("=" * 60)
-    print("🔧 Testing CHATTA MCP Server Tools")
+    print("🔧 Testing BUMBA MCP Server Tools")
     print("=" * 60)
     
     success = test_mcp_tools()

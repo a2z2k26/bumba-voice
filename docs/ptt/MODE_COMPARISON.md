@@ -322,7 +322,7 @@ config.PTT_KEY_COMBO = "F9"
 
 ---
 
-### Scenario 3: AI Coding Assistant (CHATTA)
+### Scenario 3: AI Coding Assistant (Bumba Voice)
 
 **Need:** Variable-length questions and commands
 

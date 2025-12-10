@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Simple CHATTA Voice Demo with Docker Services
-Uses CHATTA's converse function directly
+Simple BUMBA Voice Demo with Docker Services
+Uses BUMBA's converse function directly
 """
 import os
 import asyncio
@@ -14,20 +14,20 @@ os.environ["OPENAI_API_KEY"] = "dummy-key-for-local"
 
 async def main():
     print("="*60)
-    print("🎙️  CHATTA Voice Conversation Demo")
+    print("🎙️  BUMBA Voice Conversation Demo")
     print("="*60)
     
     try:
         # Import the converse function
         from voice_mode.tools.converse import converse
-        print("✅ CHATTA loaded successfully\n")
+        print("✅ BUMBA loaded successfully\n")
         
         # Step 1: Greeting with TTS
         print("📍 Step 1: Kokoro speaks a greeting...")
-        print("🤖 CHATTA: Hello! Testing the voice pipeline.\n")
+        print("🤖 BUMBA: Hello! Testing the voice pipeline.\n")
         
         result = await converse(
-            message="Hello! I'm CHATTA with Docker services. Say something after the tone!",
+            message="Hello! I'm BUMBA with Docker services. Say something after the tone!",
             voice="af_alloy",
             wait_for_response=True,
             transport="microphone",
@@ -40,7 +40,7 @@ async def main():
             print(f"📝 You said: '{user_text}'\n")
             
             # Step 3: Respond
-            print("📍 Step 3: CHATTA responds...")
+            print("📍 Step 3: BUMBA responds...")
             
             # Simple response logic
             if any(word in user_text.lower() for word in ['hello', 'hi', 'hey']):
@@ -56,7 +56,7 @@ async def main():
                 wait_for_response=False
             )
             
-            print(f"🤖 CHATTA: {response}")
+            print(f"🤖 BUMBA: {response}")
             print("\n✅ Voice conversation complete!")
             
         else:
@@ -73,5 +73,5 @@ async def main():
         traceback.print_exc()
 
 if __name__ == "__main__":
-    print("Starting CHATTA with Docker services...\n")
+    print("Starting BUMBA with Docker services...\n")
     asyncio.run(main())

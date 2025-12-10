@@ -158,15 +158,15 @@ class PlaybackController:
 ### New Environment Variables
 ```bash
 # Early start configuration
-export CHATTA_TTS_EARLY_START=true
-export CHATTA_TTS_EARLY_START_PERCENTAGE=0.35  # Start at 35%
-export CHATTA_TTS_MIN_BUFFER_MS=500            # Minimum 500ms buffer
-export CHATTA_TTS_ADAPTIVE_RATE=true           # Enable rate adjustment
+export BUMBA_TTS_EARLY_START=true
+export BUMBA_TTS_EARLY_START_PERCENTAGE=0.35  # Start at 35%
+export BUMBA_TTS_MIN_BUFFER_MS=500            # Minimum 500ms buffer
+export BUMBA_TTS_ADAPTIVE_RATE=true           # Enable rate adjustment
 
 # Chunk size optimization
-export CHATTA_TTS_DYNAMIC_CHUNKS=true
-export CHATTA_TTS_MIN_CHUNK_SIZE=2048
-export CHATTA_TTS_MAX_CHUNK_SIZE=8192
+export BUMBA_TTS_DYNAMIC_CHUNKS=true
+export BUMBA_TTS_MIN_CHUNK_SIZE=2048
+export BUMBA_TTS_MAX_CHUNK_SIZE=8192
 ```
 
 ### Updated .mcp.json
@@ -175,11 +175,11 @@ export CHATTA_TTS_MAX_CHUNK_SIZE=8192
   "mcpServers": {
     "voicemode": {
       "env": {
-        "CHATTA_TTS_EARLY_START": "true",
-        "CHATTA_TTS_EARLY_START_PERCENTAGE": "0.35",
-        "CHATTA_TTS_MIN_BUFFER_MS": "500",
-        "CHATTA_TTS_ADAPTIVE_RATE": "true",
-        "CHATTA_TTS_DYNAMIC_CHUNKS": "true"
+        "BUMBA_TTS_EARLY_START": "true",
+        "BUMBA_TTS_EARLY_START_PERCENTAGE": "0.35",
+        "BUMBA_TTS_MIN_BUFFER_MS": "500",
+        "BUMBA_TTS_ADAPTIVE_RATE": "true",
+        "BUMBA_TTS_DYNAMIC_CHUNKS": "true"
       }
     }
   }

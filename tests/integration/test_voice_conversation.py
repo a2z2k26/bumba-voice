@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Direct test of CHATTA voice conversation functionality."""
+"""Direct test of BUMBA voice conversation functionality."""
 
 import asyncio
 import os
@@ -10,13 +10,13 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 # Configure environment for local services if available
 os.environ.setdefault("PREFER_LOCAL", "true")
-os.environ.setdefault("CHATTA_AUDIO_FEEDBACK", "true")
-os.environ.setdefault("CHATTA_DISABLE_SILENCE_DETECTION", "false")
+os.environ.setdefault("BUMBA_AUDIO_FEEDBACK", "true")
+os.environ.setdefault("BUMBA_DISABLE_SILENCE_DETECTION", "false")
 
 async def test_voice_conversation():
     """Test the voice conversation system."""
     print("=" * 70)
-    print("🎤 CHATTA Voice Conversation Test")
+    print("🎤 BUMBA Voice Conversation Test")
     print("=" * 70)
     print()
     
@@ -40,17 +40,17 @@ async def test_voice_conversation():
         else:
             raise ImportError("Cannot find converse function")
             
-        print("✅ CHATTA voice module loaded successfully")
+        print("✅ BUMBA voice module loaded successfully")
         print()
         
         # Test 1: Simple TTS test
         print("📍 Test 1: Text-to-Speech")
         print("-" * 40)
-        print("🤖 Speaking: 'Hello! This is CHATTA voice mode testing.'")
+        print("🤖 Speaking: 'Hello! This is BUMBA voice mode testing.'")
         print()
         
         result = await converse(
-            message="Hello! This is CHATTA voice mode testing. The system has completed all 48 sprints successfully!",
+            message="Hello! This is BUMBA voice mode testing. The system has completed all 48 sprints successfully!",
             wait_for_response=False,
             voice="af_alloy"
         )
@@ -98,7 +98,7 @@ async def test_voice_conversation():
             
     except ImportError as e:
         print(f"❌ Import Error: {e}")
-        print("   Make sure you're in the CHATTA project directory")
+        print("   Make sure you're in the BUMBA project directory")
     except Exception as e:
         print(f"❌ Error during test: {e}")
         import traceback
@@ -110,6 +110,6 @@ async def test_voice_conversation():
     print("=" * 70)
 
 if __name__ == "__main__":
-    print("Initializing CHATTA voice system...")
+    print("Initializing BUMBA voice system...")
     print()
     asyncio.run(test_voice_conversation())

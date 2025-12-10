@@ -1,7 +1,7 @@
 # Push-to-Talk (PTT) Module
 
 ## Overview
-This module implements keyboard-controlled voice recording for CHATTA, allowing users to control recording via configurable key combinations instead of automatic silence detection.
+This module implements keyboard-controlled voice recording for Bumba Voice, allowing users to control recording via configurable key combinations instead of automatic silence detection.
 
 ## Status
 ✅ **Phase 2 Complete** - Foundation Setup (100% Complete)
@@ -171,37 +171,37 @@ PTT configuration via environment variables:
 
 ```bash
 # Core settings
-export CHATTA_PTT_ENABLED=true
-export CHATTA_PTT_KEY_COMBO="option_r"
-export CHATTA_PTT_MODE="hold"          # hold, toggle, or hybrid
-export CHATTA_PTT_TIMEOUT=120.0
+export BUMBA_PTT_ENABLED=true
+export BUMBA_PTT_KEY_COMBO="option_r"
+export BUMBA_PTT_MODE="hold"          # hold, toggle, or hybrid
+export BUMBA_PTT_TIMEOUT=120.0
 
 # Behavior settings
-export CHATTA_PTT_AUTO_ENABLE=false
-export CHATTA_PTT_REQUIRE_BOTH_KEYS=true
-export CHATTA_PTT_RELEASE_DELAY=0.1
-export CHATTA_PTT_MIN_DURATION=0.5
+export BUMBA_PTT_AUTO_ENABLE=false
+export BUMBA_PTT_REQUIRE_BOTH_KEYS=true
+export BUMBA_PTT_RELEASE_DELAY=0.1
+export BUMBA_PTT_MIN_DURATION=0.5
 
 # Audio feedback
-export CHATTA_PTT_AUDIO_FEEDBACK=true
-export CHATTA_PTT_FEEDBACK_VOLUME=0.7
-export CHATTA_PTT_VISUAL_FEEDBACK=true
+export BUMBA_PTT_AUDIO_FEEDBACK=true
+export BUMBA_PTT_FEEDBACK_VOLUME=0.7
+export BUMBA_PTT_VISUAL_FEEDBACK=true
 
 # Advanced settings
-export CHATTA_PTT_CANCEL_KEY="escape"
-export CHATTA_PTT_BUFFER_PRE_RECORDING=false
-export CHATTA_PTT_BUFFER_DURATION=0.5
-export CHATTA_PTT_KEY_REPEAT_IGNORE=true
+export BUMBA_PTT_CANCEL_KEY="escape"
+export BUMBA_PTT_BUFFER_PRE_RECORDING=false
+export BUMBA_PTT_BUFFER_DURATION=0.5
+export BUMBA_PTT_KEY_REPEAT_IGNORE=true
 
 # Platform-specific
-export CHATTA_PTT_MACOS_ACCESSIBILITY_CHECK=true
-export CHATTA_PTT_WINDOWS_HOOK_TYPE="low_level"
-export CHATTA_PTT_LINUX_INPUT_METHOD="auto"
+export BUMBA_PTT_MACOS_ACCESSIBILITY_CHECK=true
+export BUMBA_PTT_WINDOWS_HOOK_TYPE="low_level"
+export BUMBA_PTT_LINUX_INPUT_METHOD="auto"
 
 # Debug settings
-export CHATTA_PTT_DEBUG=false
-export CHATTA_PTT_LOG_KEYS=false
-export CHATTA_PTT_SIMULATE=false
+export BUMBA_PTT_DEBUG=false
+export BUMBA_PTT_LOG_KEYS=false
+export BUMBA_PTT_SIMULATE=false
 ```
 
 **Loading Configuration:**
@@ -249,7 +249,7 @@ response = await converse(
 )
 
 # Or use global configuration
-# CHATTA_PTT_ENABLED=true
+# BUMBA_PTT_ENABLED=true
 response = await converse("Hello")
 ```
 
@@ -339,8 +339,8 @@ source .venv/bin/activate
 **Debugging steps:**
 ```python
 import os
-os.environ["CHATTA_PTT_DEBUG"] = "true"
-os.environ["CHATTA_PTT_LOG_KEYS"] = "true"
+os.environ["BUMBA_PTT_DEBUG"] = "true"
+os.environ["BUMBA_PTT_LOG_KEYS"] = "true"
 
 from voice_mode.ptt import KeyboardHandler
 handler = KeyboardHandler("your_combo")
@@ -365,4 +365,4 @@ A: See [CONTRIBUTING.md](CONTRIBUTING.md) for developer guidelines.
 ## References
 - [Research Documentation](../../../docs/research/)
 - [Sprint Plan](/Users/az/Desktop/PTT_Feature_Sprint_Plan.md)
-- [Main CHATTA README](../../../README.md)
+- [Main Bumba Voice README](../../../README.md)

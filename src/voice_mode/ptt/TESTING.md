@@ -74,7 +74,7 @@ Removes all PTT environment variables for isolated testing.
 ```python
 def test_default_config(clean_env):
     # PTT env vars are cleared
-    assert os.getenv("CHATTA_PTT_ENABLED") is None
+    assert os.getenv("BUMBA_PTT_ENABLED") is None
 ```
 
 #### `ptt_config`

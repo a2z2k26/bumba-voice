@@ -15,34 +15,34 @@ def test_vad_with_different_settings():
         {
             "name": "Default VAD (800ms silence threshold)",
             "env": {
-                "CHATTA_VAD_DEBUG": "true",
-                "CHATTA_AUDIO_FEEDBACK": "true"
+                "BUMBA_VAD_DEBUG": "true",
+                "BUMBA_AUDIO_FEEDBACK": "true"
             },
             "args": []
         },
         {
             "name": "Aggressive VAD (level 3)",
             "env": {
-                "CHATTA_VAD_DEBUG": "true",
-                "CHATTA_VAD_AGGRESSIVENESS": "3",
-                "CHATTA_AUDIO_FEEDBACK": "true"
+                "BUMBA_VAD_DEBUG": "true",
+                "BUMBA_VAD_AGGRESSIVENESS": "3",
+                "BUMBA_AUDIO_FEEDBACK": "true"
             },
             "args": []
         },
         {
             "name": "Longer silence threshold (1500ms)",
             "env": {
-                "CHATTA_VAD_DEBUG": "true",
-                "CHATTA_SILENCE_THRESHOLD_MS": "1500",
-                "CHATTA_AUDIO_FEEDBACK": "true"
+                "BUMBA_VAD_DEBUG": "true",
+                "BUMBA_SILENCE_THRESHOLD_MS": "1500",
+                "BUMBA_AUDIO_FEEDBACK": "true"
             },
             "args": []
         },
         {
             "name": "VAD Disabled (fixed duration)",
             "env": {
-                "CHATTA_DISABLE_SILENCE_DETECTION": "true",
-                "CHATTA_AUDIO_FEEDBACK": "true"
+                "BUMBA_DISABLE_SILENCE_DETECTION": "true",
+                "BUMBA_AUDIO_FEEDBACK": "true"
             },
             "args": ["--duration", "3"]
         }

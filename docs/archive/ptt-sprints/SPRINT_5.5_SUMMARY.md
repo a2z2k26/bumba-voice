@@ -222,7 +222,7 @@ PTT Error [invalid_mode]
 Invalid PTT mode: 'unknown'
 
 Suggestion: Valid modes are: 'hold', 'toggle', or 'hybrid'.
-Set CHATTA_PTT_MODE environment variable.
+Set BUMBA_PTT_MODE environment variable.
 
 Documentation: .../configuration.md#ptt-mode
 ```

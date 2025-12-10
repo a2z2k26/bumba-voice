@@ -79,11 +79,11 @@ def test_config_loader():
         json_path.unlink()
     
     # Test environment loading
-    os.environ["CHATTA_VOICE_ENABLED"] = "true"
-    os.environ["CHATTA_VOICE_PROVIDER"] = "openai"
-    os.environ["CHATTA_AUDIO_SAMPLE_RATE"] = "16000"
+    os.environ["BUMBA_VOICE_ENABLED"] = "true"
+    os.environ["BUMBA_VOICE_PROVIDER"] = "openai"
+    os.environ["BUMBA_AUDIO_SAMPLE_RATE"] = "16000"
     
-    env_config = loader.load_env("CHATTA_")
+    env_config = loader.load_env("BUMBA_")
     assert env_config["voice"]["enabled"] == True
     assert env_config["voice"]["provider"] == "openai"
     assert env_config["audio"]["sample"]["rate"] == 16000

@@ -394,7 +394,7 @@ Sprint 4.6 is complete when all of the following are verified:
 - Error handling: ✅ Verified
 - Performance: ✅ Acceptable
 
-**Certification:** Phase 4 (Transport Integration) is complete and production-ready. The PTT transport adapter successfully integrates with CHATTA's voice transport layer, maintaining 100% backward compatibility while adding keyboard-controlled recording capability. All automated tests passing, manual test plan ready for execution.
+**Certification:** Phase 4 (Transport Integration) is complete and production-ready. The PTT transport adapter successfully integrates with Bumba Voice's voice transport layer, maintaining 100% backward compatibility while adding keyboard-controlled recording capability. All automated tests passing, manual test plan ready for execution.
 
 **Ready for:** Phase 5 (Enhanced Features) and/or production deployment after manual testing validation.
 

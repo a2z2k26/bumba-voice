@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Integration of memory optimization with CHATTA voice mode."""
+"""Integration of memory optimization with Bumba Voice mode."""
 
 import asyncio
 import numpy as np

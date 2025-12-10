@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""CHATTA MCP Server - Modular version using FastMCP patterns."""
+"""Bumba Voice MCP Server - Modular version using FastMCP patterns."""
 
 # Import the mcp instance from the module
 # This already has tools, prompts, and resources imported
@@ -10,7 +10,7 @@ from . import config
 
 # Main entry point
 def main():
-    """Run the CHATTA MCP server."""
+    """Run the Bumba Voice MCP server."""
     import os
     import sys
     import warnings
@@ -44,7 +44,7 @@ def main():
         print("="*60)
         print(get_install_instructions())
         print("="*60 + "\n")
-        print("❌ CHATTA cannot start without FFmpeg.")
+        print("❌ Bumba Voice cannot start without FFmpeg.")
         print("Please install FFmpeg and try again.\n")
         sys.exit(1)
     
@@ -53,7 +53,7 @@ def main():
     
     # Log version information
     from .version import __version__
-    logger.info(f"Starting CHATTA v{__version__}")
+    logger.info(f"Starting Bumba Voice v{__version__}")
     
     # Log FFmpeg status for MCP mode
     if not ffmpeg_available:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Hybrid Parity Test for CHATTA Framework
+Hybrid Parity Test for BUMBA Framework
 Tests both Claude Desktop (direct) and Claude Code (MCP) execution paths
 """
 
@@ -199,8 +199,8 @@ class HybridParityTester:
         
         env = os.environ.copy()
         env.update({
-            "CHATTA_AUDIO_FEEDBACK": "true",
-            "VOICEMODE_AUDIO_FEEDBACK": "true"
+            "BUMBA_AUDIO_FEEDBACK": "true",
+            "BUMBA_AUDIO_FEEDBACK": "true"
         })
         
         try:
@@ -287,8 +287,8 @@ class HybridParityTester:
         
         env = os.environ.copy()
         env.update({
-            "CHATTA_AUDIO_FEEDBACK": "true",
-            "CHATTA_VAD_DEBUG": "false"
+            "BUMBA_AUDIO_FEEDBACK": "true",
+            "BUMBA_VAD_DEBUG": "false"
         })
         
         cmd = [
@@ -388,7 +388,7 @@ class HybridParityTester:
     async def run_all_tests(self):
         """Run all hybrid parity tests"""
         print("=" * 60)
-        print(" CHATTA HYBRID PARITY TEST SUITE")
+        print(" BUMBA HYBRID PARITY TEST SUITE")
         print("=" * 60)
         print("\nThis test verifies feature parity between:")
         print("  • Claude Desktop (direct Python execution)")

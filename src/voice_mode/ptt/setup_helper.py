@@ -55,7 +55,7 @@ class PTTSetupWizard:
         )
 
         mode_map = {'1': 'hold', '2': 'toggle', '3': 'hybrid'}
-        config['CHATTA_PTT_MODE'] = mode_map[mode]
+        config['BUMBA_PTT_MODE'] = mode_map[mode]
 
         # Step 2: Key combination
         print("\nStep 2: Key Combination")
@@ -71,7 +71,7 @@ class PTTSetupWizard:
             "Enter key combination",
             default="down+right"
         )
-        config['CHATTA_PTT_KEY_COMBO'] = key_combo
+        config['BUMBA_PTT_KEY_COMBO'] = key_combo
 
         # Step 3: Cancel key (optional)
         print("\nStep 3: Cancel Key (Optional)")
@@ -87,7 +87,7 @@ class PTTSetupWizard:
         )
 
         if cancel_key:
-            config['CHATTA_PTT_CANCEL_KEY'] = cancel_key
+            config['BUMBA_PTT_CANCEL_KEY'] = cancel_key
 
         # Step 4: Timeout
         print("\nStep 4: Recording Timeout")
@@ -102,7 +102,7 @@ class PTTSetupWizard:
             min_value=10.0,
             max_value=300.0
         )
-        config['CHATTA_PTT_TIMEOUT'] = str(timeout)
+        config['BUMBA_PTT_TIMEOUT'] = str(timeout)
 
         # Step 5: Visual style
         print("\nStep 5: Visual Feedback Style")
@@ -120,7 +120,7 @@ class PTTSetupWizard:
         )
 
         style_map = {'1': 'minimal', '2': 'compact', '3': 'detailed'}
-        config['CHATTA_PTT_VISUAL_STYLE'] = style_map[style]
+        config['BUMBA_PTT_VISUAL_STYLE'] = style_map[style]
 
         # Step 6: Audio feedback
         print("\nStep 6: Audio Feedback")
@@ -133,7 +133,7 @@ class PTTSetupWizard:
             "Enable audio feedback?",
             default=True
         )
-        config['CHATTA_PTT_AUDIO_FEEDBACK'] = 'true' if audio_enabled else 'false'
+        config['BUMBA_PTT_AUDIO_FEEDBACK'] = 'true' if audio_enabled else 'false'
 
         if audio_enabled:
             volume = self._prompt_number(
@@ -142,7 +142,7 @@ class PTTSetupWizard:
                 min_value=0.0,
                 max_value=1.0
             )
-            config['CHATTA_PTT_FEEDBACK_VOLUME'] = str(volume)
+            config['BUMBA_PTT_FEEDBACK_VOLUME'] = str(volume)
 
         # Complete
         print("\n" + "=" * 60)
@@ -400,13 +400,13 @@ PTT Quick Start Guide
    - Release (or press again) to stop and transcribe
 
 2. Configuration
-   - Set environment variables (CHATTA_PTT_*)
+   - Set environment variables (BUMBA_PTT_*)
    - Or use setup wizard: python -m voice_mode.ptt.setup_helper
 
 3. Key Settings
-   - CHATTA_PTT_MODE: hold, toggle, or hybrid
-   - CHATTA_PTT_KEY_COMBO: your key combination (e.g., "down+right")
-   - CHATTA_PTT_TIMEOUT: max recording seconds
+   - BUMBA_PTT_MODE: hold, toggle, or hybrid
+   - BUMBA_PTT_KEY_COMBO: your key combination (e.g., "down+right")
+   - BUMBA_PTT_TIMEOUT: max recording seconds
 
 4. Common Issues
    - macOS: Grant accessibility permissions to terminal

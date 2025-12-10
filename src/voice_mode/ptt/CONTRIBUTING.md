@@ -6,7 +6,7 @@
 
 1. **Clone and install dependencies:**
 ```bash
-cd /Users/az/Claude/CHATTA
+cd /Users/az/Claude/Bumba-Voice
 source .venv/bin/activate
 pip install -e ".[dev]"
 ```
@@ -331,7 +331,7 @@ When adding new configuration options:
 1. **Add to config.py:**
 ```python
 # In src/voice_mode/config.py
-PTT_NEW_SETTING = os.getenv("CHATTA_PTT_NEW_SETTING", "default_value")
+PTT_NEW_SETTING = os.getenv("BUMBA_PTT_NEW_SETTING", "default_value")
 ```
 
 2. **Document in .env.ptt.example:**
@@ -339,7 +339,7 @@ PTT_NEW_SETTING = os.getenv("CHATTA_PTT_NEW_SETTING", "default_value")
 # New setting description
 # Options: value1, value2, value3
 # Default: default_value
-CHATTA_PTT_NEW_SETTING=default_value
+BUMBA_PTT_NEW_SETTING=default_value
 ```
 
 3. **Add configuration test:**
@@ -352,7 +352,7 @@ def test_new_setting_default(clean_env):
 
 def test_new_setting_from_env(monkeypatch):
     """Test NEW_SETTING reads from environment"""
-    monkeypatch.setenv("CHATTA_PTT_NEW_SETTING", "custom_value")
+    monkeypatch.setenv("BUMBA_PTT_NEW_SETTING", "custom_value")
     from importlib import reload
     from voice_mode import config
     reload(config)
@@ -550,8 +550,8 @@ result = feature.do_something()
 ### Configuration
 
 Required environment variables:
-- `CHATTA_PTT_FEATURE_ENABLED`: Enable/disable feature (default: false)
-- `CHATTA_PTT_FEATURE_OPTION`: Feature option (default: value)
+- `BUMBA_PTT_FEATURE_ENABLED`: Enable/disable feature (default: false)
+- `BUMBA_PTT_FEATURE_OPTION`: Feature option (default: value)
 ```
 
 ## Performance Considerations

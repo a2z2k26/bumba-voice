@@ -11,7 +11,7 @@ from .version import __version__
 
 # Create the MCP instance here so tools can import it
 from fastmcp import FastMCP
-mcp = FastMCP("chatta")
+mcp = FastMCP("bumba")
 
 # Import tools to register them with the mcp instance
 # We need to do this here so they're registered before server.py runs

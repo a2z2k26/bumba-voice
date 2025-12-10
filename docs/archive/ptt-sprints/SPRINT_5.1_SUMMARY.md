@@ -168,16 +168,16 @@ create_visual_feedback_callbacks() -> dict         # Create callback dict
 
 **New Configuration Variables:**
 ```python
-PTT_VISUAL_FEEDBACK = env_bool("CHATTA_PTT_VISUAL_FEEDBACK", True)
-PTT_VISUAL_STYLE = os.getenv("CHATTA_PTT_VISUAL_STYLE", "compact")
-PTT_SHOW_DURATION = env_bool("CHATTA_PTT_SHOW_DURATION", True)
+PTT_VISUAL_FEEDBACK = env_bool("BUMBA_PTT_VISUAL_FEEDBACK", True)
+PTT_VISUAL_STYLE = os.getenv("BUMBA_PTT_VISUAL_STYLE", "compact")
+PTT_SHOW_DURATION = env_bool("BUMBA_PTT_SHOW_DURATION", True)
 ```
 
 **Environment Variables:**
 ```bash
-export CHATTA_PTT_VISUAL_FEEDBACK=true    # Enable/disable visual feedback
-export CHATTA_PTT_VISUAL_STYLE=compact    # minimal, compact, or detailed
-export CHATTA_PTT_SHOW_DURATION=true      # Show live duration counter
+export BUMBA_PTT_VISUAL_FEEDBACK=true    # Enable/disable visual feedback
+export BUMBA_PTT_VISUAL_STYLE=compact    # minimal, compact, or detailed
+export BUMBA_PTT_SHOW_DURATION=true      # Show live duration counter
 ```
 
 ---

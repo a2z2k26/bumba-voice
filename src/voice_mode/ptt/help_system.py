@@ -54,12 +54,12 @@ Modes:
 - hybrid: Hold OR toggle with automatic stop on silence
 
 Configuration:
-- Set CHATTA_PTT_MODE to your preferred mode
-- Set CHATTA_PTT_KEY_COMBO to your preferred keys
+- Set BUMBA_PTT_MODE to your preferred mode
+- Set BUMBA_PTT_KEY_COMBO to your preferred keys
 - Run setup wizard: python -m voice_mode.ptt.setup_helper --setup
 """,
                 related_topics=['modes', 'key_combinations', 'configuration'],
-                doc_url="https://github.com/yourusername/chatta/blob/main/docs/ptt/README.md"
+                doc_url="https://github.com/yourusername/bumba-voice/blob/main/docs/ptt/README.md"
             ),
 
             'modes': HelpTopic(
@@ -86,10 +86,10 @@ PTT supports three recording modes:
    - Best for: Variable length recordings
 
 Set mode:
-  export CHATTA_PTT_MODE=hold    # or toggle, hybrid
+  export BUMBA_PTT_MODE=hold    # or toggle, hybrid
 """,
                 related_topics=['getting_started', 'configuration'],
-                doc_url="https://github.com/yourusername/chatta/blob/main/docs/ptt/modes.md"
+                doc_url="https://github.com/yourusername/bumba-voice/blob/main/docs/ptt/modes.md"
             ),
 
             'key_combinations': HelpTopic(
@@ -110,10 +110,10 @@ Tips:
 - Modifiers alone (ctrl, shift) don't work well
 
 Set combination:
-  export CHATTA_PTT_KEY_COMBO=option_r
+  export BUMBA_PTT_KEY_COMBO=option_r
 """,
                 related_topics=['getting_started', 'macos_permissions'],
-                doc_url="https://github.com/yourusername/chatta/blob/main/docs/ptt/key-combinations.md"
+                doc_url="https://github.com/yourusername/bumba-voice/blob/main/docs/ptt/key-combinations.md"
             ),
 
             'configuration': HelpTopic(
@@ -122,20 +122,20 @@ Set combination:
 PTT is configured via environment variables:
 
 Core Settings:
-  CHATTA_PTT_ENABLED=true          # Enable PTT
-  CHATTA_PTT_MODE=hold              # hold, toggle, hybrid
-  CHATTA_PTT_KEY_COMBO=option_r    # Key combination
-  CHATTA_PTT_TIMEOUT=120.0         # Max recording seconds
+  BUMBA_PTT_ENABLED=true          # Enable PTT
+  BUMBA_PTT_MODE=hold              # hold, toggle, hybrid
+  BUMBA_PTT_KEY_COMBO=option_r    # Key combination
+  BUMBA_PTT_TIMEOUT=120.0         # Max recording seconds
 
 Feedback Settings:
-  CHATTA_PTT_VISUAL_FEEDBACK=true  # Show visual status
-  CHATTA_PTT_VISUAL_STYLE=compact  # minimal, compact, detailed
-  CHATTA_PTT_AUDIO_FEEDBACK=true   # Play audio tones
-  CHATTA_PTT_FEEDBACK_VOLUME=0.7   # Volume 0.0-1.0
+  BUMBA_PTT_VISUAL_FEEDBACK=true  # Show visual status
+  BUMBA_PTT_VISUAL_STYLE=compact  # minimal, compact, detailed
+  BUMBA_PTT_AUDIO_FEEDBACK=true   # Play audio tones
+  BUMBA_PTT_FEEDBACK_VOLUME=0.7   # Volume 0.0-1.0
 
 Advanced Settings:
-  CHATTA_PTT_MIN_DURATION=0.5      # Minimum recording length
-  CHATTA_PTT_CANCEL_KEY=escape     # Key to cancel recording
+  BUMBA_PTT_MIN_DURATION=0.5      # Minimum recording length
+  BUMBA_PTT_CANCEL_KEY=escape     # Key to cancel recording
 
 Setup Wizard:
   python -m voice_mode.ptt.setup_helper --setup
@@ -144,7 +144,7 @@ Validate Configuration:
   python -m voice_mode.ptt.setup_helper --diagnose
 """,
                 related_topics=['getting_started', 'modes', 'troubleshooting'],
-                doc_url="https://github.com/yourusername/chatta/blob/main/docs/ptt/configuration.md"
+                doc_url="https://github.com/yourusername/bumba-voice/blob/main/docs/ptt/configuration.md"
             ),
 
             'macos_permissions': HelpTopic(
@@ -177,7 +177,7 @@ Alternative:
 Use Right Option Key (option_r) which works without accessibility permissions.
 """,
                 related_topics=['troubleshooting', 'key_combinations'],
-                doc_url="https://github.com/yourusername/chatta/blob/main/docs/ptt/macos-permissions.md"
+                doc_url="https://github.com/yourusername/bumba-voice/blob/main/docs/ptt/macos-permissions.md"
             ),
 
             'linux_wayland': HelpTopic(
@@ -209,7 +209,7 @@ Verify Setup:
   python -m voice_mode.ptt.setup_helper --check
 """,
                 related_topics=['troubleshooting'],
-                doc_url="https://github.com/yourusername/chatta/blob/main/docs/ptt/linux-wayland.md"
+                doc_url="https://github.com/yourusername/bumba-voice/blob/main/docs/ptt/linux-wayland.md"
             ),
 
             'troubleshooting': HelpTopic(
@@ -227,11 +227,11 @@ Common PTT issues and solutions:
    - Check microphone permissions
    - Verify audio device is available
    - Test with: python -c "import sounddevice; print(sounddevice.query_devices())"
-   - Check CHATTA_PTT_AUDIO_DEVICE setting
+   - Check BUMBA_PTT_AUDIO_DEVICE setting
 
 3. Recording Cuts Off Early:
-   - Increase CHATTA_PTT_TIMEOUT
-   - Check CHATTA_PTT_MIN_DURATION isn't too high
+   - Increase BUMBA_PTT_TIMEOUT
+   - Check BUMBA_PTT_MIN_DURATION isn't too high
    - Ensure keys stay pressed (hold mode)
 
 4. Library Import Errors:
@@ -241,14 +241,14 @@ Common PTT issues and solutions:
 
 5. Configuration Issues:
    - Validate: python -m voice_mode.ptt.setup_helper --diagnose
-   - Reset: unset all CHATTA_PTT_* variables
+   - Reset: unset all BUMBA_PTT_* variables
    - Setup wizard: python -m voice_mode.ptt.setup_helper --setup
 
 Run Full Diagnostics:
   python -m voice_mode.ptt.setup_helper --diagnose
 """,
                 related_topics=['macos_permissions', 'linux_wayland', 'configuration'],
-                doc_url="https://github.com/yourusername/chatta/blob/main/docs/ptt/troubleshooting.md"
+                doc_url="https://github.com/yourusername/bumba-voice/blob/main/docs/ptt/troubleshooting.md"
             ),
         }
 
@@ -257,7 +257,7 @@ Run Full Diagnostics:
         self.faq: List[Dict[str, str]] = [
             {
                 'question': "How do I change the PTT key combination?",
-                'answer': "Set CHATTA_PTT_KEY_COMBO environment variable. Example: export CHATTA_PTT_KEY_COMBO=ctrl+space\n"
+                'answer': "Set BUMBA_PTT_KEY_COMBO environment variable. Example: export BUMBA_PTT_KEY_COMBO=ctrl+space\n"
                          "Run setup wizard for interactive configuration: python -m voice_mode.ptt.setup_helper --setup"
             },
             {
@@ -267,7 +267,7 @@ Run Full Diagnostics:
             },
             {
                 'question': "Can I use PTT without audio feedback?",
-                'answer': "Yes! Disable audio feedback with: export CHATTA_PTT_AUDIO_FEEDBACK=false\n"
+                'answer': "Yes! Disable audio feedback with: export BUMBA_PTT_AUDIO_FEEDBACK=false\n"
                          "Visual feedback will still show recording status."
             },
             {
@@ -279,19 +279,19 @@ Run Full Diagnostics:
             },
             {
                 'question': "How do I increase the recording timeout?",
-                'answer': "Set CHATTA_PTT_TIMEOUT to desired seconds. Example: export CHATTA_PTT_TIMEOUT=300 (5 minutes)\n"
+                'answer': "Set BUMBA_PTT_TIMEOUT to desired seconds. Example: export BUMBA_PTT_TIMEOUT=300 (5 minutes)\n"
                          "Default is 120 seconds (2 minutes)."
             },
             {
                 'question': "PTT stops recording immediately. Why?",
-                'answer': "Check CHATTA_PTT_MIN_DURATION. If too high, short recordings are rejected.\n"
-                         "Try: export CHATTA_PTT_MIN_DURATION=0.3\n"
+                'answer': "Check BUMBA_PTT_MIN_DURATION. If too high, short recordings are rejected.\n"
+                         "Try: export BUMBA_PTT_MIN_DURATION=0.3\n"
                          "Also ensure you're holding the keys long enough in hold mode."
             },
             {
                 'question': "Can I cancel a recording in progress?",
                 'answer': "Yes! Press the cancel key (default: escape) or use Ctrl+C.\n"
-                         "Customize cancel key: export CHATTA_PTT_CANCEL_KEY=your_key"
+                         "Customize cancel key: export BUMBA_PTT_CANCEL_KEY=your_key"
             },
             {
                 'question': "Does PTT work on Linux Wayland?",
@@ -300,13 +300,13 @@ Run Full Diagnostics:
             },
             {
                 'question': "How do I disable visual status display?",
-                'answer': "Set: export CHATTA_PTT_VISUAL_FEEDBACK=false\n"
-                         "Or change style: export CHATTA_PTT_VISUAL_STYLE=minimal"
+                'answer': "Set: export BUMBA_PTT_VISUAL_FEEDBACK=false\n"
+                         "Or change style: export BUMBA_PTT_VISUAL_STYLE=minimal"
             },
             {
                 'question': "Where can I find complete documentation?",
                 'answer': "Run: python -m voice_mode.ptt.setup_helper --guide\n"
-                         "Or visit: https://github.com/yourusername/chatta/blob/main/docs/ptt/README.md"
+                         "Or visit: https://github.com/yourusername/bumba-voice/blob/main/docs/ptt/README.md"
             },
         ]
 

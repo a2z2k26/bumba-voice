@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-Phase 4 successfully integrated the PTT (Push-to-Talk) feature with CHATTA's voice transport layer, providing keyboard-controlled recording as a drop-in replacement for automatic voice activity detection. The integration maintains 100% backward compatibility, passes all automated tests, and is ready for manual testing with real hardware.
+Phase 4 successfully integrated the PTT (Push-to-Talk) feature with Bumba Voice's voice transport layer, providing keyboard-controlled recording as a drop-in replacement for automatic voice activity detection. The integration maintains 100% backward compatibility, passes all automated tests, and is ready for manual testing with real hardware.
 
 **Key Achievements:**
 - ✅ 34/34 automated tests passing (100%)
@@ -403,7 +403,7 @@ from .transport_adapter import (
 **3. `src/voice_mode/config.py`**
 ```python
 # Already present (no changes needed)
-PTT_ENABLED = env.bool("CHATTA_PTT_ENABLED", default=False)
+PTT_ENABLED = env.bool("BUMBA_PTT_ENABLED", default=False)
 ```
 
 ### No Changes Required
@@ -857,7 +857,7 @@ Phase 4 is complete when ALL of the following criteria are met:
 
 ## Conclusion
 
-Phase 4 (Transport Integration) has been completed successfully with all acceptance criteria met and 100% test coverage. The PTT feature is now fully integrated with CHATTA's voice transport layer through a minimal, non-invasive 6-line change in the converse tool, supported by a robust 367-line transport adapter.
+Phase 4 (Transport Integration) has been completed successfully with all acceptance criteria met and 100% test coverage. The PTT feature is now fully integrated with Bumba Voice's voice transport layer through a minimal, non-invasive 6-line change in the converse tool, supported by a robust 367-line transport adapter.
 
 **Key Achievements:**
 - ✅ **Zero breaking changes** - 100% backward compatible

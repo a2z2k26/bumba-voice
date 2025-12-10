@@ -67,12 +67,12 @@ async def converse(
 ### 1. Configuration Integration
 ```python
 # In config.py, add:
-CHATTA_PTT_ENABLED = get_bool_env("CHATTA_PTT_ENABLED", False)
-CHATTA_PTT_KEY_COMBO = get_str_env("CHATTA_PTT_KEY_COMBO", "down+right")
-CHATTA_PTT_MODE = get_str_env("CHATTA_PTT_MODE", "hold")  # hold, toggle, hybrid
-CHATTA_PTT_TIMEOUT = get_float_env("CHATTA_PTT_TIMEOUT", 120.0)
-CHATTA_PTT_FEEDBACK = get_bool_env("CHATTA_PTT_FEEDBACK", True)
-CHATTA_PTT_CANCEL_KEY = get_str_env("CHATTA_PTT_CANCEL_KEY", "escape")
+BUMBA_PTT_ENABLED = get_bool_env("BUMBA_PTT_ENABLED", False)
+BUMBA_PTT_KEY_COMBO = get_str_env("BUMBA_PTT_KEY_COMBO", "down+right")
+BUMBA_PTT_MODE = get_str_env("BUMBA_PTT_MODE", "hold")  # hold, toggle, hybrid
+BUMBA_PTT_TIMEOUT = get_float_env("BUMBA_PTT_TIMEOUT", 120.0)
+BUMBA_PTT_FEEDBACK = get_bool_env("BUMBA_PTT_FEEDBACK", True)
+BUMBA_PTT_CANCEL_KEY = get_str_env("BUMBA_PTT_CANCEL_KEY", "escape")
 ```
 
 ### 2. Recording Function Integration
@@ -85,7 +85,7 @@ if wait_for_response:
         from voice_mode.ptt import PTTController
 
         ptt = PTTController(
-            key_combo=ptt_key_combo or config.CHATTA_PTT_KEY_COMBO,
+            key_combo=ptt_key_combo or config.BUMBA_PTT_KEY_COMBO,
             mode=ptt_mode,
             timeout=ptt_timeout
         )
@@ -172,7 +172,7 @@ def log_ptt_event(event_type: str, data: dict):
     }
 
     # Write to existing conversation log
-    if config.CHATTA_EVENT_LOGGING:
+    if config.Bumba Voice_EVENT_LOGGING:
         with open(get_event_log_path(), "a") as f:
             f.write(json.dumps(event) + "\n")
 ```
@@ -279,7 +279,7 @@ async def test_ptt_transport_fallback():
 
 async def test_ptt_config_override():
     """Config can be overridden by parameters"""
-    os.environ["CHATTA_PTT_KEY_COMBO"] = "alt+shift"
+    os.environ["BUMBA_PTT_KEY_COMBO"] = "alt+shift"
     result = await converse(
         "Test",
         push_to_talk=True,

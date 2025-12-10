@@ -13,8 +13,8 @@ async def test_mcp_converse():
     print("Testing MCP converse tool with audio feedback...")
     
     # Set environment variables as MCP would
-    os.environ['CHATTA_AUDIO_FEEDBACK'] = 'true'
-    os.environ['VOICEMODE_AUDIO_FEEDBACK'] = 'true'
+    os.environ['BUMBA_AUDIO_FEEDBACK'] = 'true'
+    os.environ['BUMBA_AUDIO_FEEDBACK'] = 'true'
     
     # Import after setting env vars
     from voice_mode.tools.converse import converse

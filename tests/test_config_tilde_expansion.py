@@ -44,11 +44,11 @@ class TestConfigTildeExpansion(unittest.TestCase):
         """Test that configuration paths properly expand tilde."""
         # Set environment variables with tilde
         test_env = {
-            "VOICEMODE_BASE_DIR": "~/test-voicemode",
-            "VOICEMODE_MODELS_DIR": "~/models",
-            "VOICEMODE_WHISPER_MODEL_PATH": "~/whisper",
-            "VOICEMODE_KOKORO_MODELS_DIR": "~/kokoro/models",
-            "VOICEMODE_KOKORO_CACHE_DIR": "~/kokoro/cache"
+            "BUMBA_BASE_DIR": "~/test-voicemode",
+            "BUMBA_MODELS_DIR": "~/models",
+            "BUMBA_WHISPER_MODEL_PATH": "~/whisper",
+            "BUMBA_KOKORO_MODELS_DIR": "~/kokoro/models",
+            "BUMBA_KOKORO_CACHE_DIR": "~/kokoro/cache"
         }
         
         with patch.dict(os.environ, test_env, clear=False):
@@ -70,8 +70,8 @@ class TestConfigTildeExpansion(unittest.TestCase):
         # Use a temp directory that actually exists
         with tempfile.TemporaryDirectory() as tmpdir:
             test_env = {
-                "VOICEMODE_BASE_DIR": tmpdir,
-                "VOICEMODE_MODELS_DIR": f"{tmpdir}/models"
+                "BUMBA_BASE_DIR": tmpdir,
+                "BUMBA_MODELS_DIR": f"{tmpdir}/models"
             }
             
             with patch.dict(os.environ, test_env, clear=False):

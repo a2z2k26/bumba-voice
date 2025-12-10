@@ -105,7 +105,7 @@ def test_session_manager():
     print("\n=== Testing Session Manager ===")
     
     # Use temp directory for testing
-    temp_dir = Path("/tmp/chatta_test_sessions")
+    temp_dir = Path("/tmp/bumba_test_sessions")
     temp_dir.mkdir(exist_ok=True)
     
     # Disable auto-save for testing to avoid hanging

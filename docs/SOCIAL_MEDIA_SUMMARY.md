@@ -1,34 +1,34 @@
-# Chatta: Social Media Summary & Assets
+# Bumba Voice: Social Media Summary & Assets
 
-**Quick reference for sharing the Chatta voice mode project**
+**Quick reference for sharing the Bumba Voice project**
 
 ---
 
 ## Elevator Pitch (30 seconds)
 
-Chatta is a keyboard-controlled voice interaction system for Claude Code that gives developers precise control over conversation timing. Built in 8 weeks across 5 phases, it features push-to-talk with 3 modes (Hold, Toggle, Hybrid), supports 4 voice providers, and achieved zero breaking changes with 100% test coverage.
+Bumba Voice is a keyboard-controlled voice interaction system for Claude Code that gives developers precise control over conversation timing. Built in 8 weeks across 5 phases, it features push-to-talk with 3 modes (Hold, Toggle, Hybrid), supports 4 voice providers, and achieved zero breaking changes with 100% test coverage.
 
 ---
 
 ## Tweet-Length Summaries
 
 ### Technical Achievement (280 chars)
-"Built Chatta: keyboard-controlled voice for Claude Code. 3 PTT modes, 4 voice providers, 7,500 lines of code, 143 tests (100% pass), zero breaking changes. 6-line integration maintained full backward compatibility. Production-ready in 8 weeks."
+"Built Bumba Voice: keyboard-controlled voice for Claude Code. 3 PTT modes, 4 voice providers, 7,500 lines of code, 143 tests (100% pass), zero breaking changes. 6-line integration maintained full backward compatibility. Production-ready in 8 weeks."
 
 ### Innovation Focus (280 chars)
 "Introducing Hybrid PTT mode: combines manual keyboard control with automatic silence detection. Press to start, hold while speaking, auto-stops on silence OR release. Best of both worlds for natural conversation flow in AI coding assistants."
 
 ### Developer Experience (280 chars)
-"Chatta transforms voice coding: Hold mode for precision, Toggle for hands-free, Hybrid for natural flow. Visual feedback, audio cues, statistics tracking, setup wizards. Phase 5 polish increased adoption 3x. Open source, MIT licensed."
+"Bumba Voice transforms voice coding: Hold mode for precision, Toggle for hands-free, Hybrid for natural flow. Visual feedback, audio cues, statistics tracking, setup wizards. Phase 5 polish increased adoption 3x. Open source, MIT licensed."
 
 ---
 
 ## LinkedIn Post
 
 ```
-🎤 Building Voice Control for AI Coding: The Chatta Story
+🎤 Building Voice Control for AI Coding: The Bumba Voice Story
 
-I'm excited to share Chatta, a production-ready voice interaction system for Claude Code that I built over 8 weeks.
+I'm excited to share Bumba Voice, a production-ready voice interaction system for Claude Code that I built over 8 weeks.
 
 🎯 The Problem
 Automatic voice activity detection (VAD) in coding environments gives developers no control over conversation timing. You can't pause to think, review code, or compose your response without awkward silences being captured.
@@ -76,7 +76,7 @@ MIT licensed, available for integration. Full case study with ASCII architecture
 2. "From Concept to Production: 8 Weeks of Voice Mode Development"
 3. "Hybrid PTT: Combining Manual Control with Automatic Silence Detection"
 4. "Zero Breaking Changes: How We Integrated PTT in 6 Lines of Code"
-5. "Voice UX That Delights: Lessons from Building Chatta"
+5. "Voice UX That Delights: Lessons from Building Bumba Voice"
 6. "The Power of Feature Flags: Deploying Voice Mode Fearlessly"
 7. "Documentation-First Development: 10.7:1 Ratio That Paid Off"
 8. "State Machines and Adapter Patterns: Battle-Tested Voice Architecture"
@@ -130,7 +130,7 @@ Languages:          10+ (via Kokoro)
 ## Visual Assets (Descriptions)
 
 ### Diagram 1: System Architecture
-**Title:** "Chatta System Architecture"
+**Title:** "Bumba Voice System Architecture"
 **Description:** End-to-end flow from MCP server through TTS, transport selection (LiveKit/Local), PTT recording, and STT. Shows provider discovery, health checking, and automatic failover.
 **Use:** Technical presentations, documentation, architecture reviews
 **File:** `docs/ARCHITECTURE_DIAGRAMS.md` (System Architecture Overview)
@@ -312,7 +312,7 @@ User: *still holding keys* (doesn't matter, already stopped)
 ### For GitHub:
 ```
 ⭐ Star the repo if you find this useful!
-🔧 Try it: pip install chatta-voice-mode
+🔧 Try it: pip install bumba-voice-mode
 📖 Read the case study: docs/CASE_STUDY.md
 🎨 See architecture: docs/ARCHITECTURE_DIAGRAMS.md
 💬 Questions? Open an issue or discussion
@@ -335,7 +335,7 @@ Comment below or DM for details!
 🔗 Case study: [link]
 🎨 Architecture diagrams: [link]
 ⭐ GitHub: [link]
-📦 pip install chatta-voice-mode
+📦 pip install bumba-voice-mode
 
 Questions? Thread below! 👇
 ```
@@ -396,16 +396,16 @@ Subscribe for updates on Phase 6!
 ## Media Kit Summary
 
 ### Project Name
-Chatta (or "Chatta Voice Mode")
+Bumba Voice (or "Bumba Voice Voice Mode")
 
 ### Tagline
 "Keyboard-Controlled Voice for AI Coding Assistants"
 
 ### Description (50 words)
-Chatta is a production-ready voice interaction system for Claude Code featuring push-to-talk keyboard control. Built in 8 weeks with zero breaking changes, it offers three PTT modes, supports four voice providers, and includes comprehensive UX enhancements like visual feedback, audio cues, and statistics tracking.
+Bumba Voice is a production-ready voice interaction system for Claude Code featuring push-to-talk keyboard control. Built in 8 weeks with zero breaking changes, it offers three PTT modes, supports four voice providers, and includes comprehensive UX enhancements like visual feedback, audio cues, and statistics tracking.
 
 ### Description (100 words)
-Chatta is a comprehensive voice interaction system for AI coding assistants that gives developers precise control over conversation timing through keyboard-controlled push-to-talk. Built over 8 weeks across 5 development phases, Chatta features three PTT modes (Hold, Toggle, Hybrid), supports four voice providers with automatic failover (OpenAI, Whisper, Kokoro, LiveKit), and achieved zero breaking changes with 100% test coverage. Phase 5 enhancements transform the experience from functional to delightful with visual feedback, audio cues, statistics tracking, interactive setup wizards, and platform-specific help. Open source (MIT license), production-ready, and designed for extensibility.
+Bumba Voice is a comprehensive voice interaction system for AI coding assistants that gives developers precise control over conversation timing through keyboard-controlled push-to-talk. Built over 8 weeks across 5 development phases, Bumba Voice features three PTT modes (Hold, Toggle, Hybrid), supports four voice providers with automatic failover (OpenAI, Whisper, Kokoro, LiveKit), and achieved zero breaking changes with 100% test coverage. Phase 5 enhancements transform the experience from functional to delightful with visual feedback, audio cues, statistics tracking, interactive setup wizards, and platform-specific help. Open source (MIT license), production-ready, and designed for extensibility.
 
 ### Key Features (Bullet Points)
 - 3 PTT modes: Hold (explicit), Toggle (hands-free), Hybrid (auto + manual)
@@ -438,7 +438,7 @@ MIT License
 - Documentation: [docs URL]
 - Case Study: docs/CASE_STUDY.md
 - Architecture: docs/ARCHITECTURE_DIAGRAMS.md
-- Installation: pip install chatta-voice-mode
+- Installation: pip install bumba-voice-mode
 
 ### Contact
 - Author: [Your Name]
@@ -477,7 +477,7 @@ A technical deep dive 🧵 (1/12)
 ```
 
 ### HN Title
-"Chatta: Keyboard-controlled voice mode for AI coding assistants"
+"Bumba Voice: Keyboard-controlled voice mode for AI coding assistants"
 
 ### Reddit Post Title
 "Built a production-ready voice mode with PTT for Claude Code [Open Source]"
@@ -494,4 +494,4 @@ A technical deep dive 🧵 (1/12)
 
 ---
 
-*Use these assets to share the Chatta project across social media, blogs, and professional networks. Mix and match based on platform and audience.*
+*Use these assets to share the Bumba Voice project across social media, blogs, and professional networks. Mix and match based on platform and audience.*

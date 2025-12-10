@@ -2,12 +2,12 @@
 
 **Date:** 2025-11-11
 **Analyst:** Claude Code
-**Project:** CHATTA Voice Mode
+**Project:** Bumba Voice Voice Mode
 **Version:** 3.34.3
 
 ## Executive Summary
 
-This document analyzes the current conversation architecture in CHATTA's `converse` tool and identifies opportunities to reduce latency in voice interactions. The analysis focuses on the coordination between Text-to-Speech (TTS) and Speech-to-Text (STT) systems, examining the sequential processing pipeline and streaming capabilities.
+This document analyzes the current conversation architecture in Bumba Voice's `converse` tool and identifies opportunities to reduce latency in voice interactions. The analysis focuses on the coordination between Text-to-Speech (TTS) and Speech-to-Text (STT) systems, examining the sequential processing pipeline and streaming capabilities.
 
 ### Key Findings
 
@@ -24,7 +24,7 @@ This document analyzes the current conversation architecture in CHATTA's `conver
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│ PHASE 1: AI Processing (Outside CHATTA Scope)                   │
+│ PHASE 1: AI Processing (Outside Bumba Voice Scope)                   │
 │ • LLM generates response text                                    │
 │ • Variable latency: depends on response complexity              │
 └─────────────────────────────────────────────────────────────────┘
@@ -131,7 +131,7 @@ Timing observed:
 - ✅ **Implemented:** True HTTP streaming with `iter_bytes()`
 - ✅ **PCM Format:** Lowest latency (no decoding needed)
 - ✅ **Configurable:** `STREAMING_ENABLED` (default: `true`)
-- ✅ **Chunk Size:** 4096 bytes (configurable via `CHATTA_STREAM_CHUNK_SIZE`)
+- ✅ **Chunk Size:** 4096 bytes (configurable via `Bumba Voice_STREAM_CHUNK_SIZE`)
 - ✅ **Buffering:** 150ms initial buffer before playback starts
 
 **Streaming Modes:**
@@ -332,7 +332,7 @@ if not audio_format:
 **Implementation:**
 1. Add logic to `text_to_speech_with_failover()` to prefer PCM
 2. Document in converse tool docstring
-3. Make configurable via `CHATTA_PREFER_PCM_STREAMING` env var
+3. Make configurable via `Bumba Voice_PREFER_PCM_STREAMING` env var
 
 ---
 
@@ -648,13 +648,13 @@ async def optimized_streaming_tts(text: str, ...):
 **Configuration Check:**
 ```bash
 # Verify current Whisper model
-grep CHATTA_WHISPER_MODEL ~/.chatta/chatta.env
+grep Bumba Voice_WHISPER_MODEL ~/.bumba/bumba.env
 
 # For lowest latency, use:
-CHATTA_WHISPER_MODEL=base
+Bumba Voice_WHISPER_MODEL=base
 
 # For balanced quality/speed:
-CHATTA_WHISPER_MODEL=small
+Bumba Voice_WHISPER_MODEL=small
 ```
 
 ### 5.3 OpenAI API Optimizations
@@ -672,37 +672,37 @@ CHATTA_WHISPER_MODEL=small
 
 ```bash
 # TTS Configuration
-export CHATTA_STREAMING_ENABLED=true
-export CHATTA_STREAM_CHUNK_SIZE=2048      # Smaller chunks
-export CHATTA_STREAM_BUFFER_MS=100        # Minimal buffer
-export CHATTA_TTS_AUDIO_FORMAT=pcm        # Lowest latency format
+export Bumba Voice_STREAMING_ENABLED=true
+export Bumba Voice_STREAM_CHUNK_SIZE=2048      # Smaller chunks
+export Bumba Voice_STREAM_BUFFER_MS=100        # Minimal buffer
+export Bumba Voice_TTS_AUDIO_FORMAT=pcm        # Lowest latency format
 
 # STT Configuration
-export CHATTA_WHISPER_MODEL=base          # Fastest model
-export CHATTA_STT_BASE_URLS="http://127.0.0.1:2022/v1"  # Local first
+export Bumba Voice_WHISPER_MODEL=base          # Fastest model
+export Bumba Voice_STT_BASE_URLS="http://127.0.0.1:2022/v1"  # Local first
 
 # Provider Priority
-export CHATTA_PREFER_LOCAL=true           # Prioritize local services
-export CHATTA_ALWAYS_TRY_LOCAL=true       # Try local even if unhealthy
+export Bumba Voice_PREFER_LOCAL=true           # Prioritize local services
+export Bumba Voice_ALWAYS_TRY_LOCAL=true       # Try local even if unhealthy
 
 # VAD Configuration
-export CHATTA_VAD_AGGRESSIVENESS=2        # Balanced detection
-export CHATTA_SILENCE_THRESHOLD_MS=1000   # 1 second silence threshold
+export Bumba Voice_VAD_AGGRESSIVENESS=2        # Balanced detection
+export Bumba Voice_SILENCE_THRESHOLD_MS=1000   # 1 second silence threshold
 
 # Disable unnecessary features in latency-critical scenarios
-export CHATTA_SAVE_AUDIO=false            # Skip audio file saving
-export CHATTA_SAVE_TRANSCRIPTIONS=false   # Skip transcription logging
-export CHATTA_DEBUG=false                 # Disable debug logging
+export Bumba Voice_SAVE_AUDIO=false            # Skip audio file saving
+export Bumba Voice_SAVE_TRANSCRIPTIONS=false   # Skip transcription logging
+export Bumba Voice_DEBUG=false                 # Disable debug logging
 ```
 
 ### 6.2 Configuration for Maximum Quality
 
 ```bash
 # Prioritize quality over latency
-export CHATTA_TTS_AUDIO_FORMAT=opus       # Best quality/size ratio
-export CHATTA_WHISPER_MODEL=large-v3      # Best accuracy
-export CHATTA_TTS_MODELS="tts-1-hd"       # HD quality TTS
-export CHATTA_STREAM_BUFFER_MS=300        # Larger buffer for stability
+export Bumba Voice_TTS_AUDIO_FORMAT=opus       # Best quality/size ratio
+export Bumba Voice_WHISPER_MODEL=large-v3      # Best accuracy
+export Bumba Voice_TTS_MODELS="tts-1-hd"       # HD quality TTS
+export Bumba Voice_STREAM_BUFFER_MS=300        # Larger buffer for stability
 ```
 
 ---
@@ -875,7 +875,7 @@ class ExtendedMetrics:
 
 ### Summary of Findings
 
-The CHATTA conversation system has a solid foundation with streaming TTS already implemented and configurable. The primary latency bottlenecks are:
+The Bumba Voice conversation system has a solid foundation with streaming TTS already implemented and configurable. The primary latency bottlenecks are:
 
 1. **Sequential processing** (no overlap between TTS, recording, STT)
 2. **Batch-only STT** (no progressive transcription)
@@ -955,7 +955,7 @@ WHISPER_MODEL = "large-v2"
 
 **Test 1: Short Message**
 ```
-Message: "Got it! I'll explore the CHATTA codebase and get familiar with the project structure."
+Message: "Got it! I'll explore the Bumba Voice codebase and get familiar with the project structure."
 Provider: TTS (unknown), STT (Whisper local)
 Results:
 - TTFA: 1.5s
@@ -981,7 +981,7 @@ Results:
 
 **Test 3: Long User Response**
 ```
-Message: "Sure! I'm currently in the CHATTA directory..."
+Message: "Sure! I'm currently in the Bumba Voice directory..."
 Provider: TTS (unknown), STT (unknown)
 Results:
 - TTFA: 1.5s

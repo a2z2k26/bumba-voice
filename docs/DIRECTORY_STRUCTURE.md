@@ -1,10 +1,10 @@
-# CHATTA 1.0 Directory Structure
+# Bumba Voice 1.0 Directory Structure
 
-This document describes the organized directory structure of CHATTA following best practices for Python projects.
+This document describes the organized directory structure of Bumba Voice following best practices for Python projects.
 
 ## Root Directory
 ```
-CHATTA 1.0/
+Bumba Voice 1.0/
 ├── README.md                   # Main project documentation
 ├── CHANGELOG.md               # Version history and changes
 ├── CLAUDE.md                  # Claude Code configuration
@@ -65,8 +65,8 @@ CHATTA 1.0/
 │
 └── scripts/               # Utility scripts
     ├── README.md         # Scripts documentation
-    ├── chatta-local      # Local development script
-    ├── chatta_mcp_server.sh  # MCP server script
+    ├── bumba-local      # Local development script
+    ├── bumba_mcp_server.sh  # MCP server script
     └── *.py              # Various utility scripts
 ```
 

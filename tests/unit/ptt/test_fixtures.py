@@ -21,7 +21,7 @@ class TestFixtures:
     def test_clean_env_fixture(self, clean_env):
         """Test that clean_env removes PTT environment variables"""
         import os
-        ptt_vars = [k for k in os.environ.keys() if k.startswith("CHATTA_PTT_")]
+        ptt_vars = [k for k in os.environ.keys() if k.startswith("BUMBA_PTT_")]
         assert len(ptt_vars) == 0, "PTT env vars should be cleared"
 
     def test_ptt_config_fixture(self, ptt_config):

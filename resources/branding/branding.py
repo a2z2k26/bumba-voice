@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CHATTA Brand Identity - Part of the BUMBA Platform
+BUMBA Brand Identity - Part of the BUMBA Platform
 ===================================================
 Building Unified Multi-agent Business Applications
 Professional • Intelligent • Secure • Enterprise-Ready
@@ -46,8 +46,8 @@ COLORS = {
     'end': '\033[0m'
 }
 
-# CHATTA ASCII Logo (matching BUMBA style)
-CHATTA_LOGO = [
+# BUMBA ASCII Logo (matching BUMBA style)
+BUMBA_LOGO = [
     ' ██████╗██╗  ██╗ █████╗ ████████╗████████╗ █████╗ ',
     '██╔════╝██║  ██║██╔══██╗╚══██╔══╝╚══██╔══╝██╔══██╗',
     '██║     ███████║███████║   ██║      ██║   ███████║',
@@ -56,8 +56,8 @@ CHATTA_LOGO = [
     ' ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚═╝  ╚═╝'
 ]
 
-# CHATTA Compact Logo (BUMBA-styled box)
-CHATTA_LOGO_COMPACT = [
+# BUMBA Compact Logo (BUMBA-styled box)
+BUMBA_LOGO_COMPACT = [
     '╔════════════════════════════════════════════╗',
     '║   ____ _   _    _  _____ _____  _         ║',
     '║  / ___| | | |  / \\|_   _|_   _|/ \\        ║',
@@ -72,7 +72,7 @@ CHATTA_LOGO_COMPACT = [
 ]
 
 # Simple text version for minimal contexts
-CHATTA_SIMPLE = 'CHATTA - Natural Voice Conversations • Part of BUMBA Platform'
+BUMBA_SIMPLE = 'BUMBA - Natural Voice Conversations • Part of BUMBA Platform'
 
 # Official BUMBA Platform emoji set (ONLY these are permitted)
 EMOJIS = {
@@ -97,13 +97,13 @@ def apply_gradient(text_lines):
     return result
 
 def display_logo(variant='main', clear=False):
-    """Display CHATTA logo with BUMBA gradient."""
+    """Display BUMBA logo with BUMBA gradient."""
     import os
     
     if clear:
         os.system('cls' if os.name == 'nt' else 'clear')
     
-    logo = CHATTA_LOGO if variant == 'main' else CHATTA_LOGO_COMPACT
+    logo = BUMBA_LOGO if variant == 'main' else BUMBA_LOGO_COMPACT
     colored_logo = apply_gradient(logo)
     
     for line in colored_logo:
@@ -170,9 +170,9 @@ def create_progress_bar(current, total, width=30):
     return f"{bar} {percentage}%"
 
 def get_brand_info():
-    """Get CHATTA brand information."""
+    """Get BUMBA brand information."""
     return {
-        'name': 'CHATTA',
+        'name': 'BUMBA',
         'fullName': 'Conversational Hybrid Assistant for Text-To-Audio',
         'platform': 'BUMBA Platform',
         'version': '3.34.3',
@@ -180,9 +180,9 @@ def get_brand_info():
         'description': 'Part of the BUMBA Platform Suite'
     }
 
-# Installation banner for CHATTA
+# Installation banner for BUMBA
 def display_installation_banner(version='3.34.3', show_features=True):
-    """Display CHATTA installation banner with full BUMBA branding."""
+    """Display BUMBA installation banner with full BUMBA branding."""
     import os
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -191,7 +191,7 @@ def display_installation_banner(version='3.34.3', show_features=True):
 
     print()
     print(f"{COLORS['gold']}{'▄' * 52}{COLORS['end']}")
-    print(f"{COLORS['gold']}{COLORS['bold']}🏁 CHATTA VOICE MODE FRAMEWORK 🏁{COLORS['end']}")
+    print(f"{COLORS['gold']}{COLORS['bold']}🏁 BUMBA VOICE MODE FRAMEWORK 🏁{COLORS['end']}")
     print(f"{COLORS['gold']}{'▀' * 52}{COLORS['end']}")
     print()
     print(f"{COLORS['wheat']}Professional • Intelligent • Secure{COLORS['end']}")
@@ -222,18 +222,18 @@ def display_completion_banner():
     print(f"{EMOJIS['complete']} {COLORS['gradient']['green']}{COLORS['bold']}INSTALLATION COMPLETE{COLORS['end']} {EMOJIS['complete']}")
     print(f"{COLORS['gradient']['green']}{'═' * 52}{COLORS['end']}")
     print()
-    print(f"{COLORS['success']}✓ CHATTA is ready for voice conversations{COLORS['end']}")
+    print(f"{COLORS['success']}✓ BUMBA is ready for voice conversations{COLORS['end']}")
     print(f"{COLORS['success']}✓ Part of the BUMBA Platform Suite{COLORS['end']}")
     print()
-    print(f"{COLORS['info']}Run 'chatta' to start using voice mode{COLORS['end']}")
-    print(f"{COLORS['info']}Run 'chatta --help' for more options{COLORS['end']}")
+    print(f"{COLORS['info']}Run 'bumba' to start using voice mode{COLORS['end']}")
+    print(f"{COLORS['info']}Run 'bumba --help' for more options{COLORS['end']}")
     print()
 
 if __name__ == "__main__":
     # Demo the branding
     display_installation_banner()
     print()
-    print(create_header("CHATTA Features"))
+    print(create_header("BUMBA Features"))
     print()
     print(format_status('success', 'OpenAI-compatible TTS/STT'))
     print(format_status('success', 'Local Whisper.cpp integration'))

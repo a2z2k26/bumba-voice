@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-CHATTA Docker Services Demo
+BUMBA Docker Services Demo
 Demonstrates voice conversation using the Docker-based STT/TTS services
-This uses the existing CHATTA infrastructure with our Docker endpoints
+This uses the existing BUMBA infrastructure with our Docker endpoints
 """
 import os
 import asyncio
@@ -33,13 +33,13 @@ def check_services():
 
 async def demo_conversation():
     """
-    Demo conversation using CHATTA's existing voice infrastructure
+    Demo conversation using BUMBA's existing voice infrastructure
     with our Docker services
     """
     print("\n" + "="*60)
-    print("🎙️  CHATTA Docker Services Voice Demo")
+    print("🎙️  BUMBA Docker Services Voice Demo")
     print("="*60)
-    print("\nThis demo uses CHATTA's built-in voice conversation system")
+    print("\nThis demo uses BUMBA's built-in voice conversation system")
     print("with our local Docker STT/TTS services.\n")
     
     # Check services first
@@ -55,7 +55,7 @@ async def demo_conversation():
     os.environ["TTS_BASE_URL"] = "http://localhost:7888/v1"
     os.environ["PREFER_LOCAL"] = "true"
     
-    # Import CHATTA's voice conversation system
+    # Import BUMBA's voice conversation system
     try:
         from voice_mode.tools.converse import voice_converse
         from voice_mode.providers import provider_registry
@@ -77,7 +77,7 @@ async def demo_conversation():
         
         # Start with a greeting from Kokoro
         result = await voice_converse(
-            message="Hello! I'm CHATTA, your voice assistant powered by local Docker services. I can hear you through Whisper and speak to you through Kokoro. How can I help you today?",
+            message="Hello! I'm BUMBA, your voice assistant powered by local Docker services. I can hear you through Whisper and speak to you through Kokoro. How can I help you today?",
             voice="af_alloy",  # Kokoro voice
             wait_for_response=True,  # Wait for user to respond
             transport="microphone"  # Use local microphone
@@ -113,9 +113,9 @@ async def demo_conversation():
         print("="*60)
         
     except ImportError as e:
-        print(f"\n❌ Error: CHATTA voice_mode not found")
+        print(f"\n❌ Error: BUMBA voice_mode not found")
         print(f"   Details: {e}")
-        print("\n📦 To use CHATTA's voice system, install it first:")
+        print("\n📦 To use BUMBA's voice system, install it first:")
         print("   pip install -e .")
         print("   # or")
         print("   uv pip install -e .")
@@ -126,10 +126,10 @@ async def demo_conversation():
 
 def main():
     """Main entry point"""
-    print("🎤 CHATTA Docker Services Integration")
+    print("🎤 BUMBA Docker Services Integration")
     print("-" * 40)
     
-    # Simple fallback demo if CHATTA not available
+    # Simple fallback demo if BUMBA not available
     if not os.path.exists("voice_mode"):
         print("\n📝 Running simple API test instead...\n")
         
@@ -156,7 +156,7 @@ def main():
         print("  -F 'file=@your_audio.wav' -F 'model=whisper-1'")
         
     else:
-        # Run the full CHATTA demo
+        # Run the full BUMBA demo
         asyncio.run(demo_conversation())
 
 if __name__ == "__main__":

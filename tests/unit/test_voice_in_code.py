@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Direct test of CHATTA voice functions
+Direct test of BUMBA voice functions
 Run this to test voice without MCP
 """
 import os
@@ -14,7 +14,7 @@ os.environ["OPENAI_API_KEY"] = "dummy-key-for-local"
 
 async def test_voice():
     """Test voice functions directly"""
-    print("🎙️ Testing CHATTA Voice Functions")
+    print("🎙️ Testing BUMBA Voice Functions")
     print("=" * 50)
     
     # Import core functions
@@ -25,7 +25,7 @@ async def test_voice():
     openai_clients = {}
     
     # Test TTS
-    message = "Hello! This is CHATTA testing voice services in Claude Code. The Docker services are working!"
+    message = "Hello! This is BUMBA testing voice services in Claude Code. The Docker services are working!"
     
     print(f"\n📢 Speaking: '{message}'")
     
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     result = asyncio.run(test_voice())
     print("\n" + "=" * 50)
     if result:
-        print("✅ CHATTA voice is working!")
+        print("✅ BUMBA voice is working!")
         print("\n💡 Since direct voice works, the issue is with MCP config.")
         print("   Try completely quitting and restarting Claude Desktop/Code")
     else:

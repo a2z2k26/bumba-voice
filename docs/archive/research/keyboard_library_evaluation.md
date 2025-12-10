@@ -87,7 +87,7 @@ Sprint: 1.1
 - **keyboard**: Issues with Wayland
 - **Best choice**: pynput
 
-## Recommendation for CHATTA PTT
+## Recommendation for Bumba Voice PTT
 
 **Selected Library**: `pynput`
 
@@ -120,7 +120,7 @@ class PTTController:
 
 ## License Compatibility Check
 
-CHATTA is MIT licensed. Library compatibility:
+Bumba Voice is MIT licensed. Library compatibility:
 - ✅ pynput (LGPL-3.0) - Can be used as dependency
 - ✅ keyboard (MIT) - Fully compatible
 - ✅ PyAutoGUI (BSD) - Fully compatible
@@ -138,7 +138,7 @@ CHATTA is MIT licensed. Library compatibility:
 
 ## Final Decision
 
-**Use `pynput` for CHATTA Push-to-Talk implementation**
+**Use `pynput` for Bumba Voice Push-to-Talk implementation**
 
 Next steps:
 1. Add pynput to pyproject.toml

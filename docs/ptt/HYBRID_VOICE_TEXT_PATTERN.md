@@ -163,8 +163,8 @@ Let's troubleshoot this step by step:
 
 **Check 2: Configuration**
 ```bash
-export CHATTA_PTT_ENABLED=true
-export CHATTA_PTT_KEY_COMBO=alt_r
+export BUMBA_PTT_ENABLED=true
+export BUMBA_PTT_KEY_COMBO=alt_r
 ```
 
 **Check 3: Test keyboard detection**
@@ -211,9 +211,9 @@ converse("I just answered your question above.", wait_for_response=True)
 ### ❌ Don't: Repeat content in voice
 ```python
 # BAD - Duplicating information
-print("The config requires CHATTA_PTT_ENABLED=true and CHATTA_PTT_KEY_COMBO=alt_r")
+print("The config requires BUMBA_PTT_ENABLED=true and BUMBA_PTT_KEY_COMBO=alt_r")
 converse(
-    "So you need to set CHATTA_PTT_ENABLED to true and CHATTA_PTT_KEY_COMBO to alt_r.",
+    "So you need to set BUMBA_PTT_ENABLED to true and BUMBA_PTT_KEY_COMBO to alt_r.",
     wait_for_response=True
 )
 # Text is already sufficient!
@@ -225,13 +225,13 @@ converse(
 
 ```bash
 # Enable hybrid pattern (future enhancement)
-export CHATTA_HYBRID_RESPONSE_ENABLED=true
+export Bumba Voice_HYBRID_RESPONSE_ENABLED=true
 
 # Character threshold for triggering pattern
-export CHATTA_HYBRID_RESPONSE_THRESHOLD=500
+export Bumba Voice_HYBRID_RESPONSE_THRESHOLD=500
 
 # Custom voice template
-export CHATTA_HYBRID_RESPONSE_TEMPLATE="I've shared details above. Review and let me know your thoughts."
+export Bumba Voice_HYBRID_RESPONSE_TEMPLATE="I've shared details above. Review and let me know your thoughts."
 ```
 
 ## Benefits

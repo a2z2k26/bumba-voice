@@ -11,8 +11,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 async def test_chimes():
     """Test the audio feedback chimes"""
     print("Testing audio feedback chimes...")
-    print(f"CHATTA_AUDIO_FEEDBACK env var: {os.getenv('CHATTA_AUDIO_FEEDBACK', 'not set')}")
-    print(f"VOICEMODE_AUDIO_FEEDBACK env var: {os.getenv('VOICEMODE_AUDIO_FEEDBACK', 'not set')}")
+    print(f"BUMBA_AUDIO_FEEDBACK env var: {os.getenv('BUMBA_AUDIO_FEEDBACK', 'not set')}")
+    print(f"BUMBA_AUDIO_FEEDBACK env var: {os.getenv('BUMBA_AUDIO_FEEDBACK', 'not set')}")
     
     # Import after path setup
     from voice_mode.core import play_chime_start, play_chime_end

@@ -10,7 +10,7 @@
 
 ## Executive Summary
 
-This document outlines **three low-risk, non-destructive optimizations** to reduce latency in CHATTA voice conversations. All recommendations involve configuration tuning or minor code additions with easy rollback, no architectural changes, and minimal risk to system stability.
+This document outlines **three low-risk, non-destructive optimizations** to reduce latency in Bumba Voice voice conversations. All recommendations involve configuration tuning or minor code additions with easy rollback, no architectural changes, and minimal risk to system stability.
 
 **Key Benefits:**
 - ✅ Easy to implement (1-3 hours each)
@@ -53,10 +53,10 @@ STREAM_MAX_BUFFER = 2.0         # Maximum 2 seconds buffered
 
 ### Proposed Changes
 ```bash
-# Update ~/.chatta/chatta.env
-export CHATTA_STREAM_CHUNK_SIZE=2048    # Reduce from 4096 to 2048
-export CHATTA_STREAM_BUFFER_MS=100      # Reduce from 150ms to 100ms
-export CHATTA_STREAM_MAX_BUFFER=1.0     # Reduce from 2.0s to 1.0s
+# Update ~/.bumba/bumba.env
+export Bumba Voice_STREAM_CHUNK_SIZE=2048    # Reduce from 4096 to 2048
+export Bumba Voice_STREAM_BUFFER_MS=100      # Reduce from 150ms to 100ms
+export Bumba Voice_STREAM_MAX_BUFFER=1.0     # Reduce from 2.0s to 1.0s
 ```
 
 ### Expected Impact
@@ -69,15 +69,15 @@ export CHATTA_STREAM_MAX_BUFFER=1.0     # Reduce from 2.0s to 1.0s
 
 1. **Backup current configuration:**
    ```bash
-   cp ~/.chatta/chatta.env ~/.chatta/chatta.env.backup
+   cp ~/.bumba/bumba.env ~/.bumba/bumba.env.backup
    ```
 
-2. **Add optimized settings to `~/.chatta/chatta.env`:**
+2. **Add optimized settings to `~/.bumba/bumba.env`:**
    ```bash
    # Add these lines to the file
-   export CHATTA_STREAM_CHUNK_SIZE=2048
-   export CHATTA_STREAM_BUFFER_MS=100
-   export CHATTA_STREAM_MAX_BUFFER=1.0
+   export Bumba Voice_STREAM_CHUNK_SIZE=2048
+   export Bumba Voice_STREAM_BUFFER_MS=100
+   export Bumba Voice_STREAM_MAX_BUFFER=1.0
    ```
 
 3. **Restart MCP server** (if running as daemon) or just start a new conversation
@@ -93,9 +93,9 @@ export CHATTA_STREAM_MAX_BUFFER=1.0     # Reduce from 2.0s to 1.0s
 
 6. **Rollback if needed:**
    ```bash
-   # Remove the optimized settings from chatta.env
+   # Remove the optimized settings from bumba.env
    # Or restore from backup:
-   cp ~/.chatta/chatta.env.backup ~/.chatta/chatta.env
+   cp ~/.bumba/bumba.env.backup ~/.bumba/bumba.env
    ```
 
 ### Monitoring
@@ -142,8 +142,8 @@ Enforce PCM audio format for TTS streaming, which has the lowest latency due to 
 
 #### Option A: Configuration-Based (Recommended)
 ```bash
-# Update ~/.chatta/chatta.env
-export CHATTA_TTS_AUDIO_FORMAT=pcm
+# Update ~/.bumba/bumba.env
+export Bumba Voice_TTS_AUDIO_FORMAT=pcm
 ```
 
 #### Option B: Code Enhancement (Optional - for automatic selection)
@@ -171,7 +171,7 @@ def get_optimal_audio_format(streaming_enabled: bool, prefer_pcm: bool = True) -
 if not audio_format:
     audio_format = get_optimal_audio_format(
         streaming_enabled=STREAMING_ENABLED,
-        prefer_pcm=True  # Make configurable via CHATTA_PREFER_PCM env var
+        prefer_pcm=True  # Make configurable via Bumba Voice_PREFER_PCM env var
     )
 ```
 
@@ -186,13 +186,13 @@ if not audio_format:
 
 1. **Update configuration:**
    ```bash
-   echo 'export CHATTA_TTS_AUDIO_FORMAT=pcm' >> ~/.chatta/chatta.env
+   echo 'export Bumba Voice_TTS_AUDIO_FORMAT=pcm' >> ~/.bumba/bumba.env
    ```
 
 2. **Verify it's applied:**
    ```bash
-   grep CHATTA_TTS_AUDIO_FORMAT ~/.chatta/chatta.env
-   # Should output: export CHATTA_TTS_AUDIO_FORMAT=pcm
+   grep Bumba Voice_TTS_AUDIO_FORMAT ~/.bumba/bumba.env
+   # Should output: export Bumba Voice_TTS_AUDIO_FORMAT=pcm
    ```
 
 3. **Test conversation:**
@@ -203,7 +203,7 @@ if not audio_format:
 4. **Rollback if needed:**
    ```bash
    # Change back to opus or mp3
-   export CHATTA_TTS_AUDIO_FORMAT=opus
+   export Bumba Voice_TTS_AUDIO_FORMAT=opus
    ```
 
 #### Advanced Implementation (Code Enhancement)
@@ -234,19 +234,19 @@ Only implement this if you want automatic format selection based on context:
    if not audio_format:
        audio_format = get_optimal_audio_format(
            streaming_enabled=STREAMING_ENABLED,
-           prefer_pcm=os.getenv("CHATTA_PREFER_PCM", "true").lower() in ("true", "1", "yes"),
+           prefer_pcm=os.getenv("Bumba Voice_PREFER_PCM", "true").lower() in ("true", "1", "yes"),
            user_override=audio_format
        )
    ```
 
 3. **Add configuration option:**
    ```bash
-   export CHATTA_PREFER_PCM=true  # Auto-select PCM when streaming
+   export Bumba Voice_PREFER_PCM=true  # Auto-select PCM when streaming
    ```
 
 4. **Test both code paths:**
-   - With `CHATTA_PREFER_PCM=true` (should use PCM)
-   - With `CHATTA_PREFER_PCM=false` (should use configured format)
+   - With `Bumba Voice_PREFER_PCM=true` (should use PCM)
+   - With `Bumba Voice_PREFER_PCM=false` (should use configured format)
    - With explicit `audio_format="opus"` parameter (should use Opus)
 
 ### Success Criteria
@@ -347,7 +347,7 @@ async def startup_initialization():
 
     # NEW: Pre-warm provider connections
     # This runs in parallel with other startup tasks
-    warmup_enabled = os.getenv("CHATTA_WARMUP_PROVIDERS", "true").lower() in ("true", "1", "yes")
+    warmup_enabled = os.getenv("Bumba Voice_WARMUP_PROVIDERS", "true").lower() in ("true", "1", "yes")
 
     if warmup_enabled:
         logger.info("Pre-warming provider connections...")
@@ -384,10 +384,10 @@ async def startup_initialization():
 
 #### Step 3: Add configuration option
 
-Add to `~/.chatta/chatta.env`:
+Add to `~/.bumba/bumba.env`:
 ```bash
 # Enable/disable provider connection pre-warming
-export CHATTA_WARMUP_PROVIDERS=true
+export Bumba Voice_WARMUP_PROVIDERS=true
 ```
 
 ### Expected Impact
@@ -404,13 +404,13 @@ export CHATTA_WARMUP_PROVIDERS=true
 
 3. **Enable warmup in configuration:**
    ```bash
-   echo 'export CHATTA_WARMUP_PROVIDERS=true' >> ~/.chatta/chatta.env
+   echo 'export Bumba Voice_WARMUP_PROVIDERS=true' >> ~/.bumba/bumba.env
    ```
 
 4. **Test warmup behavior:**
    ```bash
    # Start server with debug logging
-   export CHATTA_DEBUG=true
+   export Bumba Voice_DEBUG=true
    # Start conversation and check logs for:
    # "Pre-warming provider connections..."
    # "✓ Pre-warmed TTS connection to kokoro"
@@ -424,7 +424,7 @@ export CHATTA_WARMUP_PROVIDERS=true
 
 6. **Rollback if needed:**
    ```bash
-   export CHATTA_WARMUP_PROVIDERS=false
+   export Bumba Voice_WARMUP_PROVIDERS=false
    # Or remove the warmup code
    ```
 
@@ -482,7 +482,7 @@ export CHATTA_WARMUP_PROVIDERS=true
 **Day 1-2:**
 - [ ] Implement Optimization #1 (Streaming Config)
 - [ ] Implement Optimization #2 (PCM Format) - Config approach
-- [ ] Update `~/.chatta/chatta.env` with new settings
+- [ ] Update `~/.bumba/bumba.env` with new settings
 - [ ] Baseline testing (before/after measurements)
 
 **Day 3-4:**
@@ -501,7 +501,7 @@ export CHATTA_WARMUP_PROVIDERS=true
 - [ ] Implement Optimization #3 (Connection Warmup)
 - [ ] Add `warmup_provider()` function
 - [ ] Update `startup_initialization()`
-- [ ] Add `CHATTA_WARMUP_PROVIDERS` configuration
+- [ ] Add `Bumba Voice_WARMUP_PROVIDERS` configuration
 
 **Day 3-4:**
 - [ ] Test warmup behavior (verify connections pre-established)
@@ -573,19 +573,19 @@ echo "Total Improvement: XX% reduction in TTFA"
 
 ```bash
 # Check current streaming configuration
-grep "STREAM_" ~/.chatta/chatta.env
+grep "STREAM_" ~/.bumba/bumba.env
 
 # Check audio format
-grep "AUDIO_FORMAT" ~/.chatta/chatta.env
+grep "AUDIO_FORMAT" ~/.bumba/bumba.env
 
 # View statistics
 # (Via MCP tool: voice_statistics)
 
 # Check logs for warmup
-tail -f ~/.chatta/logs/voice-mode.log | grep -i "warm"
+tail -f ~/.bumba/logs/voice-mode.log | grep -i "warm"
 
 # Monitor for buffer underruns
-tail -f ~/.chatta/logs/voice-mode.log | grep -i "underrun"
+tail -f ~/.bumba/logs/voice-mode.log | grep -i "underrun"
 ```
 
 ---
@@ -596,30 +596,30 @@ All optimizations are easily reversible:
 
 ### Rollback Optimization #1 (Streaming Config)
 ```bash
-# Remove from ~/.chatta/chatta.env:
-# CHATTA_STREAM_CHUNK_SIZE=2048
-# CHATTA_STREAM_BUFFER_MS=100
-# CHATTA_STREAM_MAX_BUFFER=1.0
+# Remove from ~/.bumba/bumba.env:
+# Bumba Voice_STREAM_CHUNK_SIZE=2048
+# Bumba Voice_STREAM_BUFFER_MS=100
+# Bumba Voice_STREAM_MAX_BUFFER=1.0
 
 # Or restore defaults explicitly:
-export CHATTA_STREAM_CHUNK_SIZE=4096
-export CHATTA_STREAM_BUFFER_MS=150
-export CHATTA_STREAM_MAX_BUFFER=2.0
+export Bumba Voice_STREAM_CHUNK_SIZE=4096
+export Bumba Voice_STREAM_BUFFER_MS=150
+export Bumba Voice_STREAM_MAX_BUFFER=2.0
 ```
 
 ### Rollback Optimization #2 (PCM Format)
 ```bash
-# Remove from ~/.chatta/chatta.env:
-# CHATTA_TTS_AUDIO_FORMAT=pcm
+# Remove from ~/.bumba/bumba.env:
+# Bumba Voice_TTS_AUDIO_FORMAT=pcm
 
 # Or set to previous format:
-export CHATTA_TTS_AUDIO_FORMAT=opus
+export Bumba Voice_TTS_AUDIO_FORMAT=opus
 ```
 
 ### Rollback Optimization #3 (Connection Warmup)
 ```bash
 # Option A: Disable via config
-export CHATTA_WARMUP_PROVIDERS=false
+export Bumba Voice_WARMUP_PROVIDERS=false
 
 # Option B: Remove code changes
 # Comment out warmup code in startup_initialization()
@@ -628,7 +628,7 @@ export CHATTA_WARMUP_PROVIDERS=false
 ### Emergency Rollback (All Optimizations)
 ```bash
 # Restore backup configuration
-cp ~/.chatta/chatta.env.backup ~/.chatta/chatta.env
+cp ~/.bumba/bumba.env.backup ~/.bumba/bumba.env
 
 # Restart MCP server
 # (If running as daemon, restart service)
@@ -689,8 +689,8 @@ optimized_metrics = measure_latency(num_conversations=20)
 After implementing, update:
 
 1. **Configuration Reference:**
-   - Document new env vars: `CHATTA_STREAM_CHUNK_SIZE`, `CHATTA_STREAM_BUFFER_MS`, etc.
-   - Document `CHATTA_PREFER_PCM` and `CHATTA_WARMUP_PROVIDERS`
+   - Document new env vars: `Bumba Voice_STREAM_CHUNK_SIZE`, `Bumba Voice_STREAM_BUFFER_MS`, etc.
+   - Document `Bumba Voice_PREFER_PCM` and `Bumba Voice_WARMUP_PROVIDERS`
 
 2. **Performance Guide:**
    - Add section on latency optimization
@@ -736,7 +736,7 @@ After implementing, update:
 1. **Review and approve this plan** ✅
 2. **Create backup of current configuration**
    ```bash
-   cp ~/.chatta/chatta.env ~/.chatta/chatta.env.backup
+   cp ~/.bumba/bumba.env ~/.bumba/bumba.env.backup
    ```
 3. **Implement Optimization #1** (30 minutes)
 4. **Implement Optimization #2** (15 minutes - 1 hour)
