@@ -13,9 +13,7 @@ rtc:
   use_external_ip: false
 
 keys:
-  # Generate your own API key and secret
-  # You can use: openssl rand -base64 32
-  YOUR_API_KEY: YOUR_API_SECRET
+  devkey: Diq1TfwjVbLFQ0v0LhfFZdFNfngETI5x/wW+UxCxYdw=
 
 room:
   auto_create: true

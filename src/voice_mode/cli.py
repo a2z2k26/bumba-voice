@@ -27,7 +27,7 @@ if not os.environ.get('BUMBA_DEBUG', '').lower() in ('true', '1', 'yes'):
 
 # Service management CLI - runs MCP server by default, subcommands override
 @click.group(invoke_without_command=True)
-@click.version_option(prog_name='Bumba Voice', message='%(prog)s %(version)s - BUMBA Platform Voice Module')
+@click.version_option(package_name='bumba', prog_name='Bumba Voice', message='%(prog)s %(version)s - BUMBA Platform Voice Module')
 @click.help_option('-h', '--help', help='Show this message and exit')
 @click.option('--debug', is_flag=True, help='Enable debug mode and show all warnings')
 @click.pass_context

@@ -96,6 +96,7 @@ Issues = "https://github.com/a2z2k25/Bumba-Voice/issues"
 
 [project.scripts]
 bumba = "voice_mode.cli:bumba_main"
+voicemode = "voice_mode.cli:bumba_main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/voice_mode"]
